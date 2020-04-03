@@ -23,6 +23,16 @@ def home():
                            tasks=mongo.db.cansAndBottleInfo.find())
 
 
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
