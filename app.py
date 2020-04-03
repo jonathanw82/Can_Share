@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route('/home')
 def home():
     return render_template("beerceller.html",
-                           tasks=mongo.db.cansAndBottleInfo.find())
+                           caninfo=mongo.db.cansAndBottleInfo.find())
 
 
 @app.route('/help')
@@ -31,6 +31,11 @@ def help():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+@app.route('/halloffame')
+def halloffame():
+    return render_template('halloffame.html')
 
 
 if __name__ == '__main__':

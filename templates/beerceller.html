@@ -1,5 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Beer Cellar</h1>
+<div class="row">
+	<div class="col-sm-12">
+		<h1 class="beer-cellar-title">The Beer Cellar</h1>
+		<h3 class="beer-cellar-heading">Welcome to can share please rate the beers you see with thums up or thumbs down
+			cant see a beer you love Simple
+			click on sign up add email and password then add a beer for others to rate!
+		</h3>
+	</div>
+</div>
+
+<div class="row">
+	{% for cans in caninfo %}
+	<div class="col-md-3  can-cards">
+		<div class="card">
+			<img src="{{cans.imageURL}}" class="card-img-top" alt="Image of Can">
+			<div class="card-body">
+				<h5 class="card-title">{{cans.name}}</h5>
+				<h6>{{cans.brand}}</h6>
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">ABV: {{cans.abv}}</li>
+				<li class="list-group-item">Vegan: {{cans.vegan}}</li>
+			</ul>
+			<div class="card-body">
+				<button type="button"  class="btn btn-primary">Info</button>
+				<div class="ratings-thumbs-box">
+					<i class="far fa-thumbs-up TU"></i>
+					<Span class="ratings-cards">{{cans.ratings}}</Span>
+					<i class="far fa-thumbs-down TD"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 
 {% endblock %}
