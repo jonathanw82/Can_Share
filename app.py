@@ -100,7 +100,7 @@ def topshelf():
 
 @app.route('/add_beer')
 def add_beer():
-    return render_template('addnewbeer.html')
+    return render_template('addnewbeer.html', typesofbeer=mongo.db.type.find())
 
 
 @app.route('/insert_beer', methods=['POST'])
