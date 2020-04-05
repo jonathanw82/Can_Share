@@ -144,4 +144,6 @@ AJGreaves
 https://ajgreaves.github.io/portrait-artist/
 
 Ratings font
+Segment7 Cedric Knight 
+https://fontlibrary.org/en/font/segment7
 

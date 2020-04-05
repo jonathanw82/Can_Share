@@ -3,9 +3,8 @@
 <div class="row">
 	<div class="col-sm-12">
 		<h1 class="beer-cellar-title">The Beer Cellar</h1>
-		<h3 class="beer-cellar-heading">Welcome to can share please rate the beers you see with thums up or thumbs down
-			cant see a beer you love Simple
-			click on sign up add email and password then add a beer for others to rate!
+		<h3 class="beer-cellar-heading">
+			This page is top secret. You are a {{user_type}}. <a href="{{url_for('logout')}}">Logout</a>
 		</h3>
 	</div>
 </div>
@@ -27,7 +26,7 @@
 				<button type="button"  class="btn btn-primary">Info</button>
 				<div class="ratings-thumbs-box">
 					<i class="far fa-thumbs-up TU"></i>
-					<Span class="ratings-number">{{cans.ratings}}</Span>
+					<Span class="ratings-cards">{{cans.ratings}}</Span>
 					<i class="far fa-thumbs-down TD"></i>
 				</div>
 			</div>

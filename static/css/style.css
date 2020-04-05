@@ -1,13 +1,7 @@
-@font-face{
-    font-family: 'DigitalDisplay';
-    src: url('static/fonts/DigitalDisplayRegular-ODEO.ttf')
-    format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
+
 
 body{
-    font-family: 'DigitalDisplay', sans-serif;
+    
 }
 
 .helpPageTitle{
@@ -31,6 +25,10 @@ body{
     font-size: 150%;
 }
 
-.ratings-cards{
+.ratings-number{
     font-size: 2rem;
+    font-family: "Segment7Standard";
+    color: #f00000;
+    border: solid 2px black;
+    background-color: #400000;
 }

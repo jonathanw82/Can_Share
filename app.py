@@ -3,7 +3,7 @@ from functools import wraps
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from passlib.hash import pbkdf2_sha256
+#from passlib.hash import pbkdf2_sha256
 from os import path
 if path.exists("env.py"):
     import env
@@ -18,7 +18,7 @@ app.secret_key = "B,t=u0W};gBf{DnBClV8/BwiW[1k~7EEzoiv(1Ng'*1k!^R,4sd\
                  |4-[:8:_t4c8"
 mongo = PyMongo(app)
 
-
+"""
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Log In setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def check_logged_in(func):
     @wraps(func)
@@ -71,8 +71,10 @@ def logout():
     session.pop('logged-in', None)
     session.pop('user-id', None)
     session.pop('usertype', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"""
 
 @app.route('/')
 @app.route('/home')
@@ -81,7 +83,6 @@ def home():
                            caninfo=mongo.db.cansAndBottleInfo.find())
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 @app.route('/help')
 def help():
     return render_template('help.html')
