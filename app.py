@@ -79,7 +79,7 @@ def logout():
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("beerceller.html",
+    return render_template("beerceller_loggedin.html",
                            caninfo=mongo.db.cansAndBottleInfo.find())
 
 
@@ -96,6 +96,18 @@ def about():
 @app.route('/topshelf')
 def topshelf():
     return render_template('topshelf.html')
+
+
+@app.route('/add_beer')
+def add_beer():
+    return render_template('addnewbeer.html')
+
+
+@app.route('/insert_beer', methods=['POST'])
+def insert_beer():
+    tasks = mongo.db.tasks
+    tasks.insert_one(request.form.to_dict())
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

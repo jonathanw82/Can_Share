@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+	<h2 class="addbeerPageTitle">Add Your Beer</h2>
+	<form form action="{{url_for('insert_beer')}}" method="POST">
+		<div>
+			<label >Beer Name</label>
+			<input type="text" class="form-control" name="name" id="name" required>
+        </div>
+			<div>
+				<label >Brand</label>
+				<input type="text" class="form-control" name="brand" id="brand" required>
+            </div>
+				<div>
+					<label >Type of Beer</label><br>
+					<select class="dropdown-typeselect-button" >
+                        <option class ="dropdown-item" value="0">Select Type of beer</option>                  		
+                        <option class="dropdown-item" value="1" >Stout</option>
+                        <option class="dropdown-item" value="2">IPA</option>
+                        <option class="dropdown-item" value="3">Bitter</option>	
+			        </select>
+				</div>
+				<div>
+					<label >ABV</label>
+					<input type="text" class="form-control" name="abv" id="abv" required>
+                </div>
+					<div>
+						<label >Vegan Friendly</label>
+                        <select>
+                            <option class ="dropdown-item" value="0">No</option>                  		
+                            <option class="dropdown-item" value="1" >Yes</option>
+                        </select>
+                </div>
+                <div>
+					<label >Hop Varietys</label>
+					<input type="text" class="form-control" name="hop_type" id="hop_type">
+                </div>
+                <div>
+					<label >Malts</label>
+					<input type="text" class="form-control" name="malts" id="malts">
+                </div>
+                <div>
+					<label >Average Price</label>
+					<input type="text" class="form-control" name="average_price" id="average_price">
+                </div>
+                <div>
+					<label >Where car i buy it</label>
+					<input type="text" class="form-control" name="where_bought" id="where_bought" required>
+                </div>
+                <div>
+					<label >Image URL</label> <a href="{{url_for ('help')}}" target="_blank">For help click here</a>
+					<input type="text" class="form-control" name="image_url" id="image_url" required>
+                </div>
+				<div class="form-group">
+					<label for="exampleFormControlTextarea1">Tell us about it?</label>
+					<textarea class="form-control" id="review" name="review" rows="3"></textarea>
+				</div>
+	</form>
+
+</div>
+
+{% endblock %}

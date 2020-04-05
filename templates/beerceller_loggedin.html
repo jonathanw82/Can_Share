@@ -4,7 +4,7 @@
 	<div class="col-sm-12">
 		<h1 class="beer-cellar-title">The Beer Cellar</h1>
 		<h3 class="beer-cellar-heading">
-			This page is top secret. You are a {{user_type}}. <a href="{{url_for('logout')}}">Logout</a>
+
 		</h3>
 	</div>
 </div>
@@ -23,16 +23,45 @@
 				<li class="list-group-item">Vegan: {{cans.vegan}}</li>
 			</ul>
 			<div class="card-body">
-				<button type="button"  class="btn btn-primary">Info</button>
+				<button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#caninfomodal">Info</button>
+				<button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#editcaninfomodal">Edit</button>
 				<div class="ratings-thumbs-box">
-					<i class="far fa-thumbs-up TU"></i>
+					<i class="far fa-thumbs-up TU" onclick=""></i>
 					<Span class="ratings-cards">{{cans.ratings}}</Span>
-					<i class="far fa-thumbs-down TD"></i>
+					<i class="far fa-thumbs-down TD" onclick=""></i>
 				</div>
 			</div>
 		</div>
 	</div>
 	{% endfor %}
 </div>
+
+<!-- More info Modal -->
+<div class="modal fade" id="caninfomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">More Info</h5>
+				</button>
+			</div>
+			<div class="modal-body">
+				<img src="" class="card-img-top" alt="Image of Can">
+				<h5 class="card-title"></h5>
+				<h6></h6>
+				<li class="list-group-item">ABV:Vegan: </li>
+				<li class="list-group-item"></li>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Edit Modal -->
+
 
 {% endblock %}
