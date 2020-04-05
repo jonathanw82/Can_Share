@@ -1,3 +1,14 @@
+@font-face{
+    font-family: 'DigitalDisplay';
+    src: url('static/fonts/DigitalDisplayRegular-ODEO.ttf')
+    format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+body{
+    font-family: 'DigitalDisplay', sans-serif;
+}
 
 .helpPageTitle{
     

@@ -125,6 +125,11 @@ https://www.heroku.com/
 
 ### Credits:
 
+All Log in Functionality
+Created By Kevin @CodeInstitute
+https://github.com/jonathanw82/flask-mongo-logins
+
+
 ##### Media:
 The Photos used in this site were obtained from
 
@@ -137,3 +142,6 @@ https://www.clipart.email/download/19281353.html
 Parts of the Deployment Section Written by myself and,  
 AJGreaves
 https://ajgreaves.github.io/portrait-artist/
+
+Ratings font
+
