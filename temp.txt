@@ -1,0 +1,3 @@
+# , beer=beer_list    
+#_newbeeradd = mongo.db.cansAndBottleInfo.find()
+# beer_list = [beer for beer in _newbeeradd]

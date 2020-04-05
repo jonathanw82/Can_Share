@@ -105,8 +105,8 @@ def add_beer():
 
 @app.route('/insert_beer', methods=['POST'])
 def insert_beer():
-    tasks = mongo.db.tasks
-    tasks.insert_one(request.form.to_dict())
+    cans = mongo.db.cansAndBottleInfo
+    cans.insert_one(request.form.to_dict())
     return redirect(url_for('home'))
 
 

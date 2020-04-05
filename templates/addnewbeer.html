@@ -14,8 +14,8 @@
             </div>
 				<div>
 					<label >Type of Beer</label><br>
-					<select class="dropdown-typeselect-button" >
-                        <option class ="dropdown-item" value="0">Select Type</option>                  		
+					<select class="dropdown-typeselect-button" name="type" id="beer_type">
+                        <option class="dropdown-item" value="" disabled selected>Select Type</option>                  		
                         <option class="dropdown-item" value="1" >Stout</option>
                         <option class="dropdown-item" value="2">IPA</option>
                         <option class="dropdown-item" value="3">Bitter</option>	
@@ -46,7 +46,7 @@
                 </div>
                 <div>
 					<label >Where car i buy it</label>
-					<input type="text" class="form-control" name="where_bought" id="where_bought" required>
+					<input type="text" class="form-control" name="where_bought" id="where_bought" >
                 </div>
                 <div>
 					<label >Image URL</label> <a href="{{url_for ('help')}}" target="_blank">For help click here</a>
@@ -56,7 +56,9 @@
 					<label for="exampleFormControlTextarea1">Tell us about it?</label>
 					<textarea class="form-control" id="review" name="review" rows="3"></textarea>
 				</div>
-                <button type="button" class="btn btn-primary">Primary</button>
+                <div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
 	</form>
 
 </div>
