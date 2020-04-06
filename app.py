@@ -76,6 +76,7 @@ def logout():
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -96,6 +97,11 @@ def about():
 @app.route('/topshelf')
 def topshelf():
     return render_template('topshelf.html')
+
+
+@app.route('/friends')
+def friends():
+    return render_template('friends.html')
 
 
 @app.route('/add_beer')

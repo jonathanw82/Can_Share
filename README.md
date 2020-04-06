@@ -13,6 +13,34 @@ quality beer in a shoddy can or a shoddy beer in a quality can then after trying
 
 The site is directed at Beer lovers and hobbyists rather than businesses.
 
+When the user firsts hits the landing page they are presented with a welcome message and information asking the user to login, 
+while being able to view an array of cans or bottles other users have previously added, at this point the user can see a ratings number that other users 
+have left and also click on an info button on each can to see more information about the particular beverage.
+Other navigation available at this point is Top shelf, about, help and login.
+
+## TopShelf 
+Displays the best and worst beers as rated by other users.
+
+
+## About
+A little of history of the can share and how it came about and why the website was created in the first place.
+Help
+The help page is linked to throughout the site, not just by the navigation bar but through small links next to things the user may find no fully understand at first glance.
+Information on how to login, create and update beers, whether there beer is vegan friendly and how to add an image to their newly created beer.
+The page also has links to Wikipedia to all different types of beer. Followed by a quiet section as the bottom where users having trouble with alcohol can find link to help pages such as DrinkAware and Alcoholics Anonymous.
+
+## Friends
+Links to producers of great craft beer.
+
+Once the user has created an account as a user, they will be able to log in.
+They will have more options available to them, add your can button will be available in the middle of the screen where the welcome message was once located also the array of cans will have an extra option of edit.
+When the add can button is pressed the user will be taken to the brew your own page where a form is available to add the details of their own beer and include a link to an image of the label or can via a URL then submit the form by the add button or be redirected to the home page via the cancel button.
+
+
+The site will have an Admin user 
+This is the only user that can delete beers.
+
+
 #### The users goals of this website are:
 * Rate beers and create, update, and delete beers.
 * Clearly displaying Can logo art and credentials.
@@ -20,14 +48,17 @@ The site is directed at Beer lovers and hobbyists rather than businesses.
 
 #### The Business potentials of this website are:
 * Selling advertising space to businesses with beer related products.
-* 
+
 
 #### Visitors to this website are searching for:
 * Their favorite beers.
-* Ideas of what to try next and where to possibly purchase the cans of choice.
+* Ideas of what to try next.
 
 #### This Website is the best way to help them achieve these things because:
 * Other websites are too cluttered and hard to navigate.
+* The user is able to create a login.
+* The user can create, update, delete and edit their own cans or bottles.
+* The user can rate other can that they may have had in the past.
 * Other websites fail to have links to places to purchase the product.
 
 #### This website is:
@@ -74,7 +105,7 @@ The site is directed at Beer lovers and hobbyists rather than businesses.
 ### Nice to have: 
 These features may be included in future releases of this application.
 
-* 
+* A dashboard for admin to create and edit new collections for database manipulation. 
 
 
 

@@ -2,7 +2,7 @@
 {% block content %}
 
 <div>
-	<h2 class="addbeerPageTitle">Add Your Beer</h2>
+	<h2 class="addbeerPageTitle">Brew your own!</h2>
 	<form form action="{{url_for('insert_beer')}}" method="POST">
 		<div>
 			<label >Beer Name</label>
@@ -14,26 +14,26 @@
             </div>
 				<div>
 					<label >Type of Beer</label><br>
-					<select class="dropdown-typeselect-button" name="type" id="beer_type">
-                        <option class="dropdown-item" value="" disabled selected>Select Type</option>      
-                        {% for type in typesofbeer %}            		
-                        <option class="dropdown-item" value="{{type.type}}">{{type.type}}</option>
-                        {% endfor %}
-			        </select>
-				</div>
-				<div>
-					<label >ABV</label>
-					<input type="text" class="form-control" name="abv" id="abv" placeholder="#" required>
+                        <select class="dropdown-typeselect-button" name="type" id="beer_type">
+                            <option class="dropdown-item" value="" disabled selected>Select Type</option>      
+                            {% for type in typesofbeer %}            		
+                            <option class="dropdown-item" value="{{type.type}}">{{type.type}}</option>
+                            {% endfor %}
+                         </select>
+				    </div>
+				    <div>
+					    <label >ABV</label>
+					    <input type="text" class="form-control" name="abv" id="abv" placeholder="#" required>
                 </div>
-					<label >Vegan Friendly?</label>
-                   <input type="text" class="form-control" name="vegan" id="abv" placeholder="Y or N" required>
+					    <label >Vegan Friendly?</label>
+                        <input type="text" class="form-control" name="vegan" id="abv" placeholder="Y or N" required>
 					<div>
 						<label >Hop Varietys</label>
 						<input type="text" class="form-control" name="hop_type" id="hop_type">
                     </div>
 						<div>
-							<label >Malts</label>
-							<input type="text" class="form-control" name="malts" id="malts">
+						<label >Malts</label>
+						<input type="text" class="form-control" name="malts" id="malts">
                 </div>
 					<div>
 						<label >Average Price</label>
@@ -52,9 +52,9 @@
 						<textarea class="form-control" id="review" name="review" rows="3"></textarea>
 					</div>
 					<div>
-					<button type="submit" class="btn btn-primary">Add</button>
-						<a class="btn btn-primary" href="{{url_for ('home')}}"
-						role="button">Cancel</a>
+					    <button type="submit" class="btn btn-primary">Add</button>
+						    <a class="btn btn-primary" href="{{url_for ('home')}}"
+						    role="button">Cancel</a>
 				    </div>
 	</form>
 </div>
