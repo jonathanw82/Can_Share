@@ -88,7 +88,12 @@ This is the only user that can delete beers.
 
 ## WireFrame Mockups & Screenshots:
 #### Desktop View:
-- [Home]().
+- [Home](https://i.imgur.com/WtK7ubc.png).
+- [Create a can](https://i.imgur.com/CYKJ2YR.png).
+- [Friends](https://i.imgur.com/kkkYqu0.png).
+- [TopShelf](https://i.imgur.com/FI2yR3g.png).
+- [Help](https://i.imgur.com/H9QUmwu.png).
+
 
 
 #### Mobile & Tablet View:
