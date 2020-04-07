@@ -68,7 +68,8 @@ This is the only user that can delete beers.
 ## Features:
 
 * 
-
+ ## installed packages
+ pip3 install numpy
 
 #### Home
 

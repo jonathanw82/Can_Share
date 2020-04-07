@@ -1,4 +1,5 @@
 import os
+from numpy import arange
 from functools import wraps
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
@@ -104,16 +105,30 @@ def friends():
     return render_template('friends.html')
 
 
-@app.route('/add_beer')
+# CREATE
+@app.route("/add_beer", methods=["GET", "POST"])
 def add_beer():
-    return render_template('addnewbeer.html', typesofbeer=mongo.db.type.find())
+
+    if request.method == 'GET':
+        return render_template('addnewbeer.html',
+                               typesofbeer=mongo.db.type.find(),
+                               abvnumber= arange(0, 20, 0.1))
+                               
+
+    if request.method == 'POST':
+        # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
+        cans = mongo.db.cansAndBottleInfo
+        cans.insert_one(request.form.to_dict())
+        return redirect(url_for('home'))
 
 
-@app.route('/insert_beer', methods=['POST'])
-def insert_beer():
-    cans = mongo.db.cansAndBottleInfo
-    cans.insert_one(request.form.to_dict())
-    return redirect(url_for('home'))
+# UPDATE
+@app.route('/edit_beer/<can_id>')
+def edit_beer(can_id):
+    the_can = mongo.db.cansAndBottleinfo.find_one({'_id': ObjectId(can_id)})
+    all_canifo = mongo.db.cansAndBottleInfo.find()
+    return render_template('editbeer.html', cans=the_can, caninfo=all_caninfo)
+
 
 
 if __name__ == '__main__':

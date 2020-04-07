@@ -1,3 +1,24 @@
 # , beer=beer_list    
 #_newbeeradd = mongo.db.cansAndBottleInfo.find()
 # beer_list = [beer for beer in _newbeeradd]
+
+
+"""
+@app.route('/add_beer')
+def add_beer():
+    return render_template('addnewbeer.html', typesofbeer=mongo.db.type.find())
+
+
+@app.route('/insert_beer', methods=['POST'])
+def insert_beer():
+    cans = mongo.db.cansAndBottleInfo
+    cans.insert_one(request.form.to_dict())
+    return redirect(url_for('home'))
+"""
+
+# UPDATE
+@app.route('/edit_beer/<can_id>')
+def edit_beer(can_id):
+    the_can = mongo.db.cansAndBottleinfo.find_one({'_id': ObjectId(can_id)})
+    all_canifo = mongo.db.cansAndBottleInfo.find()
+    return render_template('editbeer.html', cans=the_can, caninfo=all_caninfo)
