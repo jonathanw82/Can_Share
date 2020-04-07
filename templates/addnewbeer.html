@@ -26,7 +26,15 @@
 					    <input type="text" class="form-control" name="abv" id="abv" placeholder="#" required>
                 </div>
 					    <label >Vegan Friendly?</label>
-                        <input type="text" class="form-control" name="vegan" id="abv" placeholder="Y or N" required>
+                      <div class="custom-control custom-switch">
+                        {% if checkbox != checked %}
+                            <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch"checked>
+                            <label class="custom-control-label" for="vegan-switch">Yes</label>
+                            {% else %}
+                            <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch">
+                            <label class="custom-control-label" for="vegan-switch">Yes</label>
+                            {% endif %}
+                    </div>
 					<div>
 						<label >Hop Varietys</label>
 						<input type="text" class="form-control" name="hop_type" id="hop_type">
