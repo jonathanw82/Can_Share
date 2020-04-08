@@ -18,9 +18,9 @@
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
                             {% for type in typesofbeer %} 
                                 {%  if type._id == cans_id %}           		
-                                    <option class="dropdown-item" value="{{type._id}}" selected>{{types_of_beer.type}}</option>
+                                    <option class="dropdown-item" value="{{the_can.type}}" name="{{type._id}}" selected>{{type.type}}</option>
                                 {% else %}
-                                    <option class="dropdown-item" value="{{type._id}}">{{types_of_beer.type}}</option>
+                                    <option class="dropdown-item" value="{{type._id}}" name="{{type._id}}">{{type.type}}</option>
                                 {% endif %}
                             {% endfor %}
                         </select>
@@ -30,10 +30,10 @@
                         <select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
                             <option class="dropdown-item" value="abv" disabled selected >Select ABV</option> 
                             {% for abv in abvnumber %}
-                                {% if abv == the_can.abv %}
-                                    <option class="dropdown-item" value="{{abv}}" name="abv" selected>{{abv}}</option>
+                                {% if abv / 10 == the_can.abv %}
+                                    <option class="dropdown-item"  name="abv" selected>{{abv / 10}}</option>
                                 {% else %}
-                                    <option class="dropdown-item" value="{{abv}}" name="abv">{{abv}}</option> 
+                                    <option class="dropdown-item"  name="abv">{{abv / 10}}</option> 
                                 {% endif %}     
                             {% endfor %}          		
                         </select>

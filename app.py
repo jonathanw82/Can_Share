@@ -111,7 +111,7 @@ def add_beer():
     if request.method == 'GET':
         return render_template('addnewbeer.html',
                                typesofbeer=mongo.db.type.find(),
-                               abvnumber=arange(0, 20, 0.1))
+                               abvnumber=arange(0, 200, 1))
     if request.method == 'POST':
         # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
         cans = mongo.db.cansAndBottleInfo
@@ -122,11 +122,11 @@ def add_beer():
 # UPDATE
 @app.route("/edit_beer/<can_id>")
 def edit_beer(can_id):
-    _the_can = mongo.db.cansAndBottleinfo.find_one({'_id': ObjectId(can_id)})
-    typesof_beer = mongo.db.type.find()
-    typesof_beer_list = [typesBeer for typesBeer in typesof_beer]
-    return render_template('editbeer.html', the_can=_the_can, types_of_beer=typesof_beer_list,
-                           abvnumber=arange(0, 20, 0.1))
+    
+    _the_can = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
+    return render_template('editbeer.html', the_can=_the_can,
+                           typesofbeer=mongo.db.type.find(),
+                           abvnumber=arange(0, 200, 1))
 
 
 if __name__ == '__main__':

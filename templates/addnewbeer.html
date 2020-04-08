@@ -26,7 +26,7 @@
                         <select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
                             <option class="dropdown-item" value="abv" disabled selected >Select ABV</option> 
                             {% for abv in abvnumber %}
-                            <option class="dropdown-item" value="{{abv}}" name="abv">{{abv}}</option>
+                            <option class="dropdown-item" value="{{abv}}" name="abv">{{abv / 10}}</option>
                             {% endfor %}          		
                         </select>
                 </div>

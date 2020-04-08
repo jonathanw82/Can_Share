@@ -14,7 +14,7 @@
 	{% for cans in caninfo %}
 	<div class="col-md-3  can-cards">
 		<div class="card">
-			<img src="{{cans.image_url}}" class="card-img-top" alt="Image of Can">
+			<img src="{{cans.image_url}}" class="card-img-top canimage" alt="Image of Can">
              {% if cans.vegan == 'on'%}
 				<img class="vegan_icon" src="/static/images/vegan.png">
 			{% else %}
