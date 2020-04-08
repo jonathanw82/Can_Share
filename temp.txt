@@ -16,9 +16,21 @@ def insert_beer():
     return redirect(url_for('home'))
 """
 
+
 # UPDATE
-@app.route('/edit_beer/<can_id>')
+@app.route("/edit_beer/<can_id>")
 def edit_beer(can_id):
     the_can = mongo.db.cansAndBottleinfo.find_one({'_id': ObjectId(can_id)})
-    all_canifo = mongo.db.cansAndBottleInfo.find()
+    all_caninfo = mongo.db.cansAndBottleInfo.find()
     return render_template('editbeer.html', cans=the_can, caninfo=all_caninfo)
+
+    , can_id=cans._id
+
+    # UPDATE
+@app.route("/edit_beer/<can_id>")
+def edit_beer(can_id):
+    _the_can = mongo.db.cansAndBottleinfo.find_one({'_id': ObjectId(can_id)})
+    all_caninfo = mongo.db.cansAndBottleInfo.find()
+    return render_template('editbeer.html', the_can=_the_can, allcaninfo=all_caninfo,
+                           typesofbeer=mongo.db.type.find(),
+                           abvnumber=arange(0, 20, 0.1))

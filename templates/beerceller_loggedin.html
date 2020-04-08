@@ -30,7 +30,7 @@
 			</ul>
 			<div class="card-body">
 				<button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#caninfomodal">Info</button>
-				<button type="button"  class="btn btn-primary" href="{{url_for('edit_beer', can_id=cans._id)}}">Edit</button>
+                <a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}" role="button">Edit</a>
 				<div class="ratings-thumbs-box">
 					<i class="far fa-thumbs-up TU" onclick=""></i>
 					<Span class="ratings-cards">{{cans.ratings}}</Span>

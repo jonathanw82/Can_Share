@@ -6,18 +6,22 @@
 	<form form action="{{url_for('add_beer')}}" method="POST">
 		<div>
 			<label >Beer Name</label>
-			<input type="text" class="form-control" name="name" id="name" required>
+			<input type="text" class="form-control" name="name" id="name" required value="{{the_can.name}}">
         </div>
 			<div>
 				<label >Brand</label>
-				<input type="text" class="form-control" name="brand" id="brand" required>
+				<input type="text" class="form-control" name="brand" id="brand" required value="{{the_can.brand}}">
             </div>
 				<div>
 					<label >Type of Beer</label><br>
                         <select class="dropdown-typeselect-button" name="type" id="beer_type">
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
-                            {% for type in typesofbeer %}            		
-                            <option class="dropdown-item" value="{{type._id}}">{{type.type}}</option>
+                            {% for type in typesofbeer %} 
+                                {%  if type._id == cans_id %}           		
+                                    <option class="dropdown-item" value="{{type._id}}" selected>{{types_of_beer.type}}</option>
+                                {% else %}
+                                    <option class="dropdown-item" value="{{type._id}}">{{types_of_beer.type}}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
 				    </div>
@@ -26,7 +30,11 @@
                         <select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
                             <option class="dropdown-item" value="abv" disabled selected >Select ABV</option> 
                             {% for abv in abvnumber %}
-                            <option class="dropdown-item" value="abv" name="abv">{{abv}}</option>
+                                {% if abv == the_can.abv %}
+                                    <option class="dropdown-item" value="{{abv}}" name="abv" selected>{{abv}}</option>
+                                {% else %}
+                                    <option class="dropdown-item" value="{{abv}}" name="abv">{{abv}}</option> 
+                                {% endif %}     
                             {% endfor %}          		
                         </select>
                 </div>
@@ -42,27 +50,27 @@
                     </div>
 					<div>
 						<label >Hop Varietys</label>
-						<input type="text" class="form-control" name="hop_type" id="hop_type">
+						<input type="text" class="form-control" name="hop_type" id="hop_type" value="{{the_can.hop_type}}">
                     </div>
 						<div>
 						<label >Malts</label>
-						<input type="text" class="form-control" name="malts" id="malts">
+						<input type="text" class="form-control" name="malts" id="malts" value="{{the_can.malts}}">
                 </div>
 					<div>
 						<label >Average Price</label>
-						<input type="text" class="form-control" name="average_price" id="average_price" placeholder="£0.00">
+						<input type="text" class="form-control" name="average_price" id="average_price" value="{{the_can.average_price}}">
                 </div>
 					<div>
 						<label >Where car i buy it</label>
-						<input type="text" class="form-control" name="where_bought" id="where_bought" >
+						<input type="text" class="form-control" name="where_bought" id="where_bought" value="{{the_can.where_bought}}">
                 </div>
 					<div>
 						<label >Image URL</label> <a href="{{url_for ('help')}}" target="_blank">For help click here</a>
-						<input type="text" class="form-control" name="image_url" id="image_url" required>
+						<input type="text" class="form-control" name="image_url" id="image_url" required value="{{the_can.image_url}}">
                 </div>
 					<div class="form-group">
 						<label for="exampleFormControlTextarea1">Tell us about it?</label>
-						<textarea class="form-control" id="review" name="review" rows="3"></textarea>
+						<textarea class="form-control" id="review" name="review" rows="3" value="{{the_can.review}}"></textarea>
 					</div>
 					<div>
 					    <button type="submit" class="btn btn-primary">Add</button>
