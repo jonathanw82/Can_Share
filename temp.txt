@@ -34,3 +34,16 @@ def edit_beer(can_id):
     return render_template('editbeer.html', the_can=_the_can, allcaninfo=all_caninfo,
                            typesofbeer=mongo.db.type.find(),
                            abvnumber=arange(0, 20, 0.1))
+
+     
+# UPDATE
+@app.route("/edit_beer/<can_id>")
+def edit_beer(can_id):
+    _the_can = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
+    variety_of_beer = ""# mongo.db.type.find_one()
+    print('variety of beer', variety_of_beer)
+    return render_template('editbeer.html', the_can=_the_can,
+                           typesofbeer=mongo.db.type.find(),
+                           abvnumber=arange(0, 200, 1),
+                           varietyofbeer=variety_of_beer,
+                           price=arange(0, 200, 1))                      

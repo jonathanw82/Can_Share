@@ -17,8 +17,8 @@
                         <select class="dropdown-typeselect-button" name="type" id="beer_type">
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
                             {% for type in typesofbeer %} 
-                                {%  if type._id == cans_id %}           		
-                                    <option class="dropdown-item" value="{{the_can.type}}" name="{{type._id}}" selected>{{type.type}}</option>
+                                {%  if varietyofbeer == type  %}           		
+                                    <option class="dropdown-item" value="{{the_can.type}}" name="{{type._id}}" selected>{{varietyofbeer.type}}</option>
                                 {% else %}
                                     <option class="dropdown-item" value="{{type._id}}" name="{{type._id}}">{{type.type}}</option>
                                 {% endif %}
@@ -28,10 +28,10 @@
 				    <div>
 					    <label >ABV</label><br>
                         <select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
-                            <option class="dropdown-item" value="abv" disabled selected >Select ABV</option> 
                             {% for abv in abvnumber %}
-                                {% if abv / 10 == the_can.abv %}
-                                    <option class="dropdown-item"  name="abv" selected>{{abv / 10}}</option>
+                                    <option class="dropdown-item" value="abv" disabled >Select ABV</option> 
+                                {% if the_can.abv|float == abv / 10 %}
+                                    <option class="dropdown-item"  name="abv" selected>{{the_can.abv}}</option>
                                 {% else %}
                                     <option class="dropdown-item"  name="abv">{{abv / 10}}</option> 
                                 {% endif %}     
@@ -40,12 +40,12 @@
                 </div>
 					    <label >Vegan Friendly?</label>
                       <div class="custom-control custom-switch">
-                            {% if checkbox != checked %}
-                            <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch"checked>
-                            <label class="custom-control-label" for="vegan-switch">Yes</label>
+                            {% if the_can.vegan %}
+                                <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch"checked>
+                                <label class="custom-control-label" for="vegan-switch">Yes</label>
                             {% else %}
-                            <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch">
-                            <label class="custom-control-label" for="vegan-switch">Yes</label>
+                                <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch">
+                                <label class="custom-control-label" for="vegan-switch">Yes</label>
                             {% endif %}
                     </div>
 					<div>
@@ -57,8 +57,17 @@
 						<input type="text" class="form-control" name="malts" id="malts" value="{{the_can.malts}}">
                 </div>
 					<div>
-						<label >Average Price</label>
-						<input type="text" class="form-control" name="average_price" id="average_price" value="{{the_can.average_price}}">
+                        	<label >Average Price</label><br>
+                                <select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required>
+                                <option class="dropdown-item"  disabled  >Select Price</option> 
+                            {% for priceofbeer in price %}
+                                {% if the_can.average_price|float == priceofbeer / 10 %}
+                                <option class="dropdown-item" name="average_price" value="{{the_can.average_price}}">{{the_can.average_price}}</option>
+                                {% else %}
+                                <option class="dropdown-item" name="average_price">£{{priceofbeer / 10}}0</option>
+                                {% endif %}
+                            {% endfor %}          		
+                        </select>
                 </div>
 					<div>
 						<label >Where car i buy it</label>
@@ -70,7 +79,7 @@
                 </div>
 					<div class="form-group">
 						<label for="exampleFormControlTextarea1">Tell us about it?</label>
-						<textarea class="form-control" id="review" name="review" rows="3" value="{{the_can.review}}"></textarea>
+						<textarea class="form-control" id="review" name="review" rows="3" value="{{the_can.review}}">{{the_can.review}}</textarea>
 					</div>
 					<div>
 					    <button type="submit" class="btn btn-primary">Add</button>
