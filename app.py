@@ -88,7 +88,7 @@ def home():
         print(beer_type)
         res['beer_name'] = beer_type['type']
     return render_template("beerceller_loggedin.html",
-                           caninfo= results)
+                           caninfo=results)
 
 
 @app.route('/help')
@@ -123,7 +123,7 @@ def add_beer():
         # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
         cans = mongo.db.cansAndBottleInfo
         form = request.form.to_dict()
-        form['beer_type'] = ObjectId( form['beer_type'])
+        form['beer_type'] = ObjectId(form['beer_type'])
         cans.insert_one(form)
         return redirect(url_for('home'))
 
@@ -138,9 +138,9 @@ def edit_beer(can_id):
         variety_of_beer_list = [beerlist for beerlist in variety_of_beer]
         print('THIS', variety_of_beer_list)
         return render_template('editbeer.html', the_can=_the_can,
-                            abvnumber=arange(0, 200, 1),
-                            varietyofbeer=variety_of_beer_list,
-                            price=arange(0, 200, 1))
+                               abvnumber=arange(0, 200, 1),
+                               varietyofbeer=variety_of_beer_list,
+                               price=arange(0, 200, 1))
     if request.method == 'POST':
         cans = mongo.db.cansAndBottleInfo
         cans.update({'_id': ObjectId(can_id)},
@@ -159,7 +159,7 @@ def edit_beer(can_id):
                     })
         return redirect(url_for('home'))
 
-                 
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
