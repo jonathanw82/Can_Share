@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="container-fluid"></div>
 <div>
 	<h2 class="addbeerPageTitle">Brew your own!</h2>
 	<form form action="{{url_for('add_beer')}}" method="POST">
@@ -14,7 +14,7 @@
             </div>
 				<div>
 					<label >Type of Beer</label><br>
-                        <select class="dropdown-typeselect-button" name="type" id="beer_type">
+                        <select class="dropdown-typeselect-button" name="beer_type" id="beer_type">
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
                             {% for type in typesofbeer %}            		
                             <option class="dropdown-item" value="{{type._id}}">{{type.type}}</option>

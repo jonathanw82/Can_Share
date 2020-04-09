@@ -81,8 +81,14 @@ def logout():
 @app.route('/')
 @app.route('/home')
 def home():
+    results = list(mongo.db.cansAndBottleInfo.find())
+    for res in results:
+        beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type'])})
+        print(res)
+        print(beer_type)
+        res['beer_name'] = beer_type['type']
     return render_template("beerceller_loggedin.html",
-                           caninfo=mongo.db.cansAndBottleInfo.find())
+                           caninfo= results)
 
 
 @app.route('/help')
@@ -116,23 +122,44 @@ def add_beer():
     if request.method == 'POST':
         # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
         cans = mongo.db.cansAndBottleInfo
-        cans.insert_one(request.form.to_dict())
+        form = request.form.to_dict()
+        form['beer_type'] = ObjectId( form['beer_type'])
+        cans.insert_one(form)
         return redirect(url_for('home'))
 
 
 # UPDATE
-@app.route("/edit_beer/<can_id>")
+@app.route("/edit_beer/<can_id>", methods=['GET', 'POST'])
 def edit_beer(can_id):
-    _the_can = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
-    variety_of_beer = mongo.db.type.find()
-    variety_of_beer_list = [beerlist for beerlist in variety_of_beer]
-    return render_template('editbeer.html', the_can=_the_can,
-                           typesofbeer=mongo.db.type.find(),
-                           abvnumber=arange(0, 200, 1),
-                           varietyofbeer=variety_of_beer_list,
-                           price=arange(0, 200, 1))
-    
-                           
+    if request.method == 'GET':
+        _the_can = mongo.db.cansAndBottleInfo.find_one({'_id':
+                                                        ObjectId(can_id)})
+        variety_of_beer = mongo.db.type.find()
+        variety_of_beer_list = [beerlist for beerlist in variety_of_beer]
+        print('THIS', variety_of_beer_list)
+        return render_template('editbeer.html', the_can=_the_can,
+                            abvnumber=arange(0, 200, 1),
+                            varietyofbeer=variety_of_beer_list,
+                            price=arange(0, 200, 1))
+    if request.method == 'POST':
+        cans = mongo.db.cansAndBottleInfo
+        cans.update({'_id': ObjectId(can_id)},
+                    {
+                    'name': request.form['name'],
+                    'brand': request.form['brand'],
+                    'beer_type': ObjectId(request.form['beer_type']),
+                    'abv': request.form['abv'],
+                    'vegan': request.form['vegan'],
+                    'hop_type': request.form['hop_type'],
+                    'malts': request.form['malts'],
+                    'average_price': request.form['average_price'],
+                    'where_bought': request.form['where_bought'],
+                    'image_url': request.form['image_url'],
+                    'review': request.form['review'],
+                    })
+        return redirect(url_for('home'))
+
+                 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

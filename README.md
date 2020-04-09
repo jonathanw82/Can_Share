@@ -155,6 +155,17 @@ On doing so the repository will added to your own gitHub account. From there you
 details as stated above. You will also be able to make any changes you require that will not affect the 
 original master from the original repository.
 
+How to deploy from Heroku
+To deploy from Heroku, first sign up to do this go to https://www.heroku.com/
+And click the sign up button to right and fill out the form to create a new account and select Python as the development language. You will be sent a confirmation email once the link in the email has been clicked you will be prompted to input a password after the account is set up.
+Once all setup and logged in click on the create new app button, then give your project a name using hyphens instead of spaces the name has to be unique as Heroku has thousands of apps and they cannot have the same name, select your region and select create app.
+You are then presented with a dashboard with listings of command lines for use in a bash command line.
+Form your workspace of choice open the command line and install Heroku depending on workspace pip3 install Heroku, once installed, type in Heroku login -I  then enter your email and password you set Heroku up with. It will then state you are logged in. At this point type in Heroku apps this will give you a list of the apps you created earlier. We will now need to push our files to Heroku to be deployed or our live version.
+To do this is in Heroku go to then click on the app you created earlier then select settings, under app information you will see Heroku git URL copy the url, in the bash command line in the work space of choice type (Heroku git:remote –a jonathanw82-canshare) at this point you need to push all your data up to Heroku to do this type (git add .) then (git commit –m “deploy to Heroku”) then (git push –u Heroku master ) this will take a few minutes to push all the data to Heroku
+We then need to setup a web process to do this at the command prompt type (heroku ps:scale web=1) after this our web process will be running we will now need to set up some config Vars in heroku, go back to heroku go to settings click reveal config vars, ther will be a few things to add here first setup IP so in the box that says Key type IP and in the value box type 0.0.0.0 click add then do the same but type PORT and set that to 5000 click add the last step is to add the data from env.py file so type MONGO_URI into the key box and in the value box paste the mongo_uri link.
+Then click more top right hand side of page and select restart all dynos the application will now be deployed.
+If a message pops up stating there may be some down time when until the restart has finished click OK.
+Under the settings tab in Heroku scroll down to domains and your link will be displayed there it can be used to access the liver version of the application.
 
 Deployment: The site will be deployed by 
 https://www.heroku.com/

@@ -47,4 +47,15 @@ body{
     width: 100%;
     
 }
-   
+
+.background_image{
+    background-image: url('/static/images/500_F_294821171_Syf4vrjrXKboIP48RMWwKOCN4BptDEhV.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    position: absolute;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
+} 
