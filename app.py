@@ -88,7 +88,8 @@ def home():
         print(beer_type)
         res['beer_name'] = beer_type['type']
     return render_template("beerceller_loggedin.html",
-                           caninfo=results)
+                           caninfo=results,
+                           background='background_image_landing')
 
 
 @app.route('/help')
@@ -118,7 +119,8 @@ def add_beer():
         return render_template('addnewbeer.html',
                                typesofbeer=mongo.db.type.find(),
                                abvnumber=arange(0, 200, 1),
-                               price=arange(0, 200, 1))
+                               price=arange(0, 200, 1),
+                               background='background_image_create')
     if request.method == 'POST':
         # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
         cans = mongo.db.cansAndBottleInfo
