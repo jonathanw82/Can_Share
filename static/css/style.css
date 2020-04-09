@@ -1,7 +1,7 @@
 
 
 body{
-    
+     font-family: 'Oswald', sans-serif; 
 }
 
 .helpPageTitle{
@@ -15,6 +15,15 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.herologo{
+    text-align: center;
+    padding-top: 6px;
+}
+
+.cellarlogo{
+    width: 70%;
+    padding-bottom: 10px;
+}
 
 .ratings-thumbs-box{
     padding: 10px 10px 10px 10px;
@@ -85,4 +94,15 @@ body{
 
 .type_select{
     width: 15%;
+}
+
+/********************** Friends **********************/
+
+.friendlinkimages{
+    width: 180px;   
+}
+
+.friendbox{
+    text-align: center;
+    margin: auto;
 }
