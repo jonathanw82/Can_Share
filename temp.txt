@@ -47,3 +47,6 @@ def edit_beer(can_id):
                            abvnumber=arange(0, 200, 1),
                            varietyofbeer=variety_of_beer,
                            price=arange(0, 200, 1))                      
+
+
+<option class="dropdown-item" value="{{the_can.type}}" name="{{type._id}}" selected>{{type.type}}</option>

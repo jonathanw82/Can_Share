@@ -97,6 +97,11 @@ body{
 }
 
 /********************** Friends **********************/
+.friends_heading{
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 20px;
+}
 
 .friendlinkimages{
     width: 180px;   
@@ -105,4 +110,5 @@ body{
 .friendbox{
     text-align: center;
     margin: auto;
+    padding-bottom: 20px;
 }

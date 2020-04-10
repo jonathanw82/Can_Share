@@ -92,6 +92,13 @@ def home():
                            background='background_image_landing')
 
 
+@app.route('/can_info/<can_id>')
+def can_info(can_id):
+    _cans = mongo.db.cansAndBottleInfo.find_one({'_id':
+                                                ObjectId(can_id)})
+    return render_template('caninfo.html', cans=_cans)
+
+
 @app.route('/help')
 def help():
     return render_template('help.html')
@@ -138,7 +145,6 @@ def edit_beer(can_id):
                                                         ObjectId(can_id)})
         variety_of_beer = mongo.db.type.find()
         variety_of_beer_list = [beerlist for beerlist in variety_of_beer]
-        print('THIS', variety_of_beer_list)
         return render_template('editbeer.html', the_can=_the_can,
                                abvnumber=arange(0, 200, 1),
                                varietyofbeer=variety_of_beer_list,

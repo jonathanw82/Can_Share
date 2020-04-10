@@ -14,11 +14,14 @@
             </div>
 				<div>
 					<label >Type of Beer</label><br>
-                        <select class="dropdown-typeselect-button" name="beer_type" id="beer_type">
+                    <!-- The for loop popultaes the drop down menu so the user can select what type of beer they are editing the if statement 
+                    looks to see it the type._id (the id asociated with the type of beer) is the same as the selected beer if so display that selected beer if
+                    not then disaply the list for selection)-->
+                        <select class="dropdown-typeselect-button" name="beer_type" >
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
                             {% for type in varietyofbeer %} 
                                 {%  if type._id == the_can.beer_type  %}           		
-                                    <option class="dropdown-item" value="{{the_can.type}}" name="{{type._id}}" selected>{{type.type}}</option>
+                                    <option class="dropdown-item" value="{{type._id}}" name="{{type._id}}" selected>{{type.type}}</option>
                                 {% else %}
                                     <option class="dropdown-item" value="{{type._id}}" name="{{type._id}}">{{type.type}}</option>
                                 {% endif %}
@@ -42,6 +45,8 @@
                 </div>
 					    <label >Vegan Friendly?</label>
                       <div class="custom-control custom-switch">
+                      <!-- this if stament is a truthy it returns if the vegan is selected its true so it shows the selected chackbox, if false it 
+                      displays the unchecked checkbox -->
                             {% if the_can.vegan %}
                                 <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch"checked>
                                 <label class="custom-control-label" for="vegan-switch">Yes</label>
@@ -86,7 +91,7 @@
 						<textarea class="form-control" id="review" name="review" rows="3" value="{{the_can.review}}">{{the_can.review}}</textarea>
 					</div>
 					<div>
-					    <button type="submit" class="btn btn-primary">Edit</button>
+					    <button type="submit" class="btn btn-primary">Done</button>
 						    <a class="btn btn-primary" href="{{url_for ('home')}}" role="button">Cancel</a>
 				    </div>
 	</form>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12"></div>
+		<h2 class="addbeerPageTitle">Inspect Your Selection</h2>
+	</div>
+	<div class="row">
+		<div class='col-sm-4'>
+			<img src="{{cans.image_url}}" class="card-img-top canimage" alt="Image of Can">
+            </div>
+			<div class='col-sm-8'>
+				<h5>{{cans.name}}</h5>
+				<h6>{{cans.brand}}</h6>
+				<h6>{{cans.beer_name}}</h6>
+				{% if cans.vegan == 'on'%}
+				<img class="vegan_icon" src="/static/images/vegan.png">
+	        {% else %}
+				<img class="vegan_icon" src="/static/images/veganno.png">
+	        {% endif %}
+				<h6>{{cans.hop_type}}</h6>
+				<h6>{{cans.malts}}</h6>
+				<h6>{{cans.average_price}}</h6>
+				<h6>{{cans.where_bought}}</h6>
+				<h6>ABV: {{cans.abv}}</h6>
+				<h6>{{cans.review}}</h6>
+			</div>
+		</div>
+		<div class="row">
+			<div class='col-sm-12'>
+				<h5>Tell us what you think?</h5>
+			</div>
+		</div>
+		<a class="btn btn-primary" href="{{url_for ('home')}}" role="button">Back</a>
+</div>
+
+		{% endblock %}
