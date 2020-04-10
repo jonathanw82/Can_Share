@@ -7,9 +7,9 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/a71ecb4f79.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/segment7" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Special+Elite&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a71ecb4f79.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/segment7" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Oswald|Special+Elite&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
 	<link rel="shortcut icon" type="image/x-icon" href="{{url_for ('static', filename='favicon.ico')}}">
 
@@ -19,19 +19,35 @@
 <body class="{{ background }}">
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-			<a class="navbar-brand" href="{{url_for ('home')}}">Can Share</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            {% if session['logged-in'] %}
+			<a class="navbar-brand" href="{{url_for ('homeLoggedIn')}}">Can Share</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
                 </button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="{{url_for ('home')}}">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link active" href="{{url_for ('homeLoggedIn')}}">Home
+						<span class="sr-only">(current)</span></a>
 					<a class="nav-item nav-link" href="{{url_for ('topshelf')}}">Topshelf</a>
-                    <a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
-                    <a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
-                    <a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
-					<a class="nav-item nav-link" href="#">Login</a>
+					<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
+					<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
+					<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
+					<a class="nav-item nav-link" href="{{url_for ('logout')}}">Logout</a>
+            {% else %}
+            <a class="navbar-brand" href="{{url_for ('home')}}">Can Share</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+                </button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link active" href="{{url_for ('home')}}">Home
+						<span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link" href="{{url_for ('topshelf')}}">Topshelf</a>
+					<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
+					<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
+					<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
+					<a class="nav-item nav-link" href="{{url_for ('login')}}">Login</a>
+            {% endif %}
 				</div>
 			</div>
 		</nav>

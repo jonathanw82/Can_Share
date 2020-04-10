@@ -4,7 +4,7 @@ from functools import wraps
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-# from passlib.hash import pbkdf2_sha256
+from passlib.hash import pbkdf2_sha256
 from os import path
 if path.exists("env.py"):
     import env
@@ -36,12 +36,14 @@ def register():
     if request.method == "GET":
         return render_template('register.html')
     elif request.method == "POST":
-        username = request.form['userid']
+        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
         user_type = request.form['type']
         _hash = pbkdf2_sha256.hash(password)
         mongo.db.users.insert_one({
             'username': username,
+            'email': email,
             'password': _hash,
             'type': user_type
         })
@@ -53,24 +55,26 @@ def login():
     if request.method == "GET":
         return render_template('login.html')
     elif request.method == "POST":
-        username = request.form['userid']
-        user = mongo.db.users.find_one({'username': username})
+        email = request.form['email']
+        user = mongo.db.users.find_one({'email': email})    # if else statment to check if a user is regitsered or not if not redidrect
         user_password = user['password']
         form_password = request.form['password']
         if pbkdf2_sha256.verify(form_password, user_password):
             session['logged-in'] = True
-            session['user-id'] = username
+            session['username'] = user['username']
+            session['email'] = email
             session['usertype'] = user['type']
         else:
-            return "login error"
-        return render_template('login.html')
+            return "login error"                                   # create login error page
+        return redirect(url_for('homeLoggedIn'))
+        # return render_template('beerceller_loggedin.html', user_type=session['username'])
 
 
 @app.route('/logout')
 @check_logged_in
 def logout():
     session.pop('logged-in', None)
-    session.pop('user-id', None)
+    session.pop('email', None)
     session.pop('usertype', None)
     return redirect(url_for('home'))
 
@@ -104,6 +108,13 @@ def calculate(_id):  # id of the beer
 @app.route('/')
 @app.route('/home')
 def home():
+    return render_template("beerceller.html")
+
+
+@app.route('/homeLoggedIn')
+@check_logged_in
+def homeLoggedIn():
+    # if session['usertype']: return admin panel,
     results = list(mongo.db.cansAndBottleInfo.find())
     for res in results:
         beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type'])})
@@ -112,10 +123,12 @@ def home():
         # res['average'] = average
     return render_template("beerceller_loggedin.html",
                            caninfo=results,
-                           background='background_image_landing')
+                           background='background_image_landing',
+                           username=session['username'])
 
 
 @app.route('/can_info/<can_id>')
+@check_logged_in
 def can_info(can_id):
     results = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
     _beer_type = mongo.db.type.find_one({'_id': ObjectId(results['beer_type'])})
@@ -148,6 +161,7 @@ def friends():
 
 # CREATE
 @app.route("/add_beer", methods=["GET", "POST"])
+@check_logged_in
 def add_beer():
     if request.method == 'GET':
         return render_template('addnewbeer.html',
@@ -166,6 +180,7 @@ def add_beer():
 
 # UPDATE
 @app.route("/edit_beer/<can_id>", methods=['GET', 'POST'])
+@check_logged_in
 def edit_beer(can_id):
     if request.method == 'GET':
         _the_can = mongo.db.cansAndBottleInfo.find_one({'_id':

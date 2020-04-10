@@ -1,4 +1,21 @@
 {% extends 'base.html' %}
+{% block navlogin %} 
+<a class="navbar-brand" href="{{url_for ('homeLoggedIn')}}">Can Share</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+                </button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+
+					<a class="nav-item nav-link active" href="{{url_for ('homeLoggedIn')}}">Home
+						<span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link" href="{{url_for ('topshelf')}}">Topshelf</a>
+					<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
+					<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
+					<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
+					<a class="nav-item nav-link" href="{{url_for ('logout')}}">Logout</a> 
+
+{% endblock %}
 {% block content %}
 
 <div>
@@ -92,7 +109,7 @@
 					</div>
 					<div>
 					    <button type="submit" class="btn btn-primary">Done</button>
-						    <a class="btn btn-primary" href="{{url_for ('home')}}" role="button">Cancel</a>
+						    <a class="btn btn-primary" href="{{url_for ('homeLoggedIn')}}" role="button">Cancel</a>
 				    </div>
 	</form>
 </div>

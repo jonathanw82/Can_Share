@@ -20,6 +20,10 @@ body{
     padding-top: 6px;
 }
 
+.wellcomename{
+    text-align: center;
+}
+
 .cellarlogo{
     width: 70%;
     padding-bottom: 10px;

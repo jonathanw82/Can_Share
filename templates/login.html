@@ -2,12 +2,13 @@
 {% block content %}
 
 <h2>Log In Page</h2>
-<body>
+<h3>Not a member no worries signup here</h3> <a href="{{url_for ('register')}}">SignUp!</a>
+
 	<form method="POST" action="{{url_for('login')}}">
-        Username: <input type="text" name="userid">
+        Email: <input type="email" name="email">
         Password: <input type="password" name="password">
         <input type="submit" value="Login">
     </form>
-</body>
+
 
 {% endblock %}
