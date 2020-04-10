@@ -47,7 +47,7 @@ def register():
             'password': _hash,
             'type': user_type
         })
-        return redirect(url_for('login'))
+        return redirect(url_for('login'),title='Login')
 
 
 @app.route('/login', methods=["GET", "POST"])

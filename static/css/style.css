@@ -9,8 +9,39 @@ body{
 }
 /********* Warning modal ***********/
 .modal-waring-image{
-    width: 25%;
-    height: 25%;
+    width: 25%;   
+    text-align: center;
+    padding-bottom: 20px;
+}
+.modalimagebox{
+    text-align: center;
+    color: #ffff;
+}
+
+.modal-button{
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color:#D99F7E;
+    border: 2px solid #D99F7E;
+    border-radius: 2px;
+    padding: 4px 3px 2px 2px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+ }
+
+.modal-button:hover{
+    color:yellow;
+    border-color: #D95436;
+    background-color: #36454f;
+}
+.warning_modal_buttons{
+   text-align: center;
+}
+
+.modal-body{
+    background-color: black;
 }
 
 .can-cards{
