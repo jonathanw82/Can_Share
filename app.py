@@ -4,7 +4,7 @@ from functools import wraps
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-#from passlib.hash import pbkdf2_sha256
+# from passlib.hash import pbkdf2_sha256
 from os import path
 if path.exists("env.py"):
     import env
@@ -19,7 +19,7 @@ app.secret_key = "B,t=u0W};gBf{DnBClV8/BwiW[1k~7EEzoiv(1Ng'*1k!^R,4sd\
                  |4-[:8:_t4c8"
 mongo = PyMongo(app)
 
-"""
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Log In setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def check_logged_in(func):
     @wraps(func)
@@ -75,7 +75,30 @@ def logout():
     return redirect(url_for('home'))
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"""
+
+
+
+def calculate(_id):  # id of the beer
+    # 1. variable run mogo find all on the ratings table with the canid as search param
+    # results = list(mongo.db.ratings.find({'_id': ObjectId(res['beer_type'])})
+    # 2. calculate the average 
+    #2.1 create vatrable called total = 0
+    #2.2 for varaible in results 
+    # total += vaiable['rating']
+    # 2.3 ouside for loop divide total by len(results)
+    # 3. return that value
+
+
+# @app.route('/vote/<can_id>/<rating>')
+# def vote(can_id, rating):
+    return 'hello world'
+    # results = mongo.db.ratings.find_one({'canId': ObjectId(can_id), 'userId': ObjectId(session userId)}
+    # check if user has alredy voted on the can
+    # 2. len(results) if len results 0 user has not voted 
+    # insert(rating canid and userid) if rating is 1 return thumbs up else return thumbs down
+    # else len results is not 0 means user has voted results[rating] if results[rating] == to rating delete results[_id] using def delete return disable both unchecked from java
+    # if results[rating] != results update ratings =0 reuturn the name of the icon that needs to be checked
+    
 
 
 @app.route('/')
@@ -84,9 +107,9 @@ def home():
     results = list(mongo.db.cansAndBottleInfo.find())
     for res in results:
         beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type'])})
-        print(res)
-        print(beer_type)
         res['beer_name'] = beer_type['type']
+        # average = calculate(res['_id'])for each results call the calulate function and pass in the can_id
+        # res['average'] = average
     return render_template("beerceller_loggedin.html",
                            caninfo=results,
                            background='background_image_landing')
@@ -94,9 +117,13 @@ def home():
 
 @app.route('/can_info/<can_id>')
 def can_info(can_id):
-    _cans = mongo.db.cansAndBottleInfo.find_one({'_id':
-                                                ObjectId(can_id)})
-    return render_template('caninfo.html', cans=_cans)
+    results = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
+    _beer_type = mongo.db.type.find_one({'_id': ObjectId(results['beer_type'])})
+    # average = calculate(results['_id'])for each results call the calulate function and pass in the can_id
+    # res['average'] = average
+    print(_beer_type)
+    return render_template('caninfo.html', caninfo=results,
+                           beer_type=_beer_type)
 
 
 @app.route('/help')

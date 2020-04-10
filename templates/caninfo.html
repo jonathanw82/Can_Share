@@ -8,23 +8,23 @@
 	</div>
 	<div class="row">
 		<div class='col-sm-4'>
-			<img src="{{cans.image_url}}" class="card-img-top canimage" alt="Image of Can">
+			<img src="{{caninfo.image_url}}" class="card-img-top canimage" alt="Image of Can">
             </div>
 			<div class='col-sm-8'>
-				<h5>{{cans.name}}</h5>
-				<h6>{{cans.brand}}</h6>
-				<h6>{{cans.beer_name}}</h6>
-				{% if cans.vegan == 'on'%}
-				<img class="vegan_icon" src="/static/images/vegan.png">
+				<h5>{{caninfo.name}}</h5>
+				<h6>{{caninfo.brand}}</h6>
+				<h6>{{beer_type.type}}</h6>
+				{% if caninfo.vegan == 'on'%}
+				<img class="vegan_icon_info" src="/static/images/vegan.png">
 	        {% else %}
-				<img class="vegan_icon" src="/static/images/veganno.png">
+				<img class="vegan_icon_info" src="/static/images/veganno.png">
 	        {% endif %}
-				<h6>{{cans.hop_type}}</h6>
-				<h6>{{cans.malts}}</h6>
-				<h6>{{cans.average_price}}</h6>
-				<h6>{{cans.where_bought}}</h6>
-				<h6>ABV: {{cans.abv}}</h6>
-				<h6>{{cans.review}}</h6>
+				<h6>{{caninfo.hop_type}}</h6>
+				<h6>{{caninfo.malts}}</h6>
+				<h6>{{caninfo.average_price}}</h6>
+				<h6>{{caninfo.where_bought}}</h6>
+				<h6>ABV: {{caninfo.abv}}</h6>
+				<h6>{{caninfo.review}}</h6>
 			</div>
 		</div>
 		<div class="row">

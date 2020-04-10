@@ -50,6 +50,10 @@ body{
     position: absolute;
 }
 
+.vegan_icon_info{
+    width: 60px;
+}
+
 .abvselect{
     width: 100%;
     height: auto;
