@@ -7,6 +7,11 @@ body{
 .helpPageTitle{
     
 }
+/********* Warning modal ***********/
+.modal-waring-image{
+    width: 25%;
+    height: 25%;
+}
 
 .can-cards{
     width: 18rem;

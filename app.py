@@ -108,7 +108,7 @@ def calculate(_id):  # id of the beer
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("beerceller.html")
+    return render_template("beerceller.html", title='Can share')
 
 
 @app.route('/homeLoggedIn')
@@ -124,7 +124,8 @@ def homeLoggedIn():
     return render_template("beerceller_loggedin.html",
                            caninfo=results,
                            background='background_image_landing',
-                           username=session['username'])
+                           username=session['username'],
+                           title='Can Share')
 
 
 @app.route('/can_info/<can_id>')
@@ -136,27 +137,28 @@ def can_info(can_id):
     # res['average'] = average
     print(_beer_type)
     return render_template('caninfo.html', caninfo=results,
-                           beer_type=_beer_type)
+                           beer_type=_beer_type,
+                           title='Can Info')
 
 
 @app.route('/help')
 def help():
-    return render_template('help.html')
+    return render_template('help.html', title='Help')
 
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', title='About')
 
 
 @app.route('/topshelf')
 def topshelf():
-    return render_template('topshelf.html')
+    return render_template('topshelf.html', title='Top Shelf')
 
 
 @app.route('/friends')
 def friends():
-    return render_template('friends.html')
+    return render_template('friends.html', title='Friends')
 
 
 # CREATE
@@ -168,7 +170,8 @@ def add_beer():
                                typesofbeer=mongo.db.type.find(),
                                abvnumber=arange(0, 200, 1),
                                price=arange(0, 200, 1),
-                               background='background_image_create')
+                               background='background_image_create',
+                               title='Add Beer')
     if request.method == 'POST':
         # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
         cans = mongo.db.cansAndBottleInfo
@@ -190,7 +193,8 @@ def edit_beer(can_id):
         return render_template('editbeer.html', the_can=_the_can,
                                abvnumber=arange(0, 200, 1),
                                varietyofbeer=variety_of_beer_list,
-                               price=arange(0, 200, 1))
+                               price=arange(0, 200, 1),
+                               title='Edit Beer')
     if request.method == 'POST':
         cans = mongo.db.cansAndBottleInfo
         cans.update({'_id': ObjectId(can_id)},

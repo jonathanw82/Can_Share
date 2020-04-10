@@ -1,7 +1,4 @@
-$(document).ready(function () {
 
- 
-});
 
 function vote(direction){
     if (direction == 'up'){

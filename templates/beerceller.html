@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% block nav %} <a class="nav-item nav-link" href="{{url_for ('login')}}">Login</a> {% endblock %}
 {% block content %}
 <div class="row">
 	<div class="col-sm-12">
@@ -36,5 +35,30 @@
 	</div>
 	{% endfor %}
 </div>
+<!-- More info Modal -->
+<div class="modal fade" id="agewarning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<img class="modal-waring-image" src="https://illustoon.com/photo/999.png" alt="over 18 warning">
+				<h5 class="card-title">Thanks for paying us a visit</h5>
+				<p>You must be 18 years of age to enter this site.</p>
+				
+				<div class="row">
+					<div class="clo-sm-6">
+                    <p>Please enjoy responsibly.</p>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Enter Site!</button>
+					</div>
+					<div class="clo-sm-6">
+						<p>Under 18</p>
+						<a type="button" class="btn btn-secondary" href="https://www.google.co/" >Under 18?</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
+<script src="static/js/onload.js"></script>
 {% endblock %}
