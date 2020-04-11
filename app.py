@@ -47,7 +47,7 @@ def register():
             'password': _hash,
             'type': user_type
         })
-        return redirect(url_for('login'),title='Login')
+        return redirect(url_for('login'), title='Login')
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -65,7 +65,7 @@ def login():
             session['email'] = email
             session['usertype'] = user['type']
         else:
-            return "login error"                                   # create login error page
+            return render_template(url_for('loginerror.html'))                                   
         return redirect(url_for('homeLoggedIn'))
         # return render_template('beerceller_loggedin.html', user_type=session['username'])
 
@@ -81,28 +81,38 @@ def logout():
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
-def calculate(_id):  # id of the beer
-    # 1. variable run mogo find all on the ratings table with the canid as search param
-    # results = list(mongo.db.ratings.find({'_id': ObjectId(res['beer_type'])})
-    # 2. calculate the average 
-    #2.1 create vatrable called total = 0
-    #2.2 for varaible in results 
-    # total += vaiable['rating']
-    # 2.3 ouside for loop divide total by len(results)
-    # 3. return that value
+def calculate(can_id):
+    findrating = mongo.db.ratings.find({'_id': ObjectId(can_id)})
+    total = 0
+    for res in findrating:
+        total += res['rating']
+    totalratings = total / len(res) 
+    return totalratings
 
 
-# @app.route('/vote/<can_id>/<rating>')
-# def vote(can_id, rating):
-    return 'hello world'
-    # results = mongo.db.ratings.find_one({'canId': ObjectId(can_id), 'userId': ObjectId(session userId)}
-    # check if user has alredy voted on the can
-    # 2. len(results) if len results 0 user has not voted 
-    # insert(rating canid and userid) if rating is 1 return thumbs up else return thumbs down
+@app.route('/vote/<direction>/<element>', methods=['GET'])
+def vote(direction, element):
+    results = mongo.db.ratings.find_one({'canId': ObjectId(can_id), 'userId': ObjectId(session ['email'])
+# check if user has alredy voted on the can
+    if results.userId != session['email']:
+        if len(results) == 0: # 2. len(results) if len results 0 user has not voted
+            if request.method == 'POST': # insert(rating canid and userid) if rating is 1 return thumbs up else return thumbs down
+                rating = mongo.db.ratings
+                rating.insert_one({
+                    'userId': session['email'],
+                    'canId': element,
+                    'rating': 1
+                })
+                return 1
+    if results.userId == session['email']:
+        elif len(results) != 0:
+            if results[rating] == results[rating]:
+                mongo.db.ratings.remove({'_id': ObjectId(_id)})
+                return 0
+
+ 
     # else len results is not 0 means user has voted results[rating] if results[rating] == to rating delete results[_id] using def delete return disable both unchecked from java
     # if results[rating] != results update ratings =0 reuturn the name of the icon that needs to be checked
-    
 
 
 @app.route('/')
@@ -178,7 +188,7 @@ def add_beer():
         form = request.form.to_dict()
         form['beer_type'] = ObjectId(form['beer_type'])
         cans.insert_one(form)
-        return redirect(url_for('home'))
+        return redirect(url_for('homeLoggedIn'))
 
 
 # UPDATE
@@ -211,7 +221,15 @@ def edit_beer(can_id):
                     'image_url': request.form['image_url'],
                     'review': request.form['review'],
                     })
-        return redirect(url_for('home'))
+        return redirect(url_for('homeLoggedIn'))
+
+
+"""
+@app.route('/delete_task/<task_id>')
+def delete_task(task_id):
+    mongo.db.tasks.remove({'_id': ObjectId(task_id)})
+    return redirect(url_for('get_tasks'))
+"""
 
 
 if __name__ == '__main__':

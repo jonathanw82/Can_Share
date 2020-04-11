@@ -50,3 +50,50 @@ def edit_beer(can_id):
 
 
 <option class="dropdown-item" value="{{the_can.type}}" name="{{type._id}}" selected>{{type.type}}</option>
+
+java crript
+
+
+
+function vote(direction, element) {
+    console.log(direction)
+    if (direction == 'up') {
+        var xhttp = new XMLHttpRequest();// xhttp request url passin 1 and can_id  
+        
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {// results python going to check if the user has already rated it and determin what action to take
+                results = this.responseText;
+            }
+        };
+        xhttp.open("GET", '/vote/' + element.id + direction, true);
+        xhttp.send();
+
+        // if the results are 1 or 0 change the icon from a filled in one to a non filled in one.   
+        if (results == 1) {
+            document.getElementById('thumbsiconup').className = 'fas fa-thumbs-up TU';
+        }
+        else {
+            document.getElementById('thumbsiconup').className = 'far fa-thumbs-up TU';
+        }
+    }
+    else {
+        var xhttp = new XMLHttpRequest();
+        console.log('i click down')
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               results = this.responseText;
+            }
+        };
+        xhttp.open("GET", '/vote/' + element.id + direction, true);
+        xhttp.send();
+        // if the results are 1 or 0 change the icon from a filled in one to a non filled in one.   
+        if ( results == 0) {
+            document.getElementById('thumbsicondown').className = 'fas fa-thumbs-up TD';
+        }
+        else {
+            document.getElementById('thumbsicondown').className = 'far fa-thumbs-up TD';
+        }
+    }
+}
+// far is not clicked
+// fas is clicked

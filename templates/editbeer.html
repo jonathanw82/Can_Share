@@ -96,7 +96,7 @@
                         </select>
                 </div>
 					<div>
-						<label >Where car i buy it</label>
+						<label >Where can i buy it?</label>
 						<input type="text" class="form-control" name="where_bought" id="where_bought" value="{{the_can.where_bought}}">
                 </div>
 					<div>
@@ -108,8 +108,9 @@
 						<textarea class="form-control" id="review" name="review" rows="3" value="{{the_can.review}}">{{the_can.review}}</textarea>
 					</div>
 					<div>
-					    <button type="submit" class="btn btn-primary">Done</button>
-						    <a class="btn btn-primary" href="{{url_for ('homeLoggedIn')}}" role="button">Cancel</a>
+					
+                        <a class="btn btn-primary" type="submit" href="{{url_for ('homeLoggedIn')}}" role="button">Done</a>
+						<a class="btn btn-primary" href="{{url_for ('homeLoggedIn')}}" role="button">Cancel</a>
 				    </div>
 	</form>
 </div>

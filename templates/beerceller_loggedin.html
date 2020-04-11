@@ -33,9 +33,9 @@
 				<a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}" role="button">Info</a>
 				<a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}" role="button">Edit</a>
 				<div class="ratings-thumbs-box">
-					<i class="far fa-thumbs-up TU" onclick="vote('up')"></i><!-- function vote(up)  -->
+					<i id="{{cans._id}}" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i><!-- function vote(up)  maybe change get element by tag name-->
 					<Span class="ratings-cards">{{cans.ratings}}</Span>
-					<i class="far fa-thumbs-down TD" onclick="vote('down')"></i>
+					<i id="{{cans._id}}" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
 				</div>
 			</div>
 		</div>
