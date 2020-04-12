@@ -22,30 +22,28 @@
 <body class="{{ background }}">
 	<header>       <!-- The if statment bellow looks to see if the session is logged in if the user is the navigation bar redirects to logged in homepage 
                         if not the user is redirected to the non logged in home page -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light navbar-background">
             {% if session['logged-in'] %}
 			<a class="navbar-brand" href="{{url_for ('homeLoggedIn')}}">Can Share</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
                 </button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="collapse navbar-collapse navbarstyle" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="{{url_for ('homeLoggedIn')}}">Home
-						<span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link" href="{{url_for ('homeLoggedIn')}}">Beer Cellar</a>
 					<a class="nav-item nav-link" href="{{url_for ('topshelf')}}">Topshelf</a>
 					<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
 					<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
 					<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
-					<a class="nav-item nav-link" href="{{url_for ('logout')}}">Logout</a>
+					<a class="nav-item nav-link" href="{{url_for ('logout')}}">Logout</a>  
             {% else %}
             <a class="navbar-brand" href="{{url_for ('home')}}">Can Share</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
                 </button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="collapse navbar-collapse navbarstyle" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="{{url_for ('home')}}">Home
-						<span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link" href="{{url_for ('home')}}">Home</a>
 					<a class="nav-item nav-link" href="{{url_for ('topshelf')}}">Topshelf</a>
 					<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
 					<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>

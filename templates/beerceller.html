@@ -1,39 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row">
-	<div class="col-sm-12">
-		<h1 class="beer-cellar-title">The Beer Cellar</h1>
-		<h3 class="beer-cellar-heading">Welcome to can share please rate the beers you see with thums up or thumbs down
-			cant see a beer you love Simple
-			click on sign up add email and password then add a beer for others to rate!
+<div container-fluid>
+<div class="col-sm-12 herologo">
+	<img class="cellarlogo" src="/static/images/can-share.png" alt="can share image">
+    </div>
+	<div class="col-sm-12 wellcomename">
+		<h3 class="welcome-maessage">Welcome to Can Share to get started please login to view, rate and add your own
+			beers!
 		</h3>
 	</div>
-</div>
 
-<div class="row">
-	{% for cans in caninfo %}
-	<div class="col-md-3  can-cards">
-		<div class="card">
-			<img src="{{cans.image_url}}" class="card-img-top" alt="Image of Can">
-			<div class="card-body">
-				<h5 class="card-title">{{cans.name}}</h5>
-				<h6>{{cans.brand}}</h6>
-			</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item">ABV: {{cans.abv}}</li>
-				<li class="list-group-item">Vegan: {{cans.vegan}}</li>
-			</ul>
-			<div class="card-body">
-				<button type="button"  class="btn btn-primary">Info</button>
-				<div class="ratings-thumbs-box">
-					<i class="far fa-thumbs-up TU" onclick=""></i>
-					<Span class="ratings-number">{{cans.ratings}}</Span>
-					<i class="far fa-thumbs-down TD"onclick=""></i>
-				</div>
-			</div>
-		</div>
-	</div>
-	{% endfor %}
+
+<div class="col-sm-12 loginbox">
+	<form method="POST" action="{{url_for('login')}}">
+		
+			<h3>LogIn:</h3>
+		
+		<div>
+			<label>Email</label><br>
+			<input type="email" name="email" required>
+        </div>
+		<div>
+			<label>Password</label><br>
+			<input class="passwordinputbox" type="password" name="password" required>
+        </div>
+			<button type="submit" class="btn btn-primary form-button">Login</button>
+	</form>
+		<h5>Not a member no worries signup here: <a href="{{url_for ('register')}}">SignUp!</a></h5>
+</div>
 </div>
 <!-- More info Modal -->
 <div class="modal fade" id="agewarning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
@@ -46,7 +40,7 @@
 						<img class="modal-waring-image" src="static/images/18.png" alt="over 18 warning">
 						<h5 class="card-title">Thanks for paying us a visit</h5>
 						<p>You must be 18 years of age to enter this site.</p>
-                        <p>Please enjoy responsibly.</p>
+						<p>Please enjoy responsibly.</p>
 					</div>
 				</div>
 				<div class="row">

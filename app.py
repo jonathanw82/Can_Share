@@ -53,7 +53,7 @@ def register():
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        return render_template('login.html')
+        return render_template('beerceller.html')
     elif request.method == "POST":
         email = request.form['email']
         user = mongo.db.users.find_one({'email': email})    # if else statment to check if a user is regitsered or not if not redidrect

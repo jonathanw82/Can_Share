@@ -44,6 +44,46 @@ body{
     background-color: black;
 }
 
+/********* landing page  *************/
+
+.welcome-maessage{
+    color: black;
+}
+
+.loginbox{ 
+    color: #fff;
+    background-color: rgba(60,60,60,0.9);
+    width: 40%;
+    height: auto; 
+    padding: 30px; 
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+} 
+
+.loginbox input{
+    width: 90%;
+}
+
+.passwordinputbox{
+    margin-bottom: 8px;
+}
+/************ Nav Bar  ***************/
+
+.navbarstyle{
+    justify-content: flex-end;
+}
+
+.navbar-background{
+    background-color: #F3B802;
+}
+
+.navbar-nav a{
+    font-weight: 800;
+    font-size: 1.5rem;
+}
 /********* Home logged in  ***********/
 
 .beer-cellar-heading{
@@ -277,10 +317,14 @@ body{
 }
 }
 @media only screen and (max-width: 1024px){
-    .addbeerbutton{
+.addbeerbutton{
     width: 40%;  
 }
+
+.loginbox{
+    width:40%;
 }
+
 @media only screen and (max-width: 976px){
 
 .addbeerbutton{
@@ -290,6 +334,11 @@ body{
 .addbeer-form{
     width: 80%;
 }
+
+.loginbox{
+    width: 50%;
+}
+
 }
 
 @media only screen and (max-width: 756px) {   /*mobile view*/
@@ -300,6 +349,10 @@ body{
 
 .cellarlogo{
     width: 100%;
+}
+
+.loginbox{
+    width: 50%;
 }
 }
 
@@ -320,6 +373,14 @@ body{
 .type_select{
     width: 50%;
 }
+
+.loginbox{
+    width: 80%;
+}
+
+.welcome-maessage{
+    font-size: 1.3rem;
+}
 }
 
 @media only screen and (max-width: 320px){
@@ -338,5 +399,13 @@ body{
 
 .type_select{
     width: 60%;
+}
+
+.loginbox{
+    width:100%;
+}
+
+.welcome-maessage{
+    font-size: 1rem;
 }
 }
