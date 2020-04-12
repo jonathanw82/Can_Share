@@ -4,43 +4,45 @@
 <div class="row">
 	<div class="col-sm-12 herologo">
 		<img class="cellarlogo" src="/static/images/cellar_logo.png" alt="beer cellar image">
-    </div> 
-    <div class="col-sm-12 wellcomename"> 
-		<h3 class="beer-cellar-heading">Hello {{username}} wellcome to can share!</h3>
-		<a class="btn btn-primary" href="{{url_for ('add_beer')}}" role="button">Add Your Can!</a>
     </div>
-</div>
+		<div class="col-sm-12 wellcomename">
+			<a class="btn btn-primary addbeerbutton" href="{{url_for ('add_beer')}}" role="button">
+				<div class="beer-cellar-button-text">Hello {{username}} Wellcome To Can Share!</div><div>To Add Your Can Click Here!</div>
+			</a>
+		</div>
+	</div>
 
-<div class="row">
-	{% for cans in caninfo %}
-	<div class="col-md-3  can-cards">
-		<div class="card">
-			<img src="{{cans.image_url}}" class="card-img-top canimage" alt="Image of Can">
+	<div class="row can-row">
+		{% for cans in caninfo %}
+		<div class="col-lg-3  can-cards">
+			<div class="card">
+				<img src="{{cans.image_url}}" class="card-img-top canimage" alt="Image of Can">
              {% if cans.vegan == 'on'%}
-			<img class="vegan_icon" src="/static/images/vegan.png">
+				<img class="vegan_icon" src="/static/images/vegan.png">
 			{% else %}
-			<img class="vegan_icon" src="/static/images/veganno.png">
+				<img class="vegan_icon" src="/static/images/veganno.png">
 			{% endif %}
-			<div class="card-body">
-				<h5 class="card-title">{{cans.name}}</h5>
-				<h6>{{cans.brand}}</h6>
-				<h6>{{cans.beer_name}}</h6>
-			</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item">ABV: {{cans.abv}}</li>
-			</ul>
-			<div class="card-body">
-				<a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}" role="button">Info</a>
-				<a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}" role="button">Edit</a>
-				<div class="ratings-thumbs-box">
-					<i id="{{cans._id}}" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i><!-- function vote(up)  maybe change get element by tag name-->
-					<Span class="ratings-cards">{{cans.ratings}}</Span>
-					<i id="{{cans._id}}" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+				<div class="card-body">
+					<h5 class="card-title">{{cans.name}}</h5>
+					<h6>{{cans.brand}}</h6>
+					<h6>{{cans.beer_name}}</h6>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">ABV: {{cans.abv}}</li>
+				</ul>
+				<div class="card-body">
+					<a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}" role="button">Info</a>
+					<a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}" role="button">Edit</a>
+					<div class="ratings-thumbs-box">
+						<i id="{{cans._id}}" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+						<!-- function vote(up)  maybe change get element by tag name-->
+						<Span class="ratings-cards">{{cans.ratings}}</Span>
+						<i id="{{cans._id}}" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+					</div>
 				</div>
 			</div>
 		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
-</div>
 
-{% endblock %}
+	{% endblock %}

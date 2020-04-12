@@ -2,8 +2,8 @@
 {% block content %}
 
 <div class="container-fluid">
-	<h2 class="addbeerPageTitle">Brew your own!</h2>
-	<form form action="{{url_for('add_beer')}}" method="POST">
+	<form form class='addbeer-form'action="{{url_for('add_beer')}}" method="POST">
+        <div><h2 class="addbeerPageTitle">Brew your own!</h2></div>
 		<div>
 			<label >Beer Name</label>
 			<input type="text" class="form-control" name="name" id="name" required>
@@ -13,7 +13,7 @@
 				<input type="text" class="form-control" name="brand" id="brand" required>
             </div>
 				<div>
-					<label >Type of Beer</label><br>
+					<label>Type of Beer</label><br>
                         <select class="dropdown-typeselect-button type_select" name="beer_type" id="beer_type">
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
                             {% for type in typesofbeer %}            		
@@ -30,14 +30,14 @@
                             {% endfor %}          		
                         </select>
                 </div>
-					    <label >Vegan Friendly?</label>
-                      <div class="custom-control custom-switch">
+					    <label >Vegan Friendly? </label> <a href="{{url_for ('help')}}" class="help-anchor" target="_blank"> For help click here</a>
+                      <div class="custom-control custom-switch vegan-switch-icon">
                             {% if checkbox != checked %}
-                            <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch"checked>
-                            <label class="custom-control-label" for="vegan-switch">Yes</label>
+                            <input type="checkbox" class="custom-control-input"  name="vegan" id="vegan-switch"checked>
+                            <label class="custom-control-label vegan-switch-icon" for="vegan-switch">Yes</label>
                             {% else %}
-                            <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch">
-                            <label class="custom-control-label" for="vegan-switch">Yes</label>
+                            <input type="checkbox" class="custom-control-input"  name="vegan" id="vegan-switch">
+                            <label class="custom-control-label vegan-switch-icon" for="vegan-switch">Yes</label>
                             {% endif %}
                     </div>
 					<div>
@@ -58,22 +58,24 @@
                         </select>
                 </div>
 					<div>
-						<label >Where car i buy it</label>
+						<label >Where Can I Buy It?</label>
 						<input type="text" class="form-control" name="where_bought" id="where_bought">
                 </div>
 					<div>
-						<label >Image URL</label> <a href="{{url_for ('help')}}" target="_blank">For help click here</a>
+						<label >Image URL </label> <a href="{{url_for ('help')}}" class="help-anchor" target="_blank"> For help click here</a>
 						<input type="text" class="form-control" name="image_url" id="image_url" required>
                 </div>
 					<div class="form-group">
 						<label for="exampleFormControlTextarea1">Tell us about it?</label>
 						<textarea class="form-control" id="review" name="review" rows="3"></textarea>
 					</div>
-					<div>
-					    <button type="submit" class="btn btn-primary">Add</button>
-						    <a class="btn btn-primary" href="{{url_for ('home')}}"
+                <div class="row form-but-row">
+					<div class="form-button-position">
+					    <button type="submit" class="btn btn-primary form-button">Add</button>
+						    <a class="btn btn-primary form-button" href="{{url_for ('homeLoggedIn')}}"
 						    role="button">Cancel</a>
 				    </div>
+                </div>    
 	</form>
 </div>
 <script>src="../static/js/index.js" </script>

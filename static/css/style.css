@@ -1,7 +1,7 @@
 
 
 body{
-     font-family: 'Oswald', sans-serif; 
+     font-family: 'Ubuntu', sans-serif; 
 }
 
 .helpPageTitle{
@@ -44,6 +44,12 @@ body{
     background-color: black;
 }
 
+/********* Home logged in  ***********/
+
+.beer-cellar-heading{
+    color: #ffff;
+}
+
 .can-cards{
     width: 18rem;
     margin: 30px 30px 30px 30px;
@@ -51,9 +57,32 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.beer-cellar-button-text{
+    
+}
+
+.addbeerbutton{
+    width: 25%;  
+}
+
+.addbeerbutton:hover{
+    color:yellow;
+    border-color: #D95436;
+    background-color: #36454f;
+}
+
+.can-cards:hover{
+    border: solid 2px #D95204;
+}
+
+.can-row{
+    justify-content: center;
+}
+
 .herologo{
     text-align: center;
     padding-top: 6px;
+    width: 100%;
 }
 
 .wellcomename{
@@ -106,8 +135,6 @@ body{
     object-fit: cover;  
 }
 
-
-
 .background_image_landing{
     background-image: url('/static/images/500_F_294821171_Syf4vrjrXKboIP48RMWwKOCN4BptDEhV.jpg');
     background-position: center;
@@ -121,7 +148,7 @@ body{
 } 
 
 .background_image_create{
-     background-image: url('/static/images/stock-photo-some-barrels-in-a-cellar-160058564.jpg');
+    background-image: url('/static/images/stock-photo-some-barrels-in-a-cellar-160058564.jpg');
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -132,12 +159,97 @@ body{
     min-height: 100vh;
 }
 
+/******************* Add beer form *******************/
+
+.addbeerPageTitle{
+    text-align: center;
+}
+
 .abvselect{
-    width: 15%;
+    width: 30%;
+}
+
+.abvselect:hover{
+    cursor: pointer;
+    border: 2px solid #D95204;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
 }
 
 .type_select{
-    width: 15%;
+    width: 30%;
+}
+
+.type_select:hover{
+    cursor: pointer;
+    border: 2px solid #D95204;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+}
+
+.addbeer-form input:hover{
+    border: 2px solid #D95204;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+}
+
+.addbeer-form textarea:hover{
+    border: 2px solid #D95204;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px; 
+}
+
+.addbeer-form{ 
+    z-index: 50;
+    color: #fff;
+    background-color: rgba(60,60,60,0.9);
+    width: 60%;
+    height: auto; 
+    padding: 30px; 
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+} 
+
+.addbeer-form, label{
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+.form-but-row{
+    padding-bottom: 15px;
+    margin-right: 1px;
+    justify-content: flex-end;
+}
+
+.vegan-switch-icon{
+    padding-top: 0px;
+}
+
+.vegan-switch-icon:hover{
+    cursor: pointer;
+}
+
+.form-button{
+    width: 100px;
+}
+
+.form-button:hover{
+    color:yellow;
+    border-color: #D95436;
+    background-color: #36454f;
+}
+
+.help-anchor{
+    color: yellow;
+}
+
+.help-anchor:hover{
+    color:yellow;
 }
 
 /********************** Friends **********************/
@@ -155,4 +267,76 @@ body{
     text-align: center;
     margin: auto;
     padding-bottom: 20px;
+}
+
+/****************** Media Queries**********************/
+@media only screen and (max-width: 1195px){
+
+.addbeerbutton{
+    width: 50%;  
+}
+}
+@media only screen and (max-width: 1024px){
+    .addbeerbutton{
+    width: 40%;  
+}
+}
+@media only screen and (max-width: 976px){
+
+.addbeerbutton{
+    width: 50%;  
+}
+
+.addbeer-form{
+    width: 80%;
+}
+}
+
+@media only screen and (max-width: 756px) {   /*mobile view*/
+
+.addbeerbutton{
+    width: 80%;  
+}
+
+.cellarlogo{
+    width: 100%;
+}
+}
+
+@media only screen and (max-width: 425px){
+
+.addbeerbutton{
+    width: 80%;  
+}
+
+.addbeer-form{
+    width: 100%;
+}
+
+.abvselect{
+    width: 50%;
+}
+
+.type_select{
+    width: 50%;
+}
+}
+
+@media only screen and (max-width: 320px){
+
+.addbeerPageTitle{
+    font-size: 1.7rem;
+}
+
+.addbeerbutton{
+    width: 90%;  
+}
+
+.abvselect{
+    width: 60%;
+}
+
+.type_select{
+    width: 60%;
+}
 }

@@ -65,7 +65,7 @@ def login():
             session['email'] = email
             session['usertype'] = user['type']
         else:
-            return render_template(url_for('loginerror.html'))                                   
+            return render_template(url_for('loginerror.html'))
         return redirect(url_for('homeLoggedIn'))
         # return render_template('beerceller_loggedin.html', user_type=session['username'])
 
@@ -80,21 +80,28 @@ def logout():
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+"""
 def calculate(can_id):
     findrating = mongo.db.ratings.find({'_id': ObjectId(can_id)})
     total = 0
     for res in findrating:
         total += res['rating']
-    totalratings = total / len(res) 
+    totalratings = total / len(res)
     return totalratings
+
 
 
 @app.route('/vote/<direction>/<element>', methods=['GET'])
 def vote(direction, element):
-    results = mongo.db.ratings.find_one({'canId': ObjectId(can_id), 'userId': ObjectId(session ['email'])
-# check if user has alredy voted on the can
-    if results.userId != session['email']:
+    results = mongo.db.ratings.find_one({'canId': ObjectId(element)})
+    if 'canId' != 'canId':
+        return 'help'
+    
+
+
+
+    user = session['email']# check if user has alredy voted on the can
+    if results.userId != user:
         if len(results) == 0: # 2. len(results) if len results 0 user has not voted
             if request.method == 'POST': # insert(rating canid and userid) if rating is 1 return thumbs up else return thumbs down
                 rating = mongo.db.ratings
@@ -103,16 +110,15 @@ def vote(direction, element):
                     'canId': element,
                     'rating': 1
                 })
-                return 1
+            return 1
     if results.userId == session['email']:
         elif len(results) != 0:
             if results[rating] == results[rating]:
                 mongo.db.ratings.remove({'_id': ObjectId(_id)})
-                return 0
-
- 
-    # else len results is not 0 means user has voted results[rating] if results[rating] == to rating delete results[_id] using def delete return disable both unchecked from java
-    # if results[rating] != results update ratings =0 reuturn the name of the icon that needs to be checked
+            return 0
+"""
+# else len results is not 0 means user has voted results[rating] if results[rating] == to rating delete results[_id] using def delete return disable both unchecked from java
+# if results[rating] != results update ratings =0 reuturn the name of the icon that needs to be checked
 
 
 @app.route('/')
@@ -145,7 +151,6 @@ def can_info(can_id):
     _beer_type = mongo.db.type.find_one({'_id': ObjectId(results['beer_type'])})
     # average = calculate(results['_id'])for each results call the calulate function and pass in the can_id
     # res['average'] = average
-    print(_beer_type)
     return render_template('caninfo.html', caninfo=results,
                            beer_type=_beer_type,
                            title='Can Info')
