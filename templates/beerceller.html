@@ -10,6 +10,7 @@
 		<div class="col-sm-12 loginbox">
 			<form method="POST" action="{{url_for('login')}}">
 				<h3>LogIn:</h3>
+                <span>{{ error }}</span>
 				<div>
 					<label>Email</label><br>
 					<input type="email" name="email" required>

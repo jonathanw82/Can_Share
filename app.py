@@ -36,18 +36,23 @@ def register():
     if request.method == "GET":
         return render_template('register.html')
     elif request.method == "POST":
-        username = request.form['username']
         email = request.form['email']
+        existing_user = mongo.db.users.find_one({'email': email})
+        username = request.form['username']  
         password = request.form['password']
         user_type = request.form['type']
-        _hash = pbkdf2_sha256.hash(password)
-        mongo.db.users.insert_one({
-            'username': username,
-            'email': email,
-            'password': _hash,
-            'type': user_type
-        })
-        return redirect(url_for('login'))
+
+
+        if existing_user is None:
+            _hash = pbkdf2_sha256.hash(password)
+            mongo.db.users.insert_one({
+                                       'username': username,
+                                       'email': email,
+                                       'password': _hash,
+                                       'type': user_type})
+            return redirect(url_for('login'))
+        else:
+            return redirect(url_for('loginalready'))
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -79,6 +84,11 @@ def loginerror():
     return render_template('loginerror.html')
 
 
+@app.route('/loginalready')
+def loginalready():
+    return render_template('loginalready.html')
+
+
 @app.route('/logout')
 @check_logged_in
 def logout():
@@ -87,7 +97,9 @@ def logout():
     session.pop('usertype', None)
     return redirect(url_for('home'))
 
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 """
 def calculate(can_id):
@@ -126,7 +138,8 @@ def vote(direction, element):
                 mongo.db.ratings.remove({'_id': ObjectId(_id)})
             return 0
 """
-# else len results is not 0 means user has voted results[rating] if results[rating] == to rating delete results[_id] using def delete return disable both unchecked from java
+# else len results is not 0 means user has voted results[rating] if results[rating] == to rating 
+# delete results[_id] using def delete return disable both unchecked from java
 # if results[rating] != results update ratings =0 reuturn the name of the icon that needs to be checked
 
 
@@ -145,7 +158,8 @@ def homeLoggedIn():
         # if session['usertype']: return admin panel,
         results = list(mongo.db.cansAndBottleInfo.find())
         for res in results:
-            beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type'])})
+            beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type']
+                                                                )})
             res['beer_name'] = beer_type['type']
             # average = calculate(res['_id'])for each results call the calulate function and pass in the can_id
             # res['average'] = average
@@ -153,7 +167,7 @@ def homeLoggedIn():
                                caninfo=results,
                                username=session['username'],
                                title='Can Share Admin')
-    else:                       
+    else:
         results = list(mongo.db.cansAndBottleInfo.find())
         for res in results:
             beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type'])})
@@ -194,7 +208,8 @@ def about():
 def topshelf():
     return render_template('topshelf.html', title='Top Shelf',
                            background='background_image_topshelf')
-                           
+
+
 @app.route('/friends')
 def friends():
     return render_template('friends.html', title='Friends',
@@ -220,7 +235,7 @@ def add_beer():
         cans.insert_one(form)
         return redirect(url_for('homeLoggedIn'))
 
- 
+
 # UPDATE
 @app.route("/edit_beer/<can_id>", methods=['GET', 'POST'])
 @check_logged_in
