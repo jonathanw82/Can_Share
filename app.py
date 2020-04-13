@@ -47,7 +47,7 @@ def register():
             'password': _hash,
             'type': user_type
         })
-        return redirect(url_for('login'), title='Login')
+        return redirect(url_for('login'))
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -62,6 +62,7 @@ def login():
         if pbkdf2_sha256.verify(form_password, user_password):
             session['logged-in'] = True
             session['username'] = user['username']
+            session['userId'] = user._id
             session['email'] = email
             session['usertype'] = user['type']
         else:
@@ -124,24 +125,38 @@ def vote(direction, element):
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("beerceller.html", title='Can share')
+    return render_template("beerceller.html",
+                           title='Can share',
+                           background='background_image_nonlogedin_landing')
 
 
 @app.route('/homeLoggedIn')
 @check_logged_in
 def homeLoggedIn():
-    # if session['usertype']: return admin panel,
-    results = list(mongo.db.cansAndBottleInfo.find())
-    for res in results:
-        beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type'])})
-        res['beer_name'] = beer_type['type']
-        # average = calculate(res['_id'])for each results call the calulate function and pass in the can_id
-        # res['average'] = average
-    return render_template("beerceller_loggedin.html",
-                           caninfo=results,
-                           background='background_image_landing',
-                           username=session['username'],
-                           title='Can Share')
+    if session['usertype'] == 'admin':
+        # if session['usertype']: return admin panel,
+        results = list(mongo.db.cansAndBottleInfo.find())
+        for res in results:
+            beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type'])})
+            res['beer_name'] = beer_type['type']
+            # average = calculate(res['_id'])for each results call the calulate function and pass in the can_id
+            # res['average'] = average
+        return render_template("beerceller_loggedin_admin.html",
+                               caninfo=results,
+                               username=session['username'],
+                               title='Can Share Admin')
+    else:                       
+        results = list(mongo.db.cansAndBottleInfo.find())
+        for res in results:
+            beer_type = mongo.db.type.find_one({'_id': ObjectId(res['beer_type'])})
+            res['beer_name'] = beer_type['type']
+            # average = calculate(res['_id'])for each results call the calulate function and pass in the can_id
+            # res['average'] = average
+        return render_template("beerceller_loggedin.html",
+                               caninfo=results,
+                               background='background_image_landing',
+                               username=session['username'],
+                               title='Can Share')
 
 
 @app.route('/can_info/<can_id>')
@@ -163,17 +178,19 @@ def help():
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title='About')
+    return render_template('about.html', title='About',
+                           background='background_image_about')
 
 
 @app.route('/topshelf')
 def topshelf():
-    return render_template('topshelf.html', title='Top Shelf')
-
-
+    return render_template('topshelf.html', title='Top Shelf',
+                           background='background_image_topshelf')
+                           
 @app.route('/friends')
 def friends():
-    return render_template('friends.html', title='Friends')
+    return render_template('friends.html', title='Friends',
+                           background='background_image_friends')
 
 
 # CREATE
@@ -229,8 +246,14 @@ def edit_beer(can_id):
         return redirect(url_for('homeLoggedIn'))
 
 
+@app.route('/delete_can/<can_id>')
+def delete_can(can_id):
+    mongo.db.cansAndBottleInfo.remove({'_id': ObjectId(can_id)})
+    return redirect(url_for('homeLoggedIn'))
+
+
 """
-@app.route('/delete_task/<task_id>')
+@app.route('/delete_can/<task_id>')
 def delete_task(task_id):
     mongo.db.tasks.remove({'_id': ObjectId(task_id)})
     return redirect(url_for('get_tasks'))

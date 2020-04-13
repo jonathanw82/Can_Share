@@ -71,6 +71,19 @@ body{
 .passwordinputbox{
     margin-bottom: 8px;
 }
+
+.background_image_nonlogedin_landing{
+    background-image: url(https://t4.ftcdn.net/jpg/03/04/07/55/240_F_304075538_jAZyvUPQSt8GH1JmK4jhktscefN4PLZy.jpg);                          /*https://t4.ftcdn.net/jpg/03/04/07/55/240_F_304075538_jAZyvUPQSt8GH1JmK4jhktscefN4PLZy.jpg https://t4.ftcdn.net/jpg/01/57/98/71/240_F_157987167_5Hgank9ATirUpZXzx3MTtOaoxT8VTF6O.jpg url('/static/images/glasses.jpg');*/
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    position: absolute;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
 /************ Nav Bar  ***************/
 
 .navbarstyle{
@@ -294,6 +307,20 @@ body{
 }
 
 /********************** Friends **********************/
+/*
+.background_image_friends{
+    background-image: url(https://t4.ftcdn.net/jpg/03/21/50/07/240_F_321500775_ntmX1RhdvVd3soBP1bxaAwXNcIgQGJVu.jpg);                          /* url('/static/images/glasses.jpg');*/
+    /*
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    position: absolute;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+*/
 .friends_heading{
     text-align: center;
     font-size: 2rem;
@@ -308,6 +335,40 @@ body{
     text-align: center;
     margin: auto;
     padding-bottom: 20px;
+}
+/********************** About ************************/
+
+.background_image_about{
+    background-image: url(https://t4.ftcdn.net/jpg/03/21/50/07/240_F_321500775_ntmX1RhdvVd3soBP1bxaAwXNcIgQGJVu.jpg);                          /* url('/static/images/glasses.jpg');*/
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    position: absolute;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+/********************* Top Shelf **********************/
+
+.background_image_topshelf{
+    background-image: url(https://t4.ftcdn.net/jpg/02/65/66/25/240_F_265662593_tNvQSD0Y0n2BF7Azeczh4M1qYXaPaptK.jpg);                          /* url('/static/images/glasses.jpg');*/
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    position: absolute;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+/****************** delete modal *********************/
+
+.delete-modal-warning-image{
+    width: 25%;
+
 }
 
 /****************** Media Queries**********************/

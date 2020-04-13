@@ -17,7 +17,7 @@
 			<h3>SignUp Here:</h3>
 		<div>
 			<label>Username</label><br>
-			<input type="text" name="userid" required>
+			<input type="text" name="username" required>
         </div>
 		<div>
 			<label>Email</label><br>
@@ -32,7 +32,8 @@
                 <option value="user">User</option>
         </select>
         <div>
-	        <button type="submit" class="btn btn-primary form-button " value="register">SignUp!</button>
+	        <button type="submit" class="btn btn-primary form-button" value="register">SignUp!</button>
+            <a type="button" class="btn btn-primary" href="{{url_for ('home')}}">Back</a>
         </div>    
 	</form>
 

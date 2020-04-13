@@ -1,5 +1,5 @@
 <h1 align="center">
-   <a href="" target="_blank"><img src="" alt="logo image"/></a>
+   <a href="https://jonathanw82-canshare.herokuapp.com/" target="_blank"><img src="" alt="logo image"/></a>
  </h1>
  
 <div align="center">
@@ -185,6 +185,9 @@ favicon.ioc
 Unknone artist
 https://www.clipart.email/download/19281353.html
 
+
+Warning sign
+http://clipart-library.com/clipart/zcX5k7Lni.htm
 
 
 Parts of the Deployment Section Written by myself and,  
