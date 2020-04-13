@@ -1,26 +1,9 @@
 {% extends 'base.html' %}
-{% block navlogin %} 
-<a class="navbar-brand" href="{{url_for ('homeLoggedIn')}}">Can Share</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-                </button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-
-					<a class="nav-item nav-link active" href="{{url_for ('homeLoggedIn')}}">Home
-						<span class="sr-only">(current)</span></a>
-					<a class="nav-item nav-link" href="{{url_for ('topshelf')}}">Topshelf</a>
-					<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
-					<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
-					<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
-					<a class="nav-item nav-link" href="{{url_for ('logout')}}">Logout</a> 
-
-{% endblock %}
 {% block content %}
 
-<div>
-	<h2 class="addbeerPageTitle">Edit your Brew!</h2>
-	<form form action="{{url_for('edit_beer', can_id=the_can._id)}}" method="POST">
+<div class="container-fluid">
+	<form form class='addbeer-form' action="{{url_for('edit_beer', can_id=the_can._id)}}" method="POST">
+		<h2 class="addbeerPageTitle">Edit your Brew!</h2>
 		<div>
 			<label >Beer Name</label>
 			<input type="text" class="form-control" name="name" id="name" required value="{{the_can.name}}">
@@ -31,10 +14,10 @@
             </div>
 				<div>
 					<label >Type of Beer</label><br>
-                    <!-- The for loop popultaes the drop down menu so the user can select what type of beer they are editing the if statement 
+					<!-- The for loop popultaes the drop down menu so the user can select what type of beer they are editing the if statement 
                     looks to see it the type._id (the id asociated with the type of beer) is the same as the selected beer if so display that selected beer if
                     not then disaply the list for selection)-->
-                        <select class="dropdown-typeselect-button" name="beer_type" >
+					<select class="dropdown-typeselect-button type_select" name="beer_type" >
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
                             {% for type in varietyofbeer %} 
                                 {%  if type._id == the_can.beer_type  %}           		
@@ -44,10 +27,10 @@
                                 {% endif %}
                             {% endfor %}
                         </select>
-				    </div>
-				    <div>
-					    <label >ABV</label><br>
-                        <select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
+				</div>
+				<div>
+					<label >ABV</label><br>
+					<select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
                         <option class="dropdown-item" value="abv" disabled >Select ABV</option> 
                             {% for abv in abvnumber %}   
                                  <!-- the_can.abv has to be converted to a float rather than a string and the abv has to be divided by 10 
@@ -59,30 +42,30 @@
                                 {% endif %}     
                             {% endfor %}          		
                         </select>
-                </div>
-					    <label >Vegan Friendly?</label>
-                      <div class="custom-control custom-switch">
-                      <!-- this if stament is a truthy it returns if the vegan is selected its true so it shows the selected chackbox, if false it 
+				</div>
+				<label >Vegan Friendly?</label>
+				<div class="custom-control custom-switch vegan-switch-icon">
+					<!-- this if stament is a truthy it returns if the vegan is selected its true so it shows the selected chackbox, if false it 
                       displays the unchecked checkbox -->
-                            {% if the_can.vegan %}
-                                <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch"checked>
-                                <label class="custom-control-label" for="vegan-switch">Yes</label>
-                            {% else %}
-                                <input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch">
-                                <label class="custom-control-label" for="vegan-switch">Yes</label>
-                            {% endif %}
+					{% if the_can.vegan %}
+					<input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch"checked>
+					<label class="custom-control-label vegan-switch-icon" for="vegan-switch">Yes</label>
+					{% else %}
+					<input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch">
+					<label class="custom-control-label vegan-switch-icon" for="vegan-switch">Yes</label>
+					{% endif %}
+				</div>
+				<div>
+					<label >Hop Varietys</label>
+					<input type="text" class="form-control" name="hop_type" id="hop_type" value="{{the_can.hop_type}}">
                     </div>
 					<div>
-						<label >Hop Varietys</label>
-						<input type="text" class="form-control" name="hop_type" id="hop_type" value="{{the_can.hop_type}}">
-                    </div>
-						<div>
 						<label >Malts</label>
 						<input type="text" class="form-control" name="malts" id="malts" value="{{the_can.malts}}">
-                </div>
-					<div>
-                        	<label >Average Price</label><br>
-                                <select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required>
+                        </div>
+						<div>
+							<label >Average Price</label><br>
+							<select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required>
                                 <option class="dropdown-item"  disabled  >Select Price</option> 
                             {% for priceofbeer in price %}
                              <!-- the_can.abv has to be converted to a float rather than a string and the abv has to be divided by 10 
@@ -94,24 +77,29 @@
                                 {% endif %}
                             {% endfor %}          		
                         </select>
-                </div>
-					<div>
-						<label >Where can i buy it?</label>
-						<input type="text" class="form-control" name="where_bought" id="where_bought" value="{{the_can.where_bought}}">
-                </div>
-					<div>
-						<label >Image URL</label> <a href="{{url_for ('help')}}" target="_blank">For help click here</a>
-						<input type="text" class="form-control" name="image_url" id="image_url" required value="{{the_can.image_url}}">
-                </div>
-					<div class="form-group">
-						<label for="exampleFormControlTextarea1">Tell us about it?</label>
-						<textarea class="form-control" id="review" name="review" rows="3" value="{{the_can.review}}">{{the_can.review}}</textarea>
-					</div>
-					<div>
-					
-                        <button class="btn btn-primary" type="submit" role="button">Done</button>
-						<a class="btn btn-primary" href="{{url_for ('homeLoggedIn')}}" role="button">Cancel</a>
-				    </div>
+						</div>
+						<div>
+							<label >Where can i buy it?</label>
+							<input type="text" class="form-control" name="where_bought" id="where_bought" value="{{the_can.where_bought}}">
+                            </div>
+							<div>
+								<label >Image URL</label> <a href="{{url_for ('help')}}" target="_blank">For help click
+									here</a>
+								<input type="text" class="form-control" name="image_url" id="image_url" required value="{{the_can.image_url}}">
+                                 </div>
+								<div class="form-group">
+									<label for="exampleFormControlTextarea1">Tell us about it?</label>
+									<textarea class="form-control" id="review" name="review" rows="3" value="{{the_can.review}}">{{the_can.review}}</textarea>
+								</div>
+								<div>
+									<div class="row form-but-row">
+										<div class="form-button-position">
+											<button class="btn btn-primary" type="submit" role="button">Done</button>
+											<a class="btn btn-primary" href="{{url_for ('homeLoggedIn')}}"
+												role="button">Cancel</a>
+										</div>
+									</div>
+								</div>
 	</form>
 </div>
 

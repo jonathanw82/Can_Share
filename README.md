@@ -13,38 +13,12 @@ quality beer in a shoddy can or a shoddy beer in a quality can then after trying
 
 The site is directed at Beer lovers and hobbyists rather than businesses.
 
-When the user firsts hits the landing page they are presented with a welcome message and information asking the user to login, 
-while being able to view an array of cans or bottles other users have previously added, at this point the user can see a ratings number that other users 
-have left and also click on an info button on each can to see more information about the particular beverage.
-Other navigation available at this point is Top shelf, about, help and login.
-
-## TopShelf 
-Displays the best and worst beers as rated by other users.
-
-
-## About
-A little of history of the can share and how it came about and why the website was created in the first place.
-Help
-The help page is linked to throughout the site, not just by the navigation bar but through small links next to things the user may find no fully understand at first glance.
-Information on how to login, create and update beers, whether there beer is vegan friendly and how to add an image to their newly created beer.
-The page also has links to Wikipedia to all different types of beer. Followed by a quiet section as the bottom where users having trouble with alcohol can find link to help pages such as DrinkAware and Alcoholics Anonymous.
-
-## Friends
-Links to producers of great craft beer.
-
-Once the user has created an account as a user, they will be able to log in.
-They will have more options available to them, add your can button will be available in the middle of the screen where the welcome message was once located also the array of cans will have an extra option of edit.
-When the add can button is pressed the user will be taken to the brew your own page where a form is available to add the details of their own beer and include a link to an image of the label or can via a URL then submit the form by the add button or be redirected to the home page via the cancel button.
-
-
-The site will have an Admin user 
-This is the only user that can delete beers.
-
 
 #### The users goals of this website are:
 * Rate beers and create, update, and delete beers.
 * Clearly displaying Can logo art and credentials.
 * Easy to navigate. 
+
 
 #### The Business potentials of this website are:
 * Selling advertising space to businesses with beer related products.
@@ -54,6 +28,7 @@ This is the only user that can delete beers.
 * Their favorite beers.
 * Ideas of what to try next.
 
+
 #### This Website is the best way to help them achieve these things because:
 * Other websites are too cluttered and hard to navigate.
 * The user is able to create a login.
@@ -61,26 +36,58 @@ This is the only user that can delete beers.
 * The user can rate other can that they may have had in the past.
 * Other websites fail to have links to places to purchase the product.
 
+
 #### This website is:
 * Uncluttered and has an intuitive search process.
 * Providing clear artwork and and details of each can.
 
-## Features:
 
-* 
- ## installed packages
- pip3 install numpy
+## Features:
+* All pages have a navigation bar across the top with witrh liks to topshelf, help, about, and friends login, howver if you are login the login turns to logout.
+* The landing page as call to action button to add a beer, Create.
+* The beer cellar displays the content of the database, Read.
+* The dispalay cards have an edit button to edit the contents, Update
+* The admin login beer cellar apage has the delete button, Delete
+ 
 
 #### Home
+The landing page fist has a warning box popup with 2 call to action button one 
+will clear the message the other will redirect you back to google. after box close 
+in the middel of the screen is a welcome message and canshare logo and a login box the login box also has a link to the signup page and a call to action login button. whe th sign up 
+button is pressed the you are greeted with the sign up page all features are the same as landing page though the signup form center screen has 3 inputs username, email, password and 2 call to action
+buttons sign up and back that takes you to the loginpage, after signing up you will be redirected to the login page, once logged in you are met with the the main beer cellar.
 
+#### Beer Cellar
+The beer cellar has navigation across the top, logo centertop call to action button for adding you own beers and cards with pre added cans each card has image top vegan or not vegan image overlay on top of card, beer name, brand beer type and abv,
+on the lower section there is 2 call to action buttons info and edit each take you ro respective places.
+The administator in th only person that can delete cards as a third button will appear with delete.
 
-#### Hall of Fame
+#### Add Beer 
+Once the add you can button is pressed you are taken to Brew your own page, navigation var across the top with a form center with input beer name, brand hops variety, mals, where can i buy it image url input and a link to the help page that opens in a separate 
+browser tab and tell us about it, the form also containe 3 dropdown menues with types of beer, abv and average price also a switch style checkbox for wether or not its vegan with a link to the help age that opens in a sparete browser tab, followed by 2 call to 
+action buttons submit and cancel. On clicking add the can is added to the database and you are redircted to beer cellar, cancel will also redirect to beer cellar but without submitting the form.
+
+#### Edit beer
+Edit beer is the same as the add beer page however the fields contain the previouse selections for the orinially added items.
+
+#### Info 
+The info page contain the image to the left and respective data about the particulat product toy rh right with a call to action buton below that take you back to the beer cellar.
+
+#### TopShelf
+Navigation across the top, logo center top and the highest rated can card diaplayed in the middle.
 
 
 #### Help
-
+Navigation across the top, heading middle top and infomation below about how to add a can, is my beer vegan, how to edit a can, how to add a link to images and urls for mobile and desktop.
+The bage also has links to wikapedia on different types of beer. Followed by links to self help such as drink aware and alchholica anonymouse. 
+The help page is linked to throughout the site, not just by the navigation bar but through small links next to things the user may find no fully understand at first glance.
 
 #### About
+A little of history of the can share and how it came about and why the website was created in the first place.
+
+
+#### Friends
+Links to producers of great craft beer.
 
 
 ### Technology’s used will include:
@@ -110,13 +117,11 @@ This is the only user that can delete beers.
 
 ### Nice to have: 
 These features may be included in future releases of this application.
-
 * A dashboard for admin to create and edit new collections for database manipulation. 
-
+* A search feature to users can select what type of beers they see.
 
 
 ## Testing:
-
 * 
 
 ### Limitations & on going fixes:
@@ -157,13 +162,17 @@ original master from the original repository.
 
 How to deploy from Heroku
 To deploy from Heroku, first sign up to do this go to https://www.heroku.com/
-And click the sign up button to right and fill out the form to create a new account and select Python as the development language. You will be sent a confirmation email once the link in the email has been clicked you will be prompted to input a password after the account is set up.
+And click the sign up button to right and fill out the form to create a new account and select Python as the development language. 
+
+You will be sent a confirmation email once the link in the email has been clicked you will be prompted to input a password after the account is set up.
 Once all setup and logged in click on the create new app button, then give your project a name using hyphens instead of spaces the name has to be unique as Heroku has thousands of apps and they cannot have the same name, select your region and select create app.
 You are then presented with a dashboard with listings of command lines for use in a bash command line.
+
 Form your workspace of choice open the command line and install Heroku depending on workspace pip3 install Heroku, once installed, type in Heroku login -I  then enter your email and password you set Heroku up with. It will then state you are logged in. At this point type in Heroku apps this will give you a list of the apps you created earlier. We will now need to push our files to Heroku to be deployed or our live version.
 To do this is in Heroku go to then click on the app you created earlier then select settings, under app information you will see Heroku git URL copy the url, in the bash command line in the work space of choice type (Heroku git:remote –a jonathanw82-canshare) at this point you need to push all your data up to Heroku to do this type (git add .) then (git commit –m “deploy to Heroku”) then (git push –u Heroku master ) this will take a few minutes to push all the data to Heroku
 We then need to setup a web process to do this at the command prompt type (heroku ps:scale web=1) after this our web process will be running we will now need to set up some config Vars in heroku, go back to heroku go to settings click reveal config vars, ther will be a few things to add here first setup IP so in the box that says Key type IP and in the value box type 0.0.0.0 click add then do the same but type PORT and set that to 5000 click add the last step is to add the data from env.py file so type MONGO_URI into the key box and in the value box paste the mongo_uri link.
 Then click more top right hand side of page and select restart all dynos the application will now be deployed.
+
 If a message pops up stating there may be some down time when until the restart has finished click OK.
 Under the settings tab in Heroku scroll down to domains and your link will be displayed there it can be used to access the liver version of the application.
 
