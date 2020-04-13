@@ -1,5 +1,5 @@
 <h1 align="center">
-   <a href="https://jonathanw82-canshare.herokuapp.com/" target="_blank"><img src="" alt="logo image"/></a>
+   <a href="https://jonathanw82-canshare.herokuapp.com/" target="_blank"><img src="static/images/repoimage.jpg" alt="logo image"/></a>
  </h1>
  
 <div align="center">
@@ -184,6 +184,11 @@ The Photos used in this site were obtained from
 favicon.ioc
 Unknone artist
 https://www.clipart.email/download/19281353.html
+
+
+Repository Image 
+Photo by Christin Hume on Unsplash
+https://unsplash.com/photos/08tX2fsuSLg
 
 
 Warning sign
