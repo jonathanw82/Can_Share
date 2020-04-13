@@ -5,9 +5,10 @@ body{
      font-weight: 900;
 }
 
-.helpPageTitle{
-    
+body h1,h2,h3,h4,h5,h6{
+    font-weight: 900;
 }
+
 /********* Warning modal ***********/
 .modal-waring-image{
     width: 25%;   
@@ -258,7 +259,6 @@ body{
 }
 
 .addbeer-form{ 
-    z-index: 50;
     color: #fff;
     background-color: rgba(60,60,60,0.9);
     width: 60%;
@@ -267,6 +267,7 @@ body{
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    border-radius: 15px;
 } 
 
 .addbeer-form, label{
@@ -364,11 +365,64 @@ body{
     min-height: 100vh;
 }
 
+/******************** Help Page **********************/
+.help-box{
+    color:#fff;
+    background-color: rgba(60,60,60,0.9);
+    width: 60%;
+    height: auto; 
+    padding: 30px; 
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    font-family: sans-serif;
+    font-weight:500;
+}
+
+.help-box h5 h3{
+    font-weight: 400;
+}
+
+/******************* About Page **********************/
+
+.about-box{
+    color: #fff;
+    background-color: rgba(60,60,60,0.9);
+    width: 60%;
+    height: auto; 
+    padding: 30px; 
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+.about-box{
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+/****************** Hidden modal *********************/
+.eastereggbody{
+    width: 100%;
+}
+
+.easter-egg:hover{
+    cursor: help;
+}
+
 /****************** delete modal *********************/
 
 .delete-modal-warning-image{
     width: 25%;
+}
 
+.names-hidden{
+    color: #fff;
+    display: flex;
+    justify-content:center   
 }
 
 /****************** Media Queries**********************/
@@ -378,6 +432,7 @@ body{
     width: 50%;  
 }
 }
+
 @media only screen and (max-width: 1024px){
 .addbeerbutton{
     width: 40%;  
@@ -400,7 +455,6 @@ body{
 .loginbox{
     width: 50%;
 }
-
 }
 
 @media only screen and (max-width: 756px) {   /*mobile view*/
@@ -415,6 +469,10 @@ body{
 
 .loginbox{
     width: 50%;
+}
+
+.help-box{
+    width: 80%;
 }
 }
 
@@ -443,6 +501,14 @@ body{
 .welcome-maessage{
     font-size: 1.3rem;
 }
+
+.about-box{
+    width:80%;
+}
+
+.help-box{
+    width: 90%;
+}
 }
 
 @media only screen and (max-width: 320px){
@@ -469,5 +535,9 @@ body{
 
 .welcome-maessage{
     font-size: 1rem;
+}
+
+.about-box{
+    width: 95%;
 }
 }
