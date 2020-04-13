@@ -121,3 +121,50 @@ function vote(direction, element) {
     # if results[rating] != results update ratings =0 reuturn the name of the icon that needs to be checked
 
 """
+
+
+  if request.method == 'POST':
+        # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
+        cans = mongo.db.cansAndBottleInfo
+        form = request.form.to_dict()
+        form['beer_type'] = ObjectId(form['beer_type'])
+        cans.insert_one(form)
+        return redirect(url_for('homeLoggedIn'))
+
+        cans.insert_one({
+                        'name': request.form['name'],
+                        'brand': request.form['brand'],
+                        'beer_type': ObjectId(request.form['beer_type']),
+                        'abv': request.form['abv'],
+                        'vegan': request.form['vegan'],
+                        'hop_type': request.form['hop_type'],
+                        'malts': request.form['malts'],
+                        'average_price': request.form['average_price'],
+                        'where_bought': request.form['where_bought'],
+                        'image_url': request.form['image_url'],
+                        'review': request.form['review'], 
+                        'ownerid': owner,
+                        })
+
+
+
+
+
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template('beerceller.html')
+    elif request.method == "POST":
+        email = request.form['email']
+        user = mongo.db.users.find_one({'email': email})    # if else statment to check if a user is regitsered or not if not redidrect
+        user_password = user['password']
+        form_password = request.form['password']
+        if pbkdf2_sha256.verify(form_password, user_password):
+            session['logged-in'] = True
+            session['username'] = user['username']
+            session['email'] = email
+            session['usertype'] = user['type']
+        else:
+            return render_template(url_for('loginerror.html'))
+        return redirect(url_for('homeLoggedIn'))
+        # return render_template('beerceller_loggedin.html', user_type=session['username'])                        

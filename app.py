@@ -27,7 +27,7 @@ def check_logged_in(func):
         if 'logged-in' in session:
             return(func(*args, **kwargs))
         else:
-            return render_template('nologin.html')
+            return render_template('beerceller.html')
     return wrapped_function
 
 
@@ -55,20 +55,28 @@ def login():
     if request.method == "GET":
         return render_template('beerceller.html')
     elif request.method == "POST":
+        """ Check to see if the Email & password are correct """
+
         email = request.form['email']
-        user = mongo.db.users.find_one({'email': email})    # if else statment to check if a user is regitsered or not if not redidrect
-        user_password = user['password']
-        form_password = request.form['password']
-        if pbkdf2_sha256.verify(form_password, user_password):
-            session['logged-in'] = True
-            session['username'] = user['username']
-            session['userId'] = user._id
-            session['email'] = email
-            session['usertype'] = user['type']
+        user = mongo.db.users.find_one({'email': email})
+        if user:
+            user_password = user['password']
+            form_password = request.form['password']
+            if pbkdf2_sha256.verify(form_password, user_password):
+                session['logged-in'] = True
+                session['username'] = user['username']
+                session['email'] = email
+                session['usertype'] = user['type']
+                return redirect(url_for('homeLoggedIn'))
+            else:
+                return redirect(url_for('loginerror'))
         else:
-            return render_template(url_for('loginerror.html'))
-        return redirect(url_for('homeLoggedIn'))
-        # return render_template('beerceller_loggedin.html', user_type=session['username'])
+            return redirect(url_for('loginerror'))
+
+
+@app.route('/loginerror')
+def loginerror():
+    return render_template('loginerror.html')
 
 
 @app.route('/logout')
@@ -212,7 +220,7 @@ def add_beer():
         cans.insert_one(form)
         return redirect(url_for('homeLoggedIn'))
 
-
+ 
 # UPDATE
 @app.route("/edit_beer/<can_id>", methods=['GET', 'POST'])
 @check_logged_in
@@ -250,14 +258,6 @@ def edit_beer(can_id):
 def delete_can(can_id):
     mongo.db.cansAndBottleInfo.remove({'_id': ObjectId(can_id)})
     return redirect(url_for('homeLoggedIn'))
-
-
-"""
-@app.route('/delete_can/<task_id>')
-def delete_task(task_id):
-    mongo.db.tasks.remove({'_id': ObjectId(task_id)})
-    return redirect(url_for('get_tasks'))
-"""
 
 
 if __name__ == '__main__':

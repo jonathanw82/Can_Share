@@ -1,60 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
 <div container-fluid>
-<div class="col-sm-12 herologo">
-	<img class="cellarlogo" src="/static/images/can-share.png" alt="can share image">
+	<div class="col-sm-12 herologo">
+		<img class="cellarlogo" src="/static/images/can-share.png" alt="can share image">
     </div>
-	<div class="col-sm-12 wellcomename">
-		<h3 class="welcome-maessage">Welcome to Can Share to get started please login to view, rate and add your own
-			beers!
-		</h3>
+		<div class="col-sm-12 wellcomename">
+			<h3 class="welcome-maessage">Welcome to Can Share to get started please login!</h3>
+		</div>
+		<div class="col-sm-12 loginbox">
+			<form method="POST" action="{{url_for('login')}}">
+				<h3>LogIn:</h3>
+				<div>
+					<label>Email</label><br>
+					<input type="email" name="email" required>
+                </div>
+				<div>
+					<label>Password</label><br>
+					<input class="passwordinputbox" type="password" name="password" required>
+                </div>
+					<button type="submit" class="btn btn-primary form-button">Login</button>
+			</form>
+			<h5>Not a member no worries signup here: <a href="{{url_for ('register')}}">SignUp!</a></h5>
+		</div>
 	</div>
-
-
-<div class="col-sm-12 loginbox">
-	<form method="POST" action="{{url_for('login')}}">
-		
-			<h3>LogIn:</h3>
-		
-		<div>
-			<label>Email</label><br>
-			<input type="email" name="email" required>
-        </div>
-		<div>
-			<label>Password</label><br>
-			<input class="passwordinputbox" type="password" name="password" required>
-        </div>
-			<button type="submit" class="btn btn-primary form-button">Login</button>
-	</form>
-		<h5>Not a member no worries signup here: <a href="{{url_for ('register')}}">SignUp!</a></h5>
-</div>
-</div>
-<!-- More info Modal -->
-<div class="modal fade" id="agewarning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<div class="row">
-					<div class="modalimagebox">
-						<img class="modal-waring-image" src="static/images/18.png" alt="over 18 warning">
-						<h5 class="card-title">Thanks for paying us a visit</h5>
-						<p>You must be 18 years of age to enter this site.</p>
-						<p>Please enjoy responsibly.</p>
+	<!-- More info Modal -->
+	<div class="modal fade" id="agewarning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="row">
+						<div class="modalimagebox">
+							<img class="modal-waring-image" src="static/images/18.png" alt="over 18 warning">
+							<h5 class="card-title">Thanks for paying us a visit</h5>
+							<p>You must be 18 years of age to enter this site.</p>
+							<p>Please enjoy responsibly.</p>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6 warning_modal_buttons">
-						<button type="button" class="btn modal-button" data-dismiss="modal">Enter Site!</button>
-					</div>
-					<div class="col-sm-6 warning_modal_buttons">
-						<a type="button" class="btn modal-button" href="https://www.google.co/">Under 18?</a>
+					<div class="row">
+						<div class="col-sm-6 warning_modal_buttons">
+							<button type="button" class="btn modal-button" data-dismiss="modal">Enter Site!</button>
+						</div>
+						<div class="col-sm-6 warning_modal_buttons">
+							<a type="button" class="btn modal-button" href="https://www.google.co/">Under 18?</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<script src="static/js/onload.js"></script>
-{% endblock %}
+	<script src="static/js/onload.js"></script>
+	{% endblock %}
