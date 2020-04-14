@@ -1,55 +1,38 @@
 {% extends 'base.html' %}
-{% block navlogin %}
-<a class="navbar-brand" href="{{url_for ('homeLoggedIn')}}">Can Share</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-                </button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-	<div class="navbar-nav">
+{% block content %}
 
-		<a class="nav-item nav-link active" href="{{url_for ('homeLoggedIn')}}">Home
-			<span class="sr-only">(current)</span></a>
-		<a class="nav-item nav-link" href="{{url_for ('topshelf')}}">Topshelf</a>
-		<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
-		<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
-		<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
-		<a class="nav-item nav-link" href="{{url_for ('logout')}}">Logout</a>
-
-		{% endblock %}
-		{% block content %}
-
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-12"></div>
-				<h2 class="addbeerPageTitle">Inspect Your Selection</h2>
-			</div>
-			<div class="row">
-				<div class='col-sm-4'>
-					<img src="{{caninfo.image_url}}" class="card-img-top canimage" alt="Image of Can">
-            </div>
-					<div class='col-sm-8'>
-						<h5>{{caninfo.name}}</h5>
-						<h6>{{caninfo.brand}}</h6>
-						<h6>{{beer_type.type}}</h6>
-						{% if caninfo.vegan == 'on'%}
-						<img class="vegan_icon_info" src="/static/images/vegan.png">
+<div class="container-fluid beer-info-box">
+	<div class="row can-info-heading">
+		<div class="col-sm-12 "></div>
+		<h2>Inspect Your Selection</h2>
+	</div>
+	<div class="row">
+		<div class='col-lg-4 info-pic'>
+            {% if caninfo.vegan == 'on'%}
+			<img class="vegan_icon_info" src="/static/images/vegan.png">
 	        {% else %}
-						<img class="vegan_icon_info" src="/static/images/veganno.png">
+			<img class="vegan_icon_info" src="/static/images/veganno.png">
 	        {% endif %}
-						<h6>{{caninfo.hop_type}}</h6>
-						<h6>{{caninfo.malts}}</h6>
-						<h6>{{caninfo.average_price}}</h6>
-						<h6>{{caninfo.where_bought}}</h6>
-						<h6>ABV: {{caninfo.abv}}</h6>
-						<h6>{{caninfo.review}}</h6>
-					</div>
-				</div>
-				<div class="row">
-					<div class='col-sm-12'>
-						<h5>Tell us what you think?</h5>
-					</div>
-				</div>
-				<a class="btn btn-primary" href="{{url_for ('homeLoggedIn')}}" role="button">Back</a>
-			</div>
+			<object class="canimage-info" data="{{caninfo.image_url}}" type="image/jpg">
+				<img src="/static/images/noimage.jpg" class="canimage-info" alt="can image"></object>
+		</div>
+		<div class='col-lg-8'>
+			<h5>{{caninfo.name}}</h5>
+			<h6>{{caninfo.brand}}</h6>
+			<h6>{{beer_type.type}}</h6>
+			<h6>ABV: {{caninfo.abv}}</h6>
+			<h6>Type of hops: {{caninfo.hop_type}}</h6>
+			<h6>Type of Malts: {{caninfo.malts}}</h6>
+			<h6>Average Price: {{caninfo.average_price}}</h6>
+			<h6>Where Can I Get It From? {{caninfo.where_bought}}</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class='col-sm-12'>
+			<h6>{{caninfo.review}}</h6>
+		</div>
+	</div>
+	<a class="btn btn-primary" href="{{url_for ('homeLoggedIn')}}" role="button">Back</a>
+</div>
 
-			{% endblock %}
+{% endblock %}
