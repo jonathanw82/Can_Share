@@ -232,7 +232,7 @@ body h1,h2,h3,h4,h5,h6{
 .canimage{
     width: 100%;
     height: 255px;
-    object-fit: cover;  
+    object-fit: cover;
 }
 
 .background_image_landing{
@@ -259,6 +259,10 @@ body h1,h2,h3,h4,h5,h6{
     min-height: 100vh;
 }
 
+.admin-thumb-box{
+    justify-content: center;
+    margin-top: 5px;
+}
 /******************* Add beer form *******************/
 
 .addbeerPageTitle{

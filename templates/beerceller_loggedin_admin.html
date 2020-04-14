@@ -17,8 +17,11 @@
 		{% for cans in caninfo %}
 		<div class="col-lg-3  can-cards">
 			<div class="card">
-				<img src="{{cans.image_url}}" class="card-img-top canimage" alt="Image of Can">
-             {% if cans.vegan == 'on'%}
+				<!-- Object wrappes the image to ensure thst if the image url fails an image in included-->
+				<a href="{{url_for ('can_info', can_id=cans._id)}}">
+					<object class="canimage" data="{{cans.image_url}}" type="image/jpg">
+				<img src="/static/images/noimage.jpg" class="card-img-top canimage" alt="can image"></object></a>
+				{% if cans.vegan == 'on'%}
 				<img class="vegan_icon" src="/static/images/vegan.png">
 			{% else %}
 				<img class="vegan_icon" src="/static/images/veganno.png">
@@ -32,20 +35,27 @@
 					<li class="list-group-item">ABV: {{cans.abv}}</li>
 				</ul>
 				<div class="card-body">
-					<a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}" role="button">Info</a>
-					<a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}" role="button">Edit</a>
-					<a class="btn btn-primary" data-target="#delete_modal-{{cans._id}}" data-toggle="modal" role="button">Delete</a>
-					<div class="ratings-thumbs-box">
-						<i id="{{cans._id}}" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
-						<!-- function vote(up)  maybe change get element by tag name-->
-						<Span class="ratings-cards">{{cans.ratings}}</Span>
-						<i id="{{cans._id}}" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+					<div class="col-sm-12">
+						<a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}"
+							role="button">Info</a>
+						<a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}"
+							role="button">Edit</a>
+						<a class="btn btn-primary" data-target="#delete_modal-{{cans._id}}" data-toggle="modal"
+							role="button">Delete</a>
+					</div>
+					<div class="row admin-thumb-box">
+						<div class="ratings-thumbs-box">
+							<i id="{{cans._id}}" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+							<!-- function vote(up)  maybe change get element by tag name-->
+							<Span class="ratings-cards">{{cans.ratings}}</Span>
+							<i id="{{cans._id}}" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div><!-- Delete Modal -->
-		<div class="modal fade" id="delete_modal-{{cans._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-			aria-hidden="true">
+		<div class="modal fade" id="delete_modal-{{cans._id}}" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-body">
@@ -58,7 +68,8 @@
 						</div>
 						<div class="row">
 							<div class="col-sm-6 warning_modal_buttons">
-								<a type="button" class="btn modal-button" href="{{url_for ('delete_can', can_id=cans._id)}}" >Yes</a>
+								<a type="button" class="btn modal-button"
+									href="{{url_for ('delete_can', can_id=cans._id)}}">Yes</a>
 							</div>
 							<div class="col-sm-6 warning_modal_buttons">
 								<a type="button" class="btn modal-button" href="{{url_for ('homeLoggedIn')}}">No</a>

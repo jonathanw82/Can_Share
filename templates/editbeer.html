@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="container-fluid">
-	<form form class='addbeer-form' action="{{url_for('edit_beer', can_id=the_can._id)}}" method="POST">
+	<form class='addbeer-form' action="{{url_for('edit_beer', can_id=the_can._id)}}" method="POST">
 		<h2 class="addbeerPageTitle">Edit your Brew!</h2>
 		<div>
 			<label >Beer Name</label>
@@ -21,9 +21,9 @@
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
                             {% for type in varietyofbeer %} 
                                 {%  if type._id == the_can.beer_type  %}           		
-                                    <option class="dropdown-item" value="{{type._id}}" name="{{type._id}}" selected>{{type.type}}</option>
+                                    <option class="dropdown-item" value="{{type._id}}"  selected>{{type.type}}</option>
                                 {% else %}
-                                    <option class="dropdown-item" value="{{type._id}}" name="{{type._id}}">{{type.type}}</option>
+                                    <option class="dropdown-item" value="{{type._id}}" >{{type.type}}</option>
                                 {% endif %}
                             {% endfor %}
                         </select>
@@ -36,9 +36,9 @@
                                  <!-- the_can.abv has to be converted to a float rather than a string and the abv has to be divided by 10 
                                  because of the decimal floatinmg point -->        
                                 {% if the_can.abv|float == abv / 10 %}  
-                                    <option class="dropdown-item"  name="abv" selected>{{the_can.abv}}</option>
+                                    <option class="dropdown-item"  value="{{the_can.abv}}" selected>{{the_can.abv}}</option>
                                 {% else %}
-                                    <option class="dropdown-item"  name="abv">{{abv / 10}}</option> 
+                                    <option class="dropdown-item"  value="{{abv /10}}" >{{abv / 10}}</option> 
                                 {% endif %}     
                             {% endfor %}          		
                         </select>
@@ -48,7 +48,7 @@
 					<!-- this if stament is a truthy it returns if the vegan is selected its true so it shows the selected chackbox, if false it 
                       displays the unchecked checkbox -->
 					{% if the_can.vegan %}
-					<input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch"checked>
+					<input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch" checked>
 					<label class="custom-control-label vegan-switch-icon" for="vegan-switch">Yes</label>
 					{% else %}
 					<input type="checkbox" class="custom-control-input" name="vegan" id="vegan-switch">

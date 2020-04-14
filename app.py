@@ -64,6 +64,7 @@ def login():
 
         email = request.form['email']
         user = mongo.db.users.find_one({'email': email})
+        print(user.keys)
         if user:
             user_password = user['password']
             form_password = request.form['password']
@@ -72,6 +73,7 @@ def login():
                 session['username'] = user['username']
                 session['email'] = email
                 session['usertype'] = user['type']
+                # session['userId'] = user['_id']
                 return redirect(url_for('homeLoggedIn'))
             else:
                 return redirect(url_for('loginerror'))
@@ -230,10 +232,12 @@ def add_beer():
                                background='background_image_create',
                                title='Add Beer')
     if request.method == 'POST':
+        print(request.form.to_dict())
         # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
         cans = mongo.db.cansAndBottleInfo
         form = request.form.to_dict()
         form['beer_type'] = ObjectId(form['beer_type'])
+        form['creator'] = session['userId']
         cans.insert_one(form)
         return redirect(url_for('homeLoggedIn'))
 
@@ -253,6 +257,7 @@ def edit_beer(can_id):
                                price=arange(0, 200, 1),
                                title='Edit Beer')
     if request.method == 'POST':
+        print(request.form.to_dict())
         cans = mongo.db.cansAndBottleInfo
         cans.update({'_id': ObjectId(can_id)},
                     {
@@ -260,7 +265,7 @@ def edit_beer(can_id):
                     'brand': request.form['brand'],
                     'beer_type': ObjectId(request.form['beer_type']),
                     'abv': request.form['abv'],
-                    'vegan': request.form['vegan'],
+                    'vegan': request.form.get('vegan', 'off'),
                     'hop_type': request.form['hop_type'],
                     'malts': request.form['malts'],
                     'average_price': request.form['average_price'],
