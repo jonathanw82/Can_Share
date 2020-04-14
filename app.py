@@ -38,10 +38,9 @@ def register():
     elif request.method == "POST":
         email = request.form['email']
         existing_user = mongo.db.users.find_one({'email': email})
-        username = request.form['username']  
+        username = request.form['username']
         password = request.form['password']
-        user_type = request.form['type']
-
+        user_type = 'user'
 
         if existing_user is None:
             _hash = pbkdf2_sha256.hash(password)
@@ -117,7 +116,6 @@ def vote(direction, element):
     results = mongo.db.ratings.find_one({'canId': ObjectId(element)})
     if 'canId' != 'canId':
         return 'help'
-    
 
 
 
@@ -138,7 +136,7 @@ def vote(direction, element):
                 mongo.db.ratings.remove({'_id': ObjectId(_id)})
             return 0
 """
-# else len results is not 0 means user has voted results[rating] if results[rating] == to rating 
+# else len results is not 0 means user has voted results[rating] if results[rating] == to rating
 # delete results[_id] using def delete return disable both unchecked from java
 # if results[rating] != results update ratings =0 reuturn the name of the icon that needs to be checked
 

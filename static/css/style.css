@@ -1,8 +1,8 @@
 
 
 body{
-     font-family: 'Ubuntu', sans-serif; 
-     font-weight: 900;
+    font-family: 'Ubuntu', sans-serif; 
+    font-weight: 900;
 }
 
 body h1,h2,h3,h4,h5,h6{
@@ -110,10 +110,6 @@ body h1,h2,h3,h4,h5,h6{
     margin: 30px 30px 30px 30px;
     padding: 0 0 0 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.beer-cellar-button-text{
-    
 }
 
 .addbeerbutton{
@@ -308,20 +304,11 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 /********************** Friends **********************/
-/*
+
 .background_image_friends{
-    background-image: url(https://t4.ftcdn.net/jpg/03/21/50/07/240_F_321500775_ntmX1RhdvVd3soBP1bxaAwXNcIgQGJVu.jpg);                          /* url('/static/images/glasses.jpg');*/
-    /*
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat:no-repeat;
-    position: absolute;
-    z-index: -1;
-    min-width: 100vw;
-    min-height: 100vh;
+    background-color:	#f9f1f1;
 }
-*/
+
 .friends_heading{
     text-align: center;
     font-size: 2rem;
@@ -337,6 +324,7 @@ body h1,h2,h3,h4,h5,h6{
     margin: auto;
     padding-bottom: 20px;
 }
+
 /********************** About ************************/
 
 .background_image_about{
@@ -366,10 +354,11 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 /******************** Help Page **********************/
+
 .help-box{
     color:#fff;
     background-color: rgba(60,60,60,0.9);
-    width: 60%;
+    width: 80%;
     height: auto; 
     padding: 30px; 
     margin: auto;
@@ -380,10 +369,42 @@ body h1,h2,h3,h4,h5,h6{
     font-weight:500;
 }
 
+.usure-beer{
+    text-align: center;
+}
+
 .help-box h5 h3{
     font-weight: 400;
 }
 
+.help-alco-help-heading{
+    padding-top: 10px;
+    margin-bottom: 1px;
+    background-color: gray;
+    text-align: center;
+}
+
+.help-link{
+    text-align: center; 
+    padding-bottom: 20px;
+}
+
+.help-link a{
+    color: #fff;
+}
+
+.help-link:hover{
+    color: 
+}
+
+.help-row{
+    background-color: gray;
+}
+
+.beer-links-container{
+    padding-bottom: 25px;
+    color: yellow;
+}
 /******************* About Page **********************/
 
 .about-box{
@@ -405,6 +426,7 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 /****************** Hidden modal *********************/
+
 .eastereggbody{
     width: 100%;
 }
@@ -426,6 +448,7 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 /****************** Media Queries**********************/
+
 @media only screen and (max-width: 1195px){
 
 .addbeerbutton{
@@ -434,12 +457,14 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 @media only screen and (max-width: 1024px){
+
 .addbeerbutton{
     width: 40%;  
 }
 
 .loginbox{
     width:40%;
+}
 }
 
 @media only screen and (max-width: 976px){
@@ -457,7 +482,7 @@ body h1,h2,h3,h4,h5,h6{
 }
 }
 
-@media only screen and (max-width: 756px) {   /*mobile view*/
+@media only screen and (max-width: 756px) { 
 
 .addbeerbutton{
     width: 80%;  
