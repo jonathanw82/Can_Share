@@ -27,6 +27,7 @@ The site is directed at Beer lovers and hobbyists rather than businesses.
 #### Visitors to this website are searching for:
 * Their favorite beers.
 * Ideas of what to try next.
+* Or what to avoid.
 
 
 #### This Website is the best way to help them achieve these things because:
@@ -38,7 +39,7 @@ The site is directed at Beer lovers and hobbyists rather than businesses.
 
 
 #### This website is:
-* Uncluttered and has an intuitive search process.
+* Uncluttered and has an intuitive process to add edit and view beers.
 * Providing clear artwork and and details of each can.
 
 
@@ -97,8 +98,9 @@ Links to producers of great craft beer.
 
 
 ### Technology’s used will include:
-[HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [Bootstrap](https://getbootstrap.com/), [Javascript](https://en.wikipedia.org/wiki/JavaScript), [Gitpod](https://www.gitpod.io/), [Sublime text](https://www.sublimetext.com/), [Balsamiq Mockup 3](https://balsamiq.com/wireframes/desktop/), [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html?gclid=EAIaIQobChMIzNru2Myo6AIVF-DtCh28Fgn0EAAYASAAEgKkdvD_BwE&sdid=88X75SKR&mv=search&ef_id=EAIaIQobChMIzNru2Myo6AIVF-DtCh28Fgn0EAAYASAAEgKkdvD_BwE:G:s&s_kwcid=AL!3085!3!394411736356!e!!g!!photoshop)
+[HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [Bootstrap](https://getbootstrap.com/), [Javascript](https://en.wikipedia.org/wiki/JavaScript), [Python3](https://www.python.org/),  [Gitpod](https://www.gitpod.io/), [Sublime text](https://www.sublimetext.com/), [Balsamiq Mockup 3](https://balsamiq.com/wireframes/desktop/), [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html?gclid=EAIaIQobChMIzNru2Myo6AIVF-DtCh28Fgn0EAAYASAAEgKkdvD_BwE&sdid=88X75SKR&mv=search&ef_id=EAIaIQobChMIzNru2Myo6AIVF-DtCh28Fgn0EAAYASAAEgKkdvD_BwE:G:s&s_kwcid=AL!3085!3!394411736356!e!!g!!photoshop)
 [MongoDB](https://www.mongodb.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x/) and [Heroku](https://www.heroku.com/).
+
 
 ## WireFrame Mockups & Screenshots:
 #### Desktop View:
@@ -114,11 +116,11 @@ Links to producers of great craft beer.
 - [Mobile]().
 - [Tablet]().
 
+
 #### WireFrames:
 - [DeskTop Landing page]().
 - [Mobile View]().
 - [Tablet View]().
-
 
 
 ### Nice to have: 
@@ -130,7 +132,7 @@ These features may be included in future releases of this application.
 
 MongoDB was used for this project and PyMongo is used to interact with the database.
 
-The database has a four collections named 'cansAndBottleInfo', 'Ratings', type, and users.
+The database has a four collections named 'cansAndBottleInfo', 'ratings', type, and users.
  
 ## cansAndBottleInfo
 
@@ -150,7 +152,7 @@ The database has a four collections named 'cansAndBottleInfo', 'Ratings', type, 
 | review        | String   | info about the beer                        |
 
 
-## rating
+## ratings
 
 | Field         | Type     | Description                                |
 | :------------ | :------- | :----------------------------------------- |
@@ -168,7 +170,8 @@ The database has a four collections named 'cansAndBottleInfo', 'Ratings', type, 
 | type          | String   | type of beer (EG stout, red, sour etc)     |
 
 
-                    ## users
+## users
+
 | Field         | Type     | Description                                |
 | :------------ | :------- | :----------------------------------------- |
 | \_id          | ObjectId | ID is auto-created by MongoDB              |
@@ -180,12 +183,52 @@ The database has a four collections named 'cansAndBottleInfo', 'Ratings', type, 
 
 
 ## Testing:
+**Test:** Age warning modal pops up, button under 18? redirects to google, Enter site clears modal so user as access to login
+**Result:** No errors, works as intended.
+
+**Test:** Signup link on loginbox redirects to signup page
+**Result:** No errors, works as intended.
+
 **Test:** Signup error checking, if the user tryes to signup again with the same email a message will tell the user they are already signed up 
+**Result:** No errors, works as intended.
 
-**Result**: No errors, works as intended.
+**Test:** Password error checking, if user puts incorrect email or password a message lets them know
+**Result:** No errors, works as intended.
 
-* Password error checking, if user puts incorreect email or password a message lets them know
+**Test:** login as administator gives the user the delete buttons on beer cards
+**Result:** No errors, works as intended.
 
+**Test:** login as a standard user
+**Result:** No errors, works as intended.
+
+**Test:** Add beer button takes user to add beer form, all fields, dropdowns and checkboxes that are required give feedback and links to help page open in separate browser windows.
+ All buttons add adds the can to database and redirects to beer cellar, cancel takes user back to beer cellar
+**Result:** No errors, works as intended.
+
+**Test:** Edit beer button takes user to edit beer page all fields dropdowns and checkboxes are predefined as per previouse entrys, links to help page open in separate browser windows.
+ All buttons done updates the can data to database and redirects to beer cellar, cancel takes user back to beer cellar
+**Result:** No errors, works as intended.
+
+**Test:** Info button takes user to the respective product that is selected, image and infomation is displayed, back button redirects to beer cellar.
+**Result:** No errors, works as intended.
+
+**Test:** If when added the product is vegan if checked the vegan icon is green ontop of image on card, if unchecked it has a cross in the middle
+**Result:** No errors, works as intended.
+
+**Test:** Links on navigation bar, can share top left onclick takes user to the beer cellar page, from all pages.
+**Result:** No errors, works as intended.
+
+**Test:** All other links on navigation bar take the user to the respective pages.
+**Result:** No errors, works as intended.
+
+**Test:** Links on help page all working and redirect to new browser tabs
+**Result:** No errors, works as intended.
+
+**Test:** Links on friends page all working and redirect to new browser tabs
+**Result:** No errors, works as intended.
+
+**Test:** Logout takes user to the login page
+**Result:** No errors, works as intended.
 
 ### Cross Browser Compatibility
 Tested on four Browsers
