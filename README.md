@@ -131,9 +131,9 @@ These features may be included in future releases of this application.
 MongoDB was used for this project and PyMongo is used to interact with the database.
 
 The database has a four collections named 'cansAndBottleInfo', 'Ratings', type, and users.
-<div align="center">  
+ 
 ## cansAndBottleInfo
-</div>
+
 | Field         | Type     | Description                                |
 | :------------ | :------- | :----------------------------------------- |
 | \_id          | ObjectId | ID is auto-created by MongoDB              |
@@ -150,7 +150,8 @@ The database has a four collections named 'cansAndBottleInfo', 'Ratings', type, 
 | review        | String   | info about the beer                        |
 
 
-                    ## rating
+## rating
+
 | Field         | Type     | Description                                |
 | :------------ | :------- | :----------------------------------------- |
 | \_id          | ObjectId | ID is auto-created by MongoDB              |
@@ -159,7 +160,8 @@ The database has a four collections named 'cansAndBottleInfo', 'Ratings', type, 
 | rating        | String   | Either 1 or zero                           |
 
 
-                    ## type
+## type
+
 | Field         | Type     | Description                                |
 | :------------ | :------- | :----------------------------------------- |
 | \_id          | ObjectId | ID is auto-created by MongoDB              |
