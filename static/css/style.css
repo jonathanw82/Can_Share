@@ -64,9 +64,42 @@ body h1,h2,h3,h4,h5,h6{
     border-radius: 10px;
     text-align: center;
 } 
+.loginbox form{
+    font-weight: 600;
+}
 
 .loginbox input{
     width: 90%;
+}
+
+.loginbox input:hover{
+    border: 2px solid #D95204;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+}
+
+.loginbox h5{
+    font-weight: 400;
+}
+
+.loginbox h5 a:hover{
+    color:yellow;
+    border-color: #D95436;
+    background-color: #36454f;
+    text-decoration: none;
+}
+
+.form-button-login{
+    width: 100px;
+    margin-bottom: 8px;
+    margin-top: 3px;
+}
+
+.form-button-login:hover{
+    color:yellow;
+    border-color: #D95436;
+    background-color: #36454f;
 }
 
 .passwordinputbox{
@@ -95,9 +128,25 @@ body h1,h2,h3,h4,h5,h6{
     background-color: #F3B802;
 }
 
-.navbar-nav a{
+.navbar-background a{
+    color: black;
+}
+
+.navbar-background a:hover{
+    border-bottom: 2px solid #D95204;
+}
+
+.navbar-nav{
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.navbar-nav a{
+    color: black;
+}
+
+.navbar-nav a:hover{
+    border-bottom: 2px solid #D95204;
 }
 /********* Home logged in  ***********/
 
@@ -520,7 +569,8 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 .loginbox{
-    width: 80%;
+    width: 90
+    %;
 }
 
 .welcome-maessage{

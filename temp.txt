@@ -167,4 +167,7 @@ def login():
         else:
             return render_template(url_for('loginerror.html'))
         return redirect(url_for('homeLoggedIn'))
-        # return render_template('beerceller_loggedin.html', user_type=session['username'])                        
+        # return render_template('beerceller_loggedin.html', user_type=session['username'])         
+
+
+       

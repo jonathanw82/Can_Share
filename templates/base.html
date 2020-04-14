@@ -22,7 +22,7 @@
 <body class="{{ background }}">
 	<header>       <!-- The if statment bellow looks to see if the session is logged in if the user is the navigation bar redirects to logged in homepage 
                         if not the user is redirected to the non logged in home page -->
-		<nav class="navbar navbar-expand-lg navbar-light navbar-background">
+		<nav class="navbar navbar-expand-lg navbar-background">
             {% if session['logged-in'] %}
 			<a class="navbar-brand navbarstyle" href="{{url_for ('homeLoggedIn')}}">Can Share</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

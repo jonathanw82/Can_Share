@@ -34,7 +34,8 @@ def check_logged_in(func):
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "GET":
-        return render_template('register.html')
+        return render_template('register.html',
+                               background='background_image_nonlogedin_landing')
     elif request.method == "POST":
         email = request.form['email']
         existing_user = mongo.db.users.find_one({'email': email})
@@ -80,12 +81,14 @@ def login():
 
 @app.route('/loginerror')
 def loginerror():
-    return render_template('loginerror.html')
+    return render_template('loginerror.html',
+                           background='background_image_nonlogedin_landing')
 
 
 @app.route('/loginalready')
 def loginalready():
-    return render_template('loginalready.html')
+    return render_template('loginalready.html',
+                           background='background_image_nonlogedin_landing')
 
 
 @app.route('/logout')
@@ -164,6 +167,7 @@ def homeLoggedIn():
         return render_template("beerceller_loggedin_admin.html",
                                caninfo=results,
                                username=session['username'],
+                               background='background_image_landing',
                                title='Can Share Admin')
     else:
         results = list(mongo.db.cansAndBottleInfo.find())

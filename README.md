@@ -183,7 +183,7 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 
 
 ## Testing:
-**Test:** Age warning modal pops up, button under 18? redirects to google, Enter site clears modal so user as access to login
+**Test:** Age warning modal pops up, button under 18? redirects current brower tab to google, Enter site clears modal so user as access to login
 **Result:** No errors, works as intended.
 
 **Test:** Signup link on loginbox redirects to signup page
