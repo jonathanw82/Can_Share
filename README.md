@@ -122,8 +122,14 @@ These features may be included in future releases of this application.
 
 
 ## Testing:
-* 
+**Test:** Signup error checking, if the user tryes to signup again with the same email a message will tell the user they are already signed up 
 
+**Result**: No errors, works as intended.
+
+* Password error checking, if user puts incorreect email or password a message lets them know
+
+
+### Cross Browser C
 ### Limitations & on going fixes:
 *
 
