@@ -57,21 +57,26 @@ in the middel of the screen is a welcome message and canshare logo and a login b
 button is pressed the you are greeted with the sign up page all features are the same as landing page though the signup form center screen has 3 inputs username, email, password and 2 call to action
 buttons sign up and back that takes you to the loginpage, after signing up you will be redirected to the login page, once logged in you are met with the the main beer cellar.
 
+
 #### Beer Cellar
 The beer cellar has navigation across the top, logo centertop call to action button for adding you own beers and cards with pre added cans each card has image top vegan or not vegan image overlay on top of card, beer name, brand beer type and abv,
 on the lower section there is 2 call to action buttons info and edit each take you ro respective places.
 The administator in th only person that can delete cards as a third button will appear with delete.
+
 
 #### Add Beer 
 Once the add you can button is pressed you are taken to Brew your own page, navigation var across the top with a form center with input beer name, brand hops variety, mals, where can i buy it image url input and a link to the help page that opens in a separate 
 browser tab and tell us about it, the form also containe 3 dropdown menues with types of beer, abv and average price also a switch style checkbox for wether or not its vegan with a link to the help age that opens in a sparete browser tab, followed by 2 call to 
 action buttons submit and cancel. On clicking add the can is added to the database and you are redircted to beer cellar, cancel will also redirect to beer cellar but without submitting the form.
 
+
 #### Edit beer
 Edit beer is the same as the add beer page however the fields contain the previouse selections for the orinially added items.
 
+
 #### Info 
 The info page contain the image to the left and respective data about the particulat product toy rh right with a call to action buton below that take you back to the beer cellar.
+
 
 #### TopShelf
 Navigation across the top, logo center top and the highest rated can card diaplayed in the middle.
@@ -81,6 +86,7 @@ Navigation across the top, logo center top and the highest rated can card diapla
 Navigation across the top, heading middle top and infomation below about how to add a can, is my beer vegan, how to edit a can, how to add a link to images and urls for mobile and desktop.
 The bage also has links to wikapedia on different types of beer. Followed by links to self help such as drink aware and alchholica anonymouse. 
 The help page is linked to throughout the site, not just by the navigation bar but through small links next to things the user may find no fully understand at first glance.
+
 
 #### About
 A little of history of the can share and how it came about and why the website was created in the first place.
@@ -120,6 +126,55 @@ These features may be included in future releases of this application.
 * A dashboard for admin to create and edit new collections for database manipulation. 
 * A search feature to users can select what type of beers they see.
 
+## Database
+
+MongoDB was used for this project and PyMongo is used to interact with the database.
+
+The database has a four collections named 'cansAndBottleInfo', 'Ratings', type, and users.
+
+                    ## cansAndBottleInfo
+| Field         | Type     | Description                                |
+| :------------ | :------- | :----------------------------------------- |
+| \_id          | ObjectId | ID is auto-created by MongoDB              |
+| name          | String   | Name of beer                               |
+| brand         | String   | brand of beer                              |
+| beer_type     | ObjectId | Id of beer Type                            |
+| abv           | String   | Alchohol by volume number                  |
+| vegan         | Boolean  | Is beer vegan                              |
+| Hop_type      | String   | Types of hops                              |
+| malts         | String   | Types of Malts used                        |
+| average_price | String   | Types of hops                              |
+| where_bought  | String   | Where the product is sold                  |
+| image_url     | String   | link to image                              |
+| review        | String   | info about the beer                        |
+
+
+                    ## rating
+| Field         | Type     | Description                                |
+| :------------ | :------- | :----------------------------------------- |
+| \_id          | ObjectId | ID is auto-created by MongoDB              |
+| userId        | String   | User email                                 |
+| canId         | String   | Id of the can                              |
+| rating        | String   | Either 1 or zero                           |
+
+
+                    ## type
+| Field         | Type     | Description                                |
+| :------------ | :------- | :----------------------------------------- |
+| \_id          | ObjectId | ID is auto-created by MongoDB              |
+| type          | String   | type of beer (EG stout, red, sour etc)     |
+
+
+                    ## users
+| Field         | Type     | Description                                |
+| :------------ | :------- | :----------------------------------------- |
+| \_id          | ObjectId | ID is auto-created by MongoDB              |
+| username      | String   | Name of user                               |
+| email         | String   | Email address of user                      |
+| password      | String   | Encrypted password of the user             |
+| type          | String   | Type of user (EG user or admin)            |
+
+
 
 ## Testing:
 **Test:** Signup error checking, if the user tryes to signup again with the same email a message will tell the user they are already signed up 
@@ -129,7 +184,13 @@ These features may be included in future releases of this application.
 * Password error checking, if user puts incorreect email or password a message lets them know
 
 
-### Cross Browser C
+### Cross Browser Compatibility
+Tested on four Browsers
+* Chrome    Works as intended.
+* Edge      
+* Opera
+* Firefox
+
 ### Limitations & on going fixes:
 *
 
