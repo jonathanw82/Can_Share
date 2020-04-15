@@ -185,4 +185,18 @@ def login():
 								</div>
 							</div>
 						</div>
-					</div>               
+					</div>
+
+ 
+def calculate(can_id):
+    # print(can_id)
+    findrating = list(mongo.db.ratings.find({'canId': ObjectId(can_id)}))
+    print(findrating)
+    # print(ObjectId(can_id))
+    total = 0
+    for res in findrating:
+        total += res['rating']
+    if len(findrating) == 0:
+        return 'no ratings' 
+    totalratings = total / len(findrating)
+    return totalratings                                  

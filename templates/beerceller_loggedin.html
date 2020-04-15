@@ -36,10 +36,24 @@
 							role="button">Info</a>
 						<a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}"
 							role="button">Edit</a>
-						<div class="ratings-thumbs-box">
-							<i id="{{cans._id}}thumbsiconup" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
-							<Span class="ratings-cards">{{cans.ratings}}</Span>
-							<i id="{{cans._id}}thumbsicondown" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+						<div id="{{cans._id}}" class="ratings-thumbs-box">
+							{% if cans.rating == 1 %}
+                                <i id="{{cans._id}}up" class="fas fa-thumbs-up TU" onclick="vote('up', this)"></i>
+                                <!-- function vote(up)  maybe change get element by tag name-->
+                                <Span class="ratings-cards">{{cans.average}}</Span>
+                                <i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+							{% elif cans.rating == 0 %}
+                                <i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+								<!-- function vote(up)  maybe change get element by tag name-->
+								<Span class="ratings-cards">{{cans.average}}</Span>
+								<i id="{{cans._id}}down" class="fas fa-thumbs-down TD" onclick="vote('down', this)"></i>
+							{% else %}
+                                <i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+                                <!-- function vote(up)  maybe change get element by tag name-->
+                                <Span class="ratings-cards">{{cans.average}}</Span>
+                                <i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+							{% endif %}
+
 						</div>
 					</div>
 			</div>

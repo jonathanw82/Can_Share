@@ -14,7 +14,7 @@
             </div>
 				<div>
 					<label>Type of Beer</label><br>
-                        <select class="dropdown-typeselect-button type_select" name="beer_type" id="beer_type">
+                        <select class="dropdown-typeselect-button type_select" name="beer_type" id="beer_type" required>
                             <option class="dropdown-item" value="" disabled selected>Select Type</option>      
                             {% for type in typesofbeer %}            		
                             <option class="dropdown-item" value="{{type._id}}">{{type.type}}</option>
@@ -26,7 +26,7 @@
                         <select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
                             <option class="dropdown-item" disabled selected value=''>Select ABV</option> 
                             {% for abv in abvnumber %}
-                            <option class="dropdown-item" value="abv">{{abv / 10}}</option>
+                            <option class="dropdown-item" value="{{abv / 10}}">{{abv / 10}}</option>
                             {% endfor %}          		
                         </select>
                 </div>
@@ -53,7 +53,7 @@
                           <select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required>
                             <option class="dropdown-item"  disabled selected value=''>Select Price</option> 
                             {% for priceofbeer in price %}
-                            <option class="dropdown-item" value="{{priceofbeer / 10}}">£{{priceofbeer / 10}}0</option>
+                            <option class="dropdown-item" value="£{{priceofbeer / 10}}0">£{{priceofbeer / 10}}0</option>
                             {% endfor %}          		
                         </select>
                 </div>

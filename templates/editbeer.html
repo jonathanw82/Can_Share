@@ -18,7 +18,7 @@
                     looks to see it the type._id (the id asociated with the type of beer) is the same as the selected beer if so display that selected beer if
                     not then disaply the list for selection)-->
 					<select class="dropdown-typeselect-button type_select" name="beer_type" >
-                            <option class="dropdown-item" value="" disabled selected>Select Type</option>      
+                            <option class="dropdown-item" value="" disabled >Select Type</option>      
                             {% for type in varietyofbeer %} 
                                 {%  if type._id == the_can.beer_type  %}           		
                                     <option class="dropdown-item" value="{{type._id}}"  selected>{{type.type}}</option>
@@ -31,7 +31,7 @@
 				<div>
 					<label >ABV</label><br>
 					<select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
-                        <option class="dropdown-item" value="abv" disabled >Select ABV</option> 
+                        <option class="dropdown-item" value="" disabled >Select ABV</option> 
                             {% for abv in abvnumber %}   
                                  <!-- the_can.abv has to be converted to a float rather than a string and the abv has to be divided by 10 
                                  because of the decimal floatinmg point -->        
@@ -65,15 +65,13 @@
                         </div>
 						<div>
 							<label >Average Price</label><br>
-							<select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required>
-                                <option class="dropdown-item"  disabled  >Select Price</option> 
+							<select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required> 
+                            <option class="dropdown-item"  value="" disabled>Select Price</option>                           
                             {% for priceofbeer in price %}
-                             <!-- the_can.abv has to be converted to a float rather than a string and the abv has to be divided by 10 
-                                 because of the decimal floatinmg point --> 
                                 {% if the_can.average_price|float == priceofbeer / 10 %}
-                                <option class="dropdown-item" name="average_price" value="{{the_can.average_price}}">{{the_can.average_price}}</option>
+                                <option class="dropdown-item"  value="{{the_can.average_price}}" selected>{{the_can.average_price}}</option>
                                 {% else %}
-                                <option class="dropdown-item" name="average_price">£{{priceofbeer / 10}}0</option>
+                                <option class="dropdown-item" value="£{{priceofbeer / 10}}0">£{{priceofbeer / 10}}0</option>
                                 {% endif %}
                             {% endfor %}          		
                         </select>
@@ -88,13 +86,13 @@
 								<input type="text" class="form-control" name="image_url" id="image_url" required value="{{the_can.image_url}}">
                                  </div>
 								<div class="form-group">
-									<label for="exampleFormControlTextarea1">Tell us about it?</label>
-									<textarea class="form-control" id="review" name="review" rows="3" value="{{the_can.review}}">{{the_can.review}}</textarea>
+									<label for="review">Tell us about it?</label>
+									<textarea class="form-control" id="review" name="review" rows="3" >{{the_can.review}}</textarea>
 								</div>
 								<div>
 									<div class="row form-but-row">
 										<div class="form-button-position">
-											<button class="btn btn-primary" type="submit" role="button">Done</button>
+											<button class="btn btn-primary" type="submit">Done</button>
 											<a class="btn btn-primary" href="{{url_for ('homeLoggedIn')}}"
 												role="button">Cancel</a>
 										</div>

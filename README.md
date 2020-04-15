@@ -13,6 +13,9 @@ quality beer in a shoddy can or a shoddy beer in a quality can then after trying
 
 The site is directed at Beer lovers and hobbyists rather than businesses.
 
+#### Temparary logins for evaluation
+* Admin = Username: admin, Email: admin@test.com, Passw: admin
+* User = Username: user, Email: user@test.com, Passw: user
 
 #### The users goals of this website are:
 * Rate beers and create, update, and delete beers.
@@ -229,6 +232,23 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 
 **Test:** Logout takes user to the login page
 **Result:** No errors, works as intended.
+
+
+### Validation and pep8
+| Page          | Result   | Any Errors                                 |
+| :------------ | :------- | :----------------------------------------- |
+| CSS           | Pass     | No Errors                                  |
+| beerceller    |    |                               |
+| beercellar_loggedin_admin         |   |                      |
+| beercellar_loggedin      |    |              |
+| base          |    |             |
+| caninfo          |    |             |
+| addnewbeer          |    |             |
+| editbeer          |    |             |
+| friends          |    |             |
+| about          |    |             |
+| base          |    |             |
+
 
 ### Cross Browser Compatibility
 Tested on four Browsers

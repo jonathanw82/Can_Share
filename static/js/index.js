@@ -1,6 +1,6 @@
 
+// takes the and id of the can then 
 function updatemodal(name, _id) {
-    console.log(name, _id)
     document.getElementById('warning-p').innerHTML = 'You are about to delete ' + name + '!';
     document.getElementById('warning-a').href = '/delete_can/' + _id;
 }
