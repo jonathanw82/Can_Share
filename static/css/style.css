@@ -20,19 +20,6 @@ body h1,h2,h3,h4,h5,h6{
     color: #ffff;
 }
 
-.modal-button{
-    text-transform: uppercase;
-    font-size: 20px;
-    letter-spacing: 1px;
-    color:#D99F7E;
-    border: 2px solid #D99F7E;
-    border-radius: 2px;
-    padding: 4px 3px 2px 2px;
-    text-decoration: none;
-    margin-top: 10px;
-    margin-bottom: 10px;
- }
-
 .modal-button:hover{
     color:yellow;
     border-color: #D95436;
@@ -258,6 +245,23 @@ body h1,h2,h3,h4,h5,h6{
 .admin-thumb-box{
     justify-content: center;
     margin-top: 5px;
+}
+
+.card-details{
+    font-family: 'ubuntu';
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+
+.card-buttons{
+      
+}
+
+.card-buttons a:hover{
+    color:yellow;
+    border-color: #D95436;
+    background-color: #36454f;
 }
 /******************* Add beer form *******************/
 

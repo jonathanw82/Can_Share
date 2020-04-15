@@ -64,7 +64,7 @@ def login():
 
         email = request.form['email']
         user = mongo.db.users.find_one({'email': email})
-        print(user.keys)
+        # print(user.keys)
         if user:
             user_password = user['password']
             form_password = request.form['password']
@@ -169,6 +169,7 @@ def homeLoggedIn():
         return render_template("beerceller_loggedin_admin.html",
                                caninfo=results,
                                username=session['username'],
+                               usertype=session['usertype'],
                                background='background_image_landing',
                                title='Can Share Admin')
     else:
