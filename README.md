@@ -9,12 +9,13 @@
 
 Can share was spurned out of a love for beer with good friends, where once a month we would meet up at our local brewery, bring a can each of whatever style of beer, 
 all have a sample each and give our opinions on taste, smell, mouth feel/ body, colour, can or bottle design and how the can/bottle feels in the touch. Is it a 
-quality beer in a shoddy can or a shoddy beer in a quality can then after trying a few (hick) we do an overall rating of the beer we have sampled.
+quality beer in a shoddy can or a shoddy beer in a quality can then after trying a few we do an overall rating of the beer we have sampled.
 
 The site is directed at Beer lovers and hobbyists rather than businesses.
 
 #### Temparary logins for evaluation
 * Admin = Username: admin, Email: admin@test.com, Passw: admin
+Deletion of beers is only possible through Admin.
 * User = Username: user, Email: user@test.com, Passw: user
 
 #### The users goals of this website are:
@@ -235,19 +236,26 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 
 
 ### Validation and pep8
-| Page          | Result   | Any Errors                                 |
-| :------------ | :------- | :----------------------------------------- |
-| CSS           | Pass     | No Errors                                  |
-| beerceller    |    |                               |
-| beercellar_loggedin_admin         |   |                      |
-| beercellar_loggedin      |    |              |
-| base          |    |             |
-| caninfo          |    |             |
-| addnewbeer          |    |             |
-| editbeer          |    |             |
-| friends          |    |             |
-| about          |    |             |
-| base          |    |             |
+| Page                      | Result   | Any Errors                                 |
+| :------------             | :------- | :----------------------------------------- |
+| CSS                       | Pass     | No Errors                                  |
+| beerceller                |          |                               |
+| beercellar_loggedin_admin |          |                      |
+| beercellar_loggedin       |          |              |
+| base                      |    |             |
+| caninfo                   |    |             |
+| addnewbeer                |    |             |
+| editbeer                  |    |             |
+| friends                   |    |             |
+| about                     |    |             |
+| help                      |    |             |
+| topshelf                  |    |             |
+| register                  |    |             |
+| logedinalready            |    |             |
+| loginerror                |    |             |
+| index.js          |    |             |
+| onload.js          |    |             |
+
 
 
 ### Cross Browser Compatibility

@@ -6,7 +6,7 @@ function updatemodal(name, _id) {
 }
 
 function vote(direction, element) {
-
+    
     var xhttp = new XMLHttpRequest();// xhttp request url passin 1 and can_id  
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {// results python going to check if the user has already rated it and determin what action to take

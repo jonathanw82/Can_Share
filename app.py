@@ -102,19 +102,16 @@ def logout():
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+# finds the can ratings and populates them on page start
 def calculate(can_id):
-    # print(can_id)
-    findrating = list(mongo.db.ratings.find({'canId': ObjectId(can_id)}))
-    print(findrating)
-    # print(ObjectId(can_id))
+    findrating = mongo.db.ratings.find({'canId': str(can_id)})
     total = 0
     for res in findrating:
         total += res['rating']
-    if len(findrating) == 0:
-        return 'no ratings' 
-    totalratings = total / len(findrating)
-    return totalratings
+    if total == 0:
+        return 0
+    else:
+        return total
 
 
 @app.route('/vote/<direction>/<element>', methods=['GET'])
@@ -159,22 +156,18 @@ def homeLoggedIn():
     if session['usertype'] == 'admin':
         # if session['usertype']: return admin panel,
         results = list(mongo.db.cansAndBottleInfo.find())
-        ratings = mongo.db.ratings.find({'userId': session['email']})
-        beer = mongo.db.cansAndBottleInfo.find()
+        ratings = list(mongo.db.ratings.find({'userId': session['email']}))
         for res in results:
             beer_type = mongo.db.type.find_one({'_id': ObjectId(res[
                                                 'beer_type'])})
             res['beer_name'] = beer_type['type']
-            for b in results:
-                b['rating'] = 'None'
-                for r in ratings:
-                    if r['canId'] == b['id']:
-                        b['rating'] = r['rating']
-            """
-            average = calculate(res['_id'])for each results call the
-            calulate function and pass in the can_id
-            res['average'] = average
-            """
+            res['rating'] = 'None'
+            res['average'] = calculate(res['_id'])
+
+            for r in ratings:
+                if str(res['_id']) == str(r['canId']):
+                    res['rating'] = r['rating']
+
         return render_template("beerceller_loggedin_admin.html",
                                caninfo=results,
                                username=session['username'],
@@ -186,17 +179,16 @@ def homeLoggedIn():
         ratings = list(mongo.db.ratings.find({'userId': session['email']}))
         for res in results:
             beer_type = mongo.db.type.find_one({'_id': ObjectId(res
-                                                                ['beer_type'])})
+                                                                ['beer_type'])}
+                                               )
             res['beer_name'] = beer_type['type']
             res['rating'] = 'None'
             res['average'] = calculate(res['_id'])
-            
+
             for r in ratings:
                 if str(res['_id']) == str(r['canId']):
                     res['rating'] = r['rating']
-            
-            # average = calculate(res['_id'])for each results call the calulate function and pass in the can_id
-            # res['average'] = average   
+
         return render_template("beerceller_loggedin.html",
                                caninfo=results,
                                background='background_image_landing',
