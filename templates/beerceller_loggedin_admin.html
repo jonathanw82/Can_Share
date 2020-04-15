@@ -15,68 +15,66 @@
 
 	<div class="row can-row">
 		{% for cans in caninfo %}
-		<div class="col-lg-3  can-cards">
+		<div class="col-md-3  can-cards">
 			<div class="card">
 				<!-- Object wrappes the image to ensure thst if the image url fails an image in included-->
 				<a href="{{url_for ('can_info', can_id=cans._id)}}">
-				<img src="{{cans.image_url}}" class="card-img-top canimage" alt="can image" onerror="this.onerror=null;this.src='/static/images/noimage.jpg';"></a>
-				{% if cans.vegan == 'on'%}
-				<img class="vegan_icon" src="/static/images/vegan.png" alt="vegan image">
+					<img src="{{cans.image_url}}" class="card-img-top canimage" alt="can image" onerror="this.onerror=null;this.src='/static/images/noimage.jpg';"></a>
+					{% if cans.vegan == 'on'%}
+					<img class="vegan_icon" src="/static/images/vegan.png" alt="vegan image">
 			    {% else %}
-				<img class="vegan_icon" src="/static/images/veganno.png" alt="vegan image">
+					<img class="vegan_icon" src="/static/images/veganno.png" alt="vegan image">
 			    {% endif %}
-				<div class="card-body card-details">
-					<div>{{cans.name}}</div>
-					<div>{{cans.brand}}</div>
-					<div>{{cans.beer_name}}</div>
-                    <div>ABV: {{cans.abv}}</div>
-				</div>
-				<div class="card-body">
-					<div class="col-sm-12 card-buttons">
+					<div class="card-body card-details">
+						<div>{{cans.name}}</div>
+						<div>{{cans.brand}}</div>
+						<div>{{cans.beer_name}}</div>
+						<div>ABV: {{cans.abv}}</div>
+					</div>
+					<div class="card-body card-buttons">
 						<a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}"
 							role="button">Info</a>
 						<a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}"
 							role="button">Edit</a>
-						<a class="btn btn-primary" data-target="#delete_modal-{{cans._id}}" data-toggle="modal"
+						<a class="btn btn-primary" data-target="#delete_modal"
+							onclick="updatemodal('{{cans.name}}','{{cans._id}}')" data-toggle="modal"
 							role="button">Delete</a>
-					</div>
-					<div class="row admin-thumb-box">
-						<div class="ratings-thumbs-box">
-							<i id="{{cans._id}},thumbsiconup" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
-							<!-- function vote(up)  maybe change get element by tag name-->
-							<Span class="ratings-cards">{{cans.ratings}}</Span>
-							<i id="{{cans._id}},thumbsicondown" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+						<div class="admin-thumb-box">
+							<div id="{{cans._id}}" class="ratings-thumbs-box">
+								<i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+								<!-- function vote(up)  maybe change get element by tag name-->
+								<Span class="ratings-cards">{{cans.ratings}}</Span>
+								<i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+							</div>
 						</div>
 					</div>
-				</div>
 			</div>
-		</div><!-- Delete Modal -->
-		  <div class="modal fade" id="delete_modal-{{cans._id}}" tabindex="-1" role="dialog"
-			aria-labelledby="delete_modal-{{cans._id}}" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-body">
-						<div class="row">
-							<div class="modalimagebox">
-								<img class="delete-modal-warning-image" src="/static/images/warning.png" alt="warning">
-								<h5 class="card-title">Warning</h5>
-								<p>You are about to delete {{cans.name}}!</p>
-							</div>
+		</div>
+	</div>
+
+	{% endfor %}
+	<!-- Delete Modal -->
+	<div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="delete_modal"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="row">
+						<div class="modalimagebox">
+							<img class="delete-modal-warning-image" src="/static/images/warning.png" alt="warning">
+							<h5 class="card-title">Warning</h5>
+							<p id='warning-p'></p>
 						</div>
-						<div class="row">
-							<div class="col-sm-6 warning_modal_buttons">
-								<a class="btn btn-primary modal-button"
-									href="{{url_for ('delete_can', can_id=cans._id)}}">Yes</a>
-							</div>
-							<div class="col-sm-6 warning_modal_buttons">
-								<a class="btn btn-primary modal-button" href="{{url_for ('homeLoggedIn')}}">No</a>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 warning_modal_buttons">
+							<a id='warning-a' class="btn btn-primary modal-button" href="">Yes</a>
+						</div>
+						<div class="col-sm-6 warning_modal_buttons">
+							<a class="btn btn-primary modal-button" href="{{url_for ('homeLoggedIn')}}">No</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		{% endfor %}
-      
-	</div>
-	{% endblock %}
+		{% endblock %}

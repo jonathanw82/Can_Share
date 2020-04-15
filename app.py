@@ -105,7 +105,7 @@ def logout():
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-"""
+
 def calculate(can_id):
     findrating = mongo.db.ratings.find({'_id': ObjectId(can_id)})
     total = 0
@@ -118,32 +118,30 @@ def calculate(can_id):
 
 @app.route('/vote/<direction>/<element>', methods=['GET'])
 def vote(direction, element):
-    results = mongo.db.ratings.find_one({'canId': ObjectId(element)})
-    if 'canId' != 'canId':
-        return 'help'
-
-
-
-    user = session['email']# check if user has alredy voted on the can
-    if results.userId != user:
-        if len(results) == 0: # 2. len(results) if len results 0 user has not voted
-            if request.method == 'POST': # insert(rating canid and userid) if rating is 1 return thumbs up else return thumbs down
-                rating = mongo.db.ratings
-                rating.insert_one({
+    rating = 1 if direction == 'up' else 0
+    results = mongo.db.ratings.find_one({'canId': element, 'userId': session['email']})
+    
+    # if results none the user has not rated before return the direction
+    if results is None:
+        mongo.db.ratings.insert_one({
                     'userId': session['email'],
                     'canId': element,
-                    'rating': 1
+                    'rating': rating
                 })
-            return 1
-    if results.userId == session['email']:
-        elif len(results) != 0:
-            if results[rating] == results[rating]:
-                mongo.db.ratings.remove({'_id': ObjectId(_id)})
-            return 0
-"""
-# else len results is not 0 means user has voted results[rating] if results[rating] == to rating
-# delete results[_id] using def delete return disable both unchecked from java
-# if results[rating] != results update ratings =0 reuturn the name of the icon that needs to be checked
+        return direction
+    else:
+        prev_rating = results['rating']
+        if prev_rating == rating:
+            mongo.db.ratings.remove({'_id': ObjectId(results['_id'])})
+            return 'None'
+        else:
+            mongo.db.ratings.update({'_id': ObjectId(results['_id'])},
+                    {
+                    'userId': session['email'],
+                    'canId': element,
+                    'rating': rating
+                    })
+            return  direction
 
 
 @app.route('/')

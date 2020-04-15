@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="container-fluid">
-	<form form class='addbeer-form' action="{{url_for('add_beer')}}" method="POST">
+	<form class='addbeer-form' action="{{url_for('add_beer')}}" method="POST">
         <div><h2 class="addbeerPageTitle">Brew your own!</h2></div>
 		<div>
 			<label >Beer Name</label>
@@ -24,9 +24,9 @@
 				    <div>
 					    <label >ABV</label><br>
                         <select class="dropdown-typeselect-button abvselect" name="abv" id="abv" required>
-                            <option class="dropdown-item" value="abv" disabled selected >Select ABV</option> 
+                            <option class="dropdown-item" disabled selected value=''>Select ABV</option> 
                             {% for abv in abvnumber %}
-                            <option class="dropdown-item" value="{{abv / 10}}" name="abv">{{abv / 10}}</option>
+                            <option class="dropdown-item" value="abv">{{abv / 10}}</option>
                             {% endfor %}          		
                         </select>
                 </div>
@@ -51,9 +51,9 @@
 					<div>
 						<label >Average Price</label><br>
                           <select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required>
-                            <option class="dropdown-item"  disabled selected >Select Price</option> 
+                            <option class="dropdown-item"  disabled selected value=''>Select Price</option> 
                             {% for priceofbeer in price %}
-                            <option class="dropdown-item" name="average_price">£{{priceofbeer / 10}}0</option>
+                            <option class="dropdown-item" value="{{priceofbeer / 10}}">£{{priceofbeer / 10}}0</option>
                             {% endfor %}          		
                         </select>
                 </div>

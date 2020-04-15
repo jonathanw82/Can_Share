@@ -174,3 +174,15 @@ def login():
 				<a href="{{url_for ('can_info', can_id=cans._id)}}">
 					<object class="canimage" data="{{cans.image_url}}" type="image/jpg">
 				<img src="/static/images/noimage.jpg" class="card-img-top canimage" alt="can image"></object></a>
+
+ 	<div class="row admin-thumb-box">
+							<div class="ratings-thumbs-box">
+								<div id="{{cans._id}}">
+									<i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+									<!-- function vote(up)  maybe change get element by tag name-->
+									<Span class="ratings-cards">{{cans.ratings}}</Span>
+									<i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+								</div>
+							</div>
+						</div>
+					</div>               
