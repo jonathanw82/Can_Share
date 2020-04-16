@@ -65,7 +65,7 @@ buttons sign up and back that takes you to the loginpage, after signing up you w
 
 #### Beer Cellar
 The beer cellar has navigation across the top, logo centertop call to action button for adding you own beers and cards with pre added cans each card has image top vegan or not vegan image overlay on top of card, beer name, brand beer type and abv,
-on the lower section there is 2 call to action buttons info and edit each take you ro respective places.
+on the lower section there is 2 call to action buttons info and edit each take you to respective places, two thumbs up and down allow the user to rate there beers as they go.
 The administator in th only person that can delete cards as a third button will appear with delete.
 
 
@@ -115,8 +115,6 @@ Links to producers of great craft beer.
 - [Help](https://i.imgur.com/H9QUmwu.png).
 
 
-I used [Am I Responsive](http://ami.responsivedesign.is/#) as a responsiveness test.
-
 ![Am I Responsive](static/images/multi_screen.jpg)
 
 
@@ -129,6 +127,14 @@ I used [Am I Responsive](http://ami.responsivedesign.is/#) as a responsiveness t
 - [DeskTop Landing page]().
 - [Mobile View]().
 - [Tablet View]().
+
+
+#### Database example images:
+- [DataBase relative](https://i.imgur.com/hcFdVr7.jpg).
+- [Beer Types Database](https://i.imgur.com/eUZQwb7.jpg).
+- [User Database](https://i.imgur.com/9Vmh7kp.jpg).
+- [Cans and bottle Database](https://i.imgur.com/gqnn0ii.jpg).
+- [Can Rating Database](https://i.imgur.com/t3GFAW9.jpg).
 
 
 ### Nice to have: 
