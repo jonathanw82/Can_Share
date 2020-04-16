@@ -12,8 +12,7 @@
 		<div class="col-lg-3  can-cards">
 			<div class="card">
 				<!-- Object wrappes the image to ensure thst if the image url fails an image in included-->
-				<a href="{{url_for ('can_info', can_id=cans._id)}}">
-					<img src="{{cans.image_url}}" class="card-img-top canimage" alt="can image" onerror="this.onerror=null;this.src='/static/images/noimage.jpg';"></a>
+					<img src="{{cans.image_url}}" class="card-img-top canimage" alt="can image" onerror="this.onerror=null;this.src='/static/images/noimage.jpg';">
 					{% if cans.vegan == 'on'%}
 					<img class="vegan_icon" src="/static/images/vegan.png" alt="vegan image">
 			        {% else %}

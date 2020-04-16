@@ -218,6 +218,7 @@ def homeLoggedIn():
 
 
 @app.route('/can_info/<can_id>')
+@check_logged_in
 def can_info(can_id):
     results = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
     _beer_type = mongo.db.type.find_one({'_id': ObjectId(results
