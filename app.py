@@ -43,9 +43,6 @@ def register():
         password = request.form['password']
         user_type = 'user'
 
-"""
-If a user has not already signed up there credentials will be added to the database.
-"""
         if existing_user is None:
             _hash = pbkdf2_sha256.hash(password)
             mongo.db.users.insert_one({
@@ -128,12 +125,12 @@ def vote(direction, element):
             'canId': element,
             'rating': rating
         })
-        return direction
+        return {'direction': direction, 'score': calculate(element)}
     else:
         prev_rating = results['rating']
         if prev_rating == rating:
             mongo.db.ratings.remove({'_id': ObjectId(results['_id'])})
-            return 'None'
+            return {'direction': 'None', 'score': calculate(element)}
         else:
             mongo.db.ratings.update({'_id': ObjectId(results['_id'])},
                                     {
@@ -141,7 +138,7 @@ def vote(direction, element):
                                     'canId': element,
                                     'rating': rating
                                     })
-            return direction
+            return {'direction': direction, 'score': calculate(element)}
 
 
 @app.route('/')
@@ -204,10 +201,6 @@ def can_info(can_id):
     results = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
     _beer_type = mongo.db.type.find_one({'_id': ObjectId(results
                                                          ['beer_type'])})
-    """
-    average = calculate(results['_id'])for each results call the calulate function and pass in the can_id
-    res['average'] = average
-    """
     return render_template('caninfo.html', caninfo=results,
                            beer_type=_beer_type,
                            title='Can Info',

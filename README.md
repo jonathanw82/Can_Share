@@ -198,50 +198,66 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 
 ## Testing:
 **Test:** Age warning modal pops up, button under 18? redirects current brower tab to google, Enter site clears modal so user as access to login
+
 **Result:** No errors, works as intended.
 
 **Test:** Signup link on loginbox redirects to signup page
+
 **Result:** No errors, works as intended.
 
 **Test:** Signup error checking, if the user tryes to signup again with the same email a message will tell the user they are already signed up 
+
 **Result:** No errors, works as intended.
 
 **Test:** Password error checking, if user puts incorrect email or password a message lets them know
+
 **Result:** No errors, works as intended.
 
 **Test:** login as administator gives the user the delete buttons on beer cards
+
 **Result:** No errors, works as intended.
 
 **Test:** login as a standard user
+
 **Result:** No errors, works as intended.
 
 **Test:** Add beer button takes user to add beer form, all fields, dropdowns and checkboxes that are required give feedback and links to help page open in separate browser windows.
  All buttons add adds the can to database and redirects to beer cellar, cancel takes user back to beer cellar
-**Result:** No errors, works as intended.
+
+**Result:** If the user addes a bad image url an alterantive image is selected using onerror="this.onerror=null;this.src='/static/images/noimage.jpg this works but generates a 404 error in the console, im future releases 
+of Can Share I will consider having a way the user can upload images to avoid this problem other than that this page works as intended.
 
 **Test:** Edit beer button takes user to edit beer page all fields dropdowns and checkboxes are predefined as per previouse entrys, links to help page open in separate browser windows.
- All buttons done updates the can data to database and redirects to beer cellar, cancel takes user back to beer cellar
+ All buttons done updates the can data to database and redirects to beer cellar, cancel takes user back to beer cellar.
+
 **Result:** No errors, works as intended.
 
 **Test:** Info button takes user to the respective product that is selected, image and infomation is displayed, back button redirects to beer cellar.
+
 **Result:** No errors, works as intended.
 
-**Test:** If when added the product is vegan if checked the vegan icon is green ontop of image on card, if unchecked it has a cross in the middle
+**Test:** If when added the product is vegan if checked the vegan icon is green ontop of image on card, if unchecked it has a cross in the middle.
+
 **Result:** No errors, works as intended.
 
 **Test:** Links on navigation bar, can share top left onclick takes user to the beer cellar page, from all pages.
+
 **Result:** No errors, works as intended.
 
 **Test:** All other links on navigation bar take the user to the respective pages.
+
 **Result:** No errors, works as intended.
 
-**Test:** Links on help page all working and redirect to new browser tabs
+**Test:** Links on help page all working and redirect to new browser tabs.
+
 **Result:** No errors, works as intended.
 
-**Test:** Links on friends page all working and redirect to new browser tabs
+**Test:** Links on friends page all working and redirect to new browser tabs.
+
 **Result:** No errors, works as intended.
 
-**Test:** Logout takes user to the login page
+**Test:** Logout takes user to the login page.
+
 **Result:** No errors, works as intended.
 
 
