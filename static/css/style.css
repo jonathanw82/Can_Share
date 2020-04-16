@@ -93,8 +93,8 @@ body h1,h2,h3,h4,h5,h6{
     margin-bottom: 8px;
 }
 
-.background_image_nonlogedin_landing{
-    background-image: url(https://t4.ftcdn.net/jpg/03/04/07/55/240_F_304075538_jAZyvUPQSt8GH1JmK4jhktscefN4PLZy.jpg);                          /*https://t4.ftcdn.net/jpg/03/04/07/55/240_F_304075538_jAZyvUPQSt8GH1JmK4jhktscefN4PLZy.jpg https://t4.ftcdn.net/jpg/01/57/98/71/240_F_157987167_5Hgank9ATirUpZXzx3MTtOaoxT8VTF6O.jpg url('/static/images/glasses.jpg');*/
+.background_image_nonlogedin_land{
+    background-image: url('/static/images/adobestock_304075538.jpeg');
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -224,7 +224,7 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 .background_image_landing{
-    background-image: url('/static/images/500_F_294821171_Syf4vrjrXKboIP48RMWwKOCN4BptDEhV.jpg');
+    background-image: url('/static/images/adobestock_294821171.jpeg');
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -236,7 +236,7 @@ body h1,h2,h3,h4,h5,h6{
 } 
 
 .background_image_create{
-    background-image: url('/static/images/stock-photo-some-barrels-in-a-cellar-160058564.jpg');
+    background-image: url('/static/images/adobestock_287611882.jpeg');
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -374,6 +374,18 @@ body h1,h2,h3,h4,h5,h6{
 
 /********************** Info page  *******************/
 
+.background_image_info{
+    background-image: url('/static/images/adobestock_229883213.jpeg');                         
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    position: absolute;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
 .can-info-heading{
     justify-content: center;
 }
@@ -438,7 +450,7 @@ body h1,h2,h3,h4,h5,h6{
 /********************* Top Shelf **********************/
 
 .background_image_topshelf{
-    background-image: url(https://t4.ftcdn.net/jpg/02/65/66/25/240_F_265662593_tNvQSD0Y0n2BF7Azeczh4M1qYXaPaptK.jpg);                          /* url('/static/images/glasses.jpg');*/
+    background-image: url('/static/images/adobestock_297351077.jpeg');                         
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -450,6 +462,17 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 /******************** Help Page **********************/
+.background_image_help{
+    background-image: url('/static/images/AdobeStock_158728282.jpeg');                         
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    position: absolute;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
+}
 
 .help-box{
     color:#fff;
@@ -485,22 +508,18 @@ body h1,h2,h3,h4,h5,h6{
     padding-bottom: 20px;
 }
 
-.help-link a{
-    color: #fff;
-}
-
-.help-link:hover{
-    color: 
-}
-
 .help-row{
     background-color: gray;
 }
 
 .beer-links-container{
     padding-bottom: 25px;
+}
+
+.beer-links-container a{
     color: yellow;
 }
+
 /******************* About Page **********************/
 
 .about-box{
@@ -522,7 +541,7 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 .background_image_about{
-    background-image: url(https://t4.ftcdn.net/jpg/03/21/50/07/240_F_321500775_ntmX1RhdvVd3soBP1bxaAwXNcIgQGJVu.jpg);                          /* url('/static/images/glasses.jpg');*/
+    background-image: url('/static/images/adobestock_209712791.jpeg');                      
     background-position: center;
     background-size: cover;
     background-attachment: fixed;

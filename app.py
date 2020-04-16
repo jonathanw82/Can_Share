@@ -35,8 +35,7 @@ def check_logged_in(func):
 def register():
     if request.method == "GET":
         return render_template('register.html',
-                               background='background_image_nonlogedin\
-                               _landing')
+                               background='background_image_nonlogedin_land')
     elif request.method == "POST":
         email = request.form['email']
         existing_user = mongo.db.users.find_one({'email': email})
@@ -82,13 +81,13 @@ def login():
 @app.route('/loginerror')
 def loginerror():
     return render_template('loginerror.html',
-                           background='background_image_nonlogedin_landing')
+                           background='background_image_nonlogedin_land')
 
 
 @app.route('/loginalready')
 def loginalready():
     return render_template('loginalready.html',
-                           background='background_image_nonlogedin_landing')
+                           background='background_image_nonlogedin_land')
 
 
 @app.route('/logout')
@@ -147,7 +146,7 @@ def vote(direction, element):
 def home():
     return render_template("beerceller.html",
                            title='Can share',
-                           background='background_image_nonlogedin_landing')
+                           background='background_image_nonlogedin_land')
 
 
 @app.route('/homeLoggedIn')
@@ -208,12 +207,14 @@ def can_info(can_id):
     """
     return render_template('caninfo.html', caninfo=results,
                            beer_type=_beer_type,
-                           title='Can Info')
+                           title='Can Info',
+                           background='background_image_info')
 
 
 @app.route('/help')
 def help():
-    return render_template('help.html', title='Help')
+    return render_template('help.html', title='Help',
+                           background='background_image_help')
 
 
 @app.route('/about')
@@ -269,6 +270,7 @@ def edit_beer(can_id):
                                abvnumber=arange(0, 200, 1),
                                varietyofbeer=variety_of_beer_list,
                                price=arange(0, 200, 1),
+                               background='background_image_create',
                                title='Edit Beer')
     if request.method == 'POST':
         print(request.form.to_dict())

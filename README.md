@@ -115,6 +115,10 @@ Links to producers of great craft beer.
 - [Help](https://i.imgur.com/H9QUmwu.png).
 
 
+I used [Am I Responsive](http://ami.responsivedesign.is/#) as a responsiveness test.
+
+![Am I Responsive](static/images/multi_screen.jpg)
+
 
 #### Mobile & Tablet View:
 - [Mobile]().
@@ -336,8 +340,15 @@ Unknone artist
 https://www.clipart.email/download/19281353.html
 
 
-
-
+images
+287611882 © Atlas
+297351077 © Repina Valeriya
+158728282 © Grecaud Paul
+229883213 © Rido
+209712791 © kishivan
+294821171 © serhiibobyk
+304075538 © DisobeyArt
+Purchased from Adobe stock
 
 Repository Image 
 Photo by Christin Hume on Unsplash
