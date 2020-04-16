@@ -43,7 +43,8 @@ encrypted using passlib"""
 def register():
     if request.method == "GET":
         return render_template('register.html',
-                               background='background_image_nonlogedin_land')
+                               background='background_image_nonlogedin_land',
+                               title="SignUp")
     elif request.method == "POST":
         email = request.form['email']
         existing_user = mongo.db.users.find_one({'email': email})
@@ -69,7 +70,8 @@ and email are correct if not a warning message is displayed. """
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        return render_template('beerceller.html')
+        return render_template('beerceller.html',
+                               background='background_image_nonlogedin_land')
     elif request.method == "POST":
         """ Check to see if the Email & password are correct """
         email = request.form['email']
@@ -88,17 +90,21 @@ def login():
         else:
             return redirect(url_for('loginerror'))
 
+
 # Tells the user if there credentials are wrong.
 @app.route('/loginerror')
 def loginerror():
     return render_template('loginerror.html',
-                           background='background_image_nonlogedin_land')
+                           background='background_image_nonlogedin_land',
+                           title='Login Error')
+
 
 # Tells the user if they are already signed up.
 @app.route('/loginalready')
 def loginalready():
     return render_template('loginalready.html',
-                           background='background_image_nonlogedin_land')
+                           background='background_image_nonlogedin_land',
+                           title='Already Signedup')
 
 
 @app.route('/logout')
@@ -241,21 +247,25 @@ def about():
                            background='background_image_about')
 
 
+""" if the current score is greater than the previous highest score, we delete
+the previously saved higest scoring cans and add the new one, if the
+scores are equal we add that can to the high scoring list aswell"""
 @app.route('/topshelf')
+@check_logged_in
 def topshelf():
     top_results = []
     highest = 0
     all_cans = list(mongo.db.cansAndBottleInfo.find())
     for i in all_cans:
         score_result = calculate(i['_id'])
-        if score_result > highest:  # if the current score is greater than the previous highest score, we delete the previously saved higest scoring can(s) and add this new one
+        if score_result > highest:
             top_results.clear()
             top_results.append(i)
             highest = score_result
 
         elif score_result == highest:
-            top_results.append(i)  # if the scores are equal, we add this can to the high scoring list too
-    
+            top_results.append(i)
+
     return render_template('topshelf.html', title='Top Shelf',
                            background='background_image_topshelf',
                            cans=top_results, canscore=highest)
@@ -279,7 +289,6 @@ def add_beer():
                                background='background_image_create',
                                title='Add Beer')
     if request.method == 'POST':
-        print(request.form.to_dict())
         # GET THE DATA FROM MY FORM (COMING FROM THE CLIENT)
         cans = mongo.db.cansAndBottleInfo
         form = request.form.to_dict()
@@ -292,9 +301,7 @@ def add_beer():
 """Update take the user info and populates the form when the user edits a
 field and sends it back it updtaes all the fields. The vegan section needs
 some feedback so if the form is send back with the switch off it will get a
-bad key error, therfore has 'off' as the alternative.
-"""
-
+bad key error, therfore has 'off' as the alternative."""
 # UPDATE
 @app.route("/edit_beer/<can_id>", methods=['GET', 'POST'])
 @check_logged_in
@@ -311,7 +318,6 @@ def edit_beer(can_id):
                                background='background_image_create',
                                title='Edit Beer')
     if request.method == 'POST':
-        print(request.form.to_dict())
         cans = mongo.db.cansAndBottleInfo
         cans.update({'_id': ObjectId(can_id)},
                     {

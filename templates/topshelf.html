@@ -6,27 +6,28 @@
 	</div>
 	</div>
 
-
 	<div class="row can-row">
 		{% for cans in cans %}
 		<div class="col-lg-3  can-cards">
 			<div class="card">
 				<!-- Object wrappes the image to ensure thst if the image url fails an image in included-->
-					<img src="{{cans.image_url}}" class="card-img-top canimage" alt="can image" onerror="this.onerror=null;this.src='/static/images/noimage.jpg';">
+                <a href="{{url_for ('can_info', can_id=cans._id)}}">
+				<img src="{{cans.image_url}}" class="card-img-top canimage" alt="can image" onerror="this.onerror=null;this.src='/static/images/noimage.jpg';"></a>
 					{% if cans.vegan == 'on'%}
-					<img class="vegan_icon" src="/static/images/vegan.png" alt="vegan image">
+				<img class="vegan_icon" src="/static/images/vegan.png" alt="vegan image">
 			        {% else %}
-					<img class="vegan_icon" src="/static/images/veganno.png" alt="vegan image">
+				<img class="vegan_icon" src="/static/images/veganno.png" alt="vegan image">
 			        {% endif %}
-					<div class="card-body card-details">
-						<div>{{cans.name}}</div>
-						<div>{{cans.brand}}</div>
-						<div>{{cans.beer_name}}</div>
-						<div>ABV: {{cans.abv}}</div>
-                        <div>Rating: {{canscore}}
-					</div>
+				<div class="card-body card-details">
+					<div>{{cans.name}}</div>
+					<div>{{cans.brand}}</div>
+					<div>{{cans.beer_name}}</div>
+					<div>ABV: {{cans.abv}}</div>
+					<div>Rating: {{canscore}}</div>
+					<a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}">Info</a>
+				</div>
 			</div>
+			{% endfor %}
 		</div>
-		{% endfor %}
 	</div>
 	{% endblock %}

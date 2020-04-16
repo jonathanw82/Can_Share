@@ -40,7 +40,7 @@ Deletion of beers is only possible through Admin.
 * The user is able to create a login.
 * The user can create, update, delete and edit their own cans or bottles.
 * The user can rate other can that they may have had in the past.
-* Other websites fail to have links to places to purchase the product.
+* Other websites fail to have infomation of places to purchase the product.
 
 
 #### This website is:
@@ -49,7 +49,7 @@ Deletion of beers is only possible through Admin.
 
 
 ## Features:
-* All pages have a navigation bar across the top with with links to topshelf, help, about, and friends login, however if you are loggedin the login turns to logout.
+* All pages have a navigation bar across the top with with links to home, help, about, and friends login, however if you are loggedin the login turns to logout and topshelf is accessible.
 * The landing page has a call to action button to add a beer, Create.
 * The beer cellar displays the content of the database, Read.
 * The display cards have an edit button to edit the contents, Update
@@ -104,18 +104,36 @@ A little of history of the can share and how it came about and why the website w
 Links to producers of great craft beer.
 
 
+### Nice to have: 
+These features may be included in future releases of this application.
+* A dashboard for admin to create and edit new collections for database manipulation. 
+* A search feature to users can select what type of beers they see.
+
+
 ### Technology’s used will include:
 [HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [Bootstrap](https://getbootstrap.com/), [Javascript](https://en.wikipedia.org/wiki/JavaScript), [Python3](https://www.python.org/),  [Gitpod](https://www.gitpod.io/), [Sublime text](https://www.sublimetext.com/), [Balsamiq Mockup 3](https://balsamiq.com/wireframes/desktop/), [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html?gclid=EAIaIQobChMIzNru2Myo6AIVF-DtCh28Fgn0EAAYASAAEgKkdvD_BwE&sdid=88X75SKR&mv=search&ef_id=EAIaIQobChMIzNru2Myo6AIVF-DtCh28Fgn0EAAYASAAEgKkdvD_BwE:G:s&s_kwcid=AL!3085!3!394411736356!e!!g!!photoshop)
 [MongoDB](https://www.mongodb.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x/) and [Heroku](https://www.heroku.com/).
 
 
-## WireFrame Mockups & Screenshots:
+## WireFrame Mockups:
 #### Desktop View:
 - [Home](https://i.imgur.com/WtK7ubc.png)).
 - [Create a can](https://i.imgur.com/CYKJ2YR.png).
 - [Friends](https://i.imgur.com/kkkYqu0.png).
 - [TopShelf](https://i.imgur.com/FI2yR3g.png).
 - [Help](https://i.imgur.com/H9QUmwu.png).
+- [login](https://i.imgur.com/2lFuaEw.png).
+
+#### Mobile & Tablet View:
+- [Mobile Login](https://i.imgur.com/CRCXJ7m.png).
+- [Mobile Help](https://i.imgur.com/hzh4Z1Q.png).
+- [Mobile Hall of fame](https://i.imgur.com/DT1YVht.png).
+- [Mobile Beer cellar](https://i.imgur.com/K4mbGn8.png).
+- [Tablet Beer Cellar](https://i.imgur.com/JZEJ3YQ.png).
+- [Tablet Hall of fame](https://i.imgur.com/eEr3TFK.png).
+- [Tablet About and Friends](https://i.imgur.com/eex7L8X.png).
+- [Tablet Login](https://i.imgur.com/bDlffe9.png).
+
 
 
 ![Am I Responsive](static/images/multi_screen.jpg)
@@ -124,18 +142,6 @@ Links to producers of great craft beer.
 #### Mobile & Tablet View:
 - [Mobile]().
 - [Tablet]().
-
-
-#### WireFrames:
-- [DeskTop Landing page]().
-- [Mobile View]().
-- [Tablet View]().
-
-
-### Nice to have: 
-These features may be included in future releases of this application.
-* A dashboard for admin to create and edit new collections for database manipulation. 
-* A search feature to users can select what type of beers they see.
 
 
 #### Database MongoDB Atlas:
@@ -275,25 +281,25 @@ of Can Share I will consider having a way the user can upload images to avoid th
 
 
 ### Validation and pep8
-| Page                      | Result   | Any Errors                                 |
-| :------------             | :------- | :----------------------------------------- |
-| CSS                       | Pass     | No Errors                                  |
-| beerceller                |          |                               |
-| beercellar_loggedin_admin |          |                      |
-| beercellar_loggedin       |          |              |
-| base                      |    |             |
-| caninfo                   |    |             |
-| addnewbeer                |    |             |
-| editbeer                  |    |             |
-| friends                   |    |             |
-| about                     |    |             |
-| help                      |    |             |
-| topshelf                  |    |             |
-| register                  |    |             |
-| logedinalready            |    |             |
-| loginerror                |    |             |
-| index.js          |    |             |
-| onload.js          |    |             |
+| Page                      | Result   | Any Errors                                     |
+| :------------             | :------- | :--------------------------------------------- |
+| CSS                       | Pass     | No Errors                                      |
+| beerceller                | Pass     | No Errors                                      |
+| beercellar_loggedin_admin | Fail     |     duplicate erros                            |
+| beercellar_loggedin       | Fail       |                                        |
+| base                      | Pass     |  No Errors                                     |
+| caninfo                   | Pass     |  No Errors                                     |
+| addnewbeer                | Pass     |  One Error for label did not have maching id   |
+| editbeer                  | Pass     |  No Errors                                     |
+| friends                   | Pass     |  No Errors                                     |
+| about                     | Pass     |  No Errors                                     |
+| help                      | Pass     |  No Errors                                     |
+| topshelf                  | Pass     |  One Error missing end target                  |
+| register                  | Pass     |  No Errors                                     |
+| logedinalready            | Pass     |  One Error missing class atribute              |
+| loginerror                | Pass     |  One Error missing class atribute              |
+| index.js                  | Pass     |  No Errors                                     |
+| onload.js                 | Pass     |  Missing semicolon                             |
 
 
 

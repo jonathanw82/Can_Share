@@ -13,22 +13,21 @@ function vote(direction, element) {
         if (this.readyState == 4 && this.status == 200) {
             results = JSON.parse(this.responseText);
             
-            var test = element.parentElement.id + 'up';
-            
-            var test2 = element.parentElement.id + 'down';
+            var up = element.parentElement.id + 'up';
+            var down = element.parentElement.id + 'down';
+
             if (results.direction == 'up') {
-                document.getElementById(test).className = ('fas fa-thumbs-up TU'); // fill in up and not fillin down
-                document.getElementById(test2).className = ('far fa-thumbs-down TD');
+                document.getElementById(up).className = ('fas fa-thumbs-up TU'); // fill in up and not fillin down
+                document.getElementById(down).className = ('far fa-thumbs-down TD');
             }
             else if (results.direction == 'down') {
-                document.getElementById(test).className = ('far fa-thumbs-up TU'); // fill in down and not fillin up
-                document.getElementById(test2).className = ('fas fa-thumbs-down TD'); 
+                document.getElementById(up).className = ('far fa-thumbs-up TU'); // fill in down and not fillin up
+                document.getElementById(down).className = ('fas fa-thumbs-down TD'); 
             }
             else {
-                document.getElementById(test).className = ('far fa-thumbs-up TU');  // dont fill in either
-                document.getElementById(test2).className = ('far fa-thumbs-down TD');  
+                document.getElementById(up).className = ('far fa-thumbs-up TU');  // dont fill in either
+                document.getElementById(down).className = ('far fa-thumbs-down TD');  
             }
-            console.log(element.parentElement.id);
             document.getElementById(element.parentElement.id + 'score').innerHTML= results.score; // updates the score in the html
         }
     };

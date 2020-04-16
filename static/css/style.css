@@ -1,5 +1,3 @@
-
-
 body{
     font-family: 'Ubuntu', sans-serif; 
     font-weight: 900;
@@ -520,6 +518,14 @@ body h1,h2,h3,h4,h5,h6{
 .help-link{
     text-align: center; 
     padding-bottom: 20px;
+}
+
+.help-link a{
+    color: white;
+}
+
+.help-link a:hover{
+    color: yellow;
 }
 
 .help-row{

@@ -22,9 +22,9 @@
 					<img src="{{cans.image_url}}" class="card-img-top canimage" alt="can image" onerror="this.onerror=null;this.src='/static/images/noimage.jpg';"></a>
 					{% if cans.vegan == 'on'%}
 					<img class="vegan_icon" src="/static/images/vegan.png" alt="vegan image">
-			    {% else %}
+			         {% else %}
 					<img class="vegan_icon" src="/static/images/veganno.png" alt="vegan image">
-			    {% endif %}
+			        {% endif %}
 					<div class="card-body card-details">
 						<div>{{cans.name}}</div>
 						<div>{{cans.brand}}</div>
@@ -32,14 +32,14 @@
 						<div>ABV: {{cans.abv}}</div>
 					</div>
 					<div class="card-body card-buttons">
-						<a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}"
+						        <a class="btn btn-primary" href="{{url_for ('can_info', can_id=cans._id)}}"
 							role="button">Info</a>
-						<a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}"
+						        <a class="btn btn-primary" href="{{url_for ('edit_beer', can_id=cans._id)}}"
 							role="button">Edit</a>
-						<a class="btn btn-primary" data-target="#delete_modal"
+						        <a class="btn btn-primary" data-target="#delete_modal"
 							onclick="updatemodal('{{cans.name}}','{{cans._id}}')" data-toggle="modal"
 							role="button">Delete</a>
-						<div id="{{cans._id}}" class="admin-thumb-box">
+						        <div id="{{cans._id}}" class="admin-thumb-box">
 							{% if cans.rating == 1 %}
 							<div class="row">
 								<div id="{{cans._id}}" class="col thumbup">

@@ -43,7 +43,7 @@
                             {% endfor %}          		
                         </select>
 				</div>
-				<label >Vegan Friendly?</label><a href="{{url_for ('help')}}" target="_blank">  For help click</a>
+				<label >Vegan Friendly?</label><a href="{{url_for ('help')}}" target="_blank"> For help click</a>
 				<div class="custom-control custom-switch vegan-switch-icon">
 					<!-- this if stament is a truthy it returns if the vegan is selected its true so it shows the selected chackbox, if false it 
                       displays the unchecked checkbox -->
@@ -65,7 +65,7 @@
                         </div>
 						<div>
 							<label >Average Price</label><br>
-							<select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required> 
+							<select class="dropdown-typeselect-button abvselect" name="average_price" id="price" required>
                             <option class="dropdown-item"  value="" disabled>Select Price</option>                           
                             {% for priceofbeer in price %}
                                 {% if the_can.average_price|float == priceofbeer / 10 %}
@@ -79,9 +79,9 @@
 						<div>
 							<label >Where can i buy it?</label>
 							<input type="text" class="form-control" name="where_bought" id="where_bought" value="{{the_can.where_bought}}">
-                            </div>
+                        </div>
 							<div>
-								<label >Image URL</label><a href="{{url_for ('help')}}" target="_blank">  For help click
+								<label >Image URL</label><a href="{{url_for ('help')}}" target="_blank"> For help click
 									here</a>
 								<input type="text" class="form-control" name="image_url" id="image_url" required value="{{the_can.image_url}}">
                                  </div>
@@ -93,8 +93,8 @@
 									<div class="row form-but-row">
 										<div class="form-button-position">
 											<button class="btn btn-primary editbeer-buttons" type="submit">Done</button>
-											<a class="btn btn-primary editbeer-buttons" href="{{url_for ('homeLoggedIn')}}"
-												role="button">Cancel</a>
+											<a class="btn btn-primary editbeer-buttons"
+												href="{{url_for ('homeLoggedIn')}}">Cancel</a>
 										</div>
 									</div>
 								</div>

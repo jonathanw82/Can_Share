@@ -7,12 +7,12 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/a71ecb4f79.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/segment7" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Oswald&Special+Elite&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
 	<link rel="shortcut icon" type="image/x-icon" href="{{url_for ('static', filename='favicon.ico')}}">
 
@@ -20,12 +20,13 @@
 </head>
 
 <body class="{{ background }}">
-	<header>       <!-- The if statment bellow looks to see if the session is logged in if the user is the navigation bar redirects to logged in homepage 
+	<header>
+		<!-- The if statment bellow looks to see if the session is logged in if the user is the navigation bar redirects to logged in homepage 
                         if not the user is redirected to the non logged in home page -->
 		<nav class="navbar navbar-expand-lg navbar-background">
-            {% if session['logged-in'] %}
+			{% if session['logged-in'] %}
 			<a class="navbar-brand navbarstyle" href="{{url_for ('homeLoggedIn')}}">Can Share</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                 </button>
 			<div class="collapse navbar-collapse navbarstyle" id="navbarNavAltMarkup">
@@ -35,33 +36,31 @@
 					<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
 					<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
 					<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
-					<a class="nav-item nav-link" href="{{url_for ('logout')}}">Logout</a>  
-            {% else %}
-            <a class="navbar-brand navbarstyle" href="{{url_for ('home')}}">Can Share</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<a class="nav-item nav-link" href="{{url_for ('logout')}}">Logout</a>
+					{% else %}
+					<a class="navbar-brand navbarstyle" href="{{url_for ('home')}}">Can Share</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                 </button>
-			<div class="collapse navbar-collapse navbarstyle" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<a class="nav-item nav-link" href="{{url_for ('home')}}">Home</a>
-					<a class="nav-item nav-link" href="{{url_for ('topshelf')}}">Topshelf</a>
-					<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
-					<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
-					<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
-					<a class="nav-item nav-link" href="{{url_for ('login')}}">Login</a>
-            {% endif %}
-				</div>
-			</div>
+					<div class="collapse navbar-collapse navbarstyle" id="navbarNavAltMarkup">
+						<div class="navbar-nav">
+							<a class="nav-item nav-link" href="{{url_for ('home')}}">Home</a>
+							<a class="nav-item nav-link" href="{{url_for ('help')}}">Help</a>
+							<a class="nav-item nav-link" href="{{url_for ('about')}}">About</a>
+							<a class="nav-item nav-link" href="{{url_for ('friends')}}">Friends</a>
+							<a class="nav-item nav-link" href="{{url_for ('login')}}">Login</a>
+							{% endif %}
+						</div>
+					</div>
 		</nav>
-
 	</header>
 
-	<div class="container">   
+	<div class="container">
 		{% block content %} {% endblock %}
 	</div>
 
 	<!--=============================================== Java Script ===================================================-->
-    <script src="static/js/index.js"></script>
+	<script src="static/js/index.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 	</script>
@@ -72,5 +71,4 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
 </body>
-
 </html>
