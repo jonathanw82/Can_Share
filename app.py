@@ -12,7 +12,9 @@ if path.exists("env.py"):
 
 app = Flask(__name__)
 
-
+""" app.config instucts the app on where to find the Database
+    and what its called.
+"""
 app.config["MONGO_DBNAME"] = 'CanShare'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 app.secret_key = "B,t=u0W};gBf{DnBClV8/BwiW[1k~7EEzoiv(1Ng'*1k!^R,4sd\
@@ -21,6 +23,8 @@ mongo = PyMongo(app)
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Log In setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# This fuction checks if the user is logged in
 def check_logged_in(func):
     @wraps(func)
     def wrapped_function(*args, **kwargs):
@@ -31,6 +35,8 @@ def check_logged_in(func):
     return wrapped_function
 
 
+""" when the user clicks on register the fuction gives a form so the
+user can signup."""
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "GET":
@@ -55,6 +61,9 @@ def register():
             return redirect(url_for('loginalready'))
 
 
+""" This function directs the usert to a log in box interigates the
+database and and sees if a user is registered and if the password
+and email are correct if not a warning message is displayed. """
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "GET":
@@ -77,13 +86,13 @@ def login():
         else:
             return redirect(url_for('loginerror'))
 
-
+# Tells the user if there credentials are wrong.
 @app.route('/loginerror')
 def loginerror():
     return render_template('loginerror.html',
                            background='background_image_nonlogedin_land')
 
-
+# Tells the user if they are already signed up.
 @app.route('/loginalready')
 def loginalready():
     return render_template('loginalready.html',
@@ -113,6 +122,23 @@ def calculate(can_id):
         return total
 
 
+def calculateTotal():
+    highestTotal = mongo.db.ratings.find()
+    print(highestTotal)
+    total = 0
+    for res in highestTotal:
+        total += res['rating']
+    if total == 0:
+        return 0
+    else:
+        return print(total)
+
+
+""" recieves the direction and can id from javascript, searches the database if
+the user has voted before, by using the session email and seeing if the userId
+matches the session email, if the user has voted before and tries to vote say
+Up again there vote is removed, they can then click up again if they wish or
+vote down."""
 @app.route('/vote/<direction>/<element>', methods=['GET'])
 def vote(direction, element):
     rating = 1 if direction == 'up' else 0
@@ -149,11 +175,12 @@ def home():
                            background='background_image_nonlogedin_land')
 
 
+""" if the user is an admin they can acess the admin page that gives a delete
+button"""
 @app.route('/homeLoggedIn')
 @check_logged_in
 def homeLoggedIn():
     if session['usertype'] == 'admin':
-        # if session['usertype']: return admin panel,
         results = list(mongo.db.cansAndBottleInfo.find())
         ratings = list(mongo.db.ratings.find({'userId': session['email']}))
         for res in results:

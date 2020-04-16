@@ -26,12 +26,13 @@ Deletion of beers is only possible through Admin.
 
 #### The Business potentials of this website are:
 * Selling advertising space to businesses with beer related products.
+* Become an ecommerce site selling the rated products.
 
 
 #### Visitors to this website are searching for:
 * Their favorite beers.
-* Ideas of what to try next.
-* Or what to avoid.
+* Ideas of what to try next Or what to avoid.
+* Where to buy the products others have tried.
 
 
 #### This Website is the best way to help them achieve these things because:
@@ -48,39 +49,41 @@ Deletion of beers is only possible through Admin.
 
 
 ## Features:
-* All pages have a navigation bar across the top with witrh liks to topshelf, help, about, and friends login, howver if you are login the login turns to logout.
-* The landing page as call to action button to add a beer, Create.
+* All pages have a navigation bar across the top with with links to topshelf, help, about, and friends login, however if you are loggedin the login turns to logout.
+* The landing page has a call to action button to add a beer, Create.
 * The beer cellar displays the content of the database, Read.
-* The dispalay cards have an edit button to edit the contents, Update
-* The admin login beer cellar apage has the delete button, Delete
+* The display cards have an edit button to edit the contents, Update
+* The admin login beer cellar page has the delete button, Delete
  
 
 #### Home
-The landing page fist has a warning box popup with 2 call to action button one 
-will clear the message the other will redirect you back to google. after box close 
-in the middel of the screen is a welcome message and canshare logo and a login box the login box also has a link to the signup page and a call to action login button. whe th sign up 
-button is pressed the you are greeted with the sign up page all features are the same as landing page though the signup form center screen has 3 inputs username, email, password and 2 call to action
-buttons sign up and back that takes you to the loginpage, after signing up you will be redirected to the login page, once logged in you are met with the the main beer cellar.
+The landing page fist has a warning box popup with 2 call to action buttons one 
+will clear the message the other will redirect you back to google. After popup close, navigation across the top,
+in the middel of the screen is a welcome message and canshare logo and a login box, the login box also has a link to the signup page and a call to action login button. If the sign up 
+button is pressed, you are greeted with the sign up page all features are the same as landing page though the signup form center screen has 3 inputs username, email, password and 2 call to action
+buttons sign up and back both takes you to the loginpage, after signing up you will be redirected to the login page, once logged in you are met with the the main beer cellar dashboard.
 
 
 #### Beer Cellar
-The beer cellar has navigation across the top, logo centertop call to action button for adding you own beers and cards with pre added cans each card has image top vegan or not vegan image overlay on top of card, beer name, brand beer type and abv,
-on the lower section there is 2 call to action buttons info and edit each take you to respective places, two thumbs up and down allow the user to rate there beers as they go.
-The administator in th only person that can delete cards as a third button will appear with delete.
+The beer cellar has navigation across the top, logo centertop call to action button for adding you own beers and cards with pre added cans each card has image top vegan or not 
+vegan image overlay on top of card, beer name, brand beer type and abv, on the lower section there is 2 call to action buttons info and edit each take you to respective places, 
+two thumbs up and down allow the user to rate there beers as they go.
+The administator in the only person that can delete cards as a third button will appear with delete button if logged in Admin.
 
 
 #### Add Beer 
-Once the add you can button is pressed you are taken to Brew your own page, navigation var across the top with a form center with input beer name, brand hops variety, mals, where can i buy it image url input and a link to the help page that opens in a separate 
-browser tab and tell us about it, the form also containe 3 dropdown menues with types of beer, abv and average price also a switch style checkbox for wether or not its vegan with a link to the help age that opens in a sparete browser tab, followed by 2 call to 
+Once the add you can button is pressed you are taken to Brew your own page, navigation var across the top with a form center with inputs, beer name, brand hops variety, mals, where can i buy it image url input and a link to the help page that opens in a separate 
+browser tab and tell us about it text area, the form also contains 3 dropdown menus with types of beer, abv and average price also a switch style checkbox for whether or not its vegan with a link to the help age that opens in a sparete browser tab, followed by 2 call to 
 action buttons submit and cancel. On clicking add the can is added to the database and you are redircted to beer cellar, cancel will also redirect to beer cellar but without submitting the form.
 
 
 #### Edit beer
-Edit beer is the same as the add beer page however the fields contain the previouse selections for the orinially added items.
+Edit beer is the same as the add beer page however the fields contain the previous selections for the orinially added items. Two call to action buttons done and cancel, done updates the databse and cancel redirects
+you back to the beer cellar dashboard.
 
 
 #### Info 
-The info page contain the image to the left and respective data about the particulat product toy rh right with a call to action buton below that take you back to the beer cellar.
+The info page contain the image of the product to the left and respective data about the particular product to the right a bit about the product below, with a call to action buton below that takes you back to the beer cellar.
 
 
 #### TopShelf
@@ -89,8 +92,8 @@ Navigation across the top, logo center top and the highest rated can card diapla
 
 #### Help
 Navigation across the top, heading middle top and infomation below about how to add a can, is my beer vegan, how to edit a can, how to add a link to images and urls for mobile and desktop.
-The bage also has links to wikapedia on different types of beer. Followed by links to self help such as drink aware and alchholica anonymouse. 
-The help page is linked to throughout the site, not just by the navigation bar but through small links next to things the user may find no fully understand at first glance.
+The page also has links to wikapedia on different types of beer. Followed by links to self help such as drink aware and alcoholics anonymous. 
+The help page is linked to, throughout the site, not just by the navigation bar but through small links next to things, the user may need guidance with.
 
 
 #### About
@@ -129,24 +132,22 @@ Links to producers of great craft beer.
 - [Tablet View]().
 
 
-#### Database example images:
-- [DataBase relative](https://i.imgur.com/hcFdVr7.jpg).
-- [Beer Types Database](https://i.imgur.com/eUZQwb7.jpg).
-- [User Database](https://i.imgur.com/9Vmh7kp.jpg).
-- [Cans and bottle Database](https://i.imgur.com/gqnn0ii.jpg).
-- [Can Rating Database](https://i.imgur.com/t3GFAW9.jpg).
-
-
 ### Nice to have: 
 These features may be included in future releases of this application.
 * A dashboard for admin to create and edit new collections for database manipulation. 
 * A search feature to users can select what type of beers they see.
 
-## Database
 
+#### Database MongoDB Atlas:
 MongoDB was used for this project and PyMongo is used to interact with the database.
 
 The database has a four collections named 'cansAndBottleInfo', 'ratings', type, and users.
+
+- [DataBase relation](https://i.imgur.com/hcFdVr7.jpg).
+- [Beer Types Database](https://i.imgur.com/eUZQwb7.jpg).
+- [User Database](https://i.imgur.com/9Vmh7kp.jpg).
+- [Cans and bottle Database](https://i.imgur.com/gqnn0ii.jpg).
+- [Can Rating Database](https://i.imgur.com/t3GFAW9.jpg).
  
 ## cansAndBottleInfo
 
@@ -165,6 +166,21 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 | image_url     | String   | link to image                              |
 | review        | String   | info about the beer                        |
 
+I chose the fields above for simplicity so it was not difficult to fill out the form to add a beer all
+fields are required except thing the user may not know, such as hops_type, malts  and whether the drink is vegan.
+Most of the other fields are easily found on the product can or bottle.
+
+## type
+
+| Field         | Type     | Description                                |
+| :------------ | :------- | :----------------------------------------- |
+| \_id          | ObjectId | ID is auto-created by MongoDB              |
+| type          | String   | type of beer (EG stout, red, sour etc)     |
+
+I decided to keep the beer type in a separate collection, using the type id as the cansAndBottleInfo collection 
+type of beer, that way if an IPA ever changed its name, it would be easier to change the name in one collection 
+and all with that id will automatically be changed. 
+
 
 ## ratings
 
@@ -175,14 +191,9 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 | canId         | String   | Id of the can                              |
 | rating        | String   | Either 1 or zero                           |
 
-
-## type
-
-| Field         | Type     | Description                                |
-| :------------ | :------- | :----------------------------------------- |
-| \_id          | ObjectId | ID is auto-created by MongoDB              |
-| type          | String   | type of beer (EG stout, red, sour etc)     |
-
+The userId is based on the session email, the canId the cansAndBottleInfo id and the rating keeping this separte from the 
+cansAndBottleInfo was my decision in case i felt the feature was not working it could easly be removed 
+protecting the core cansAndBottleInfo collection.
 
 ## users
 
@@ -194,6 +205,8 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 | password      | String   | Encrypted password of the user             |
 | type          | String   | Type of user (EG user or admin)            |
 
+I felt the login needed to be sa simple as possible hence keeping to only three bits of user data thay can add. 
+The user type is added automatically behind the scenes.
 
 
 ## Testing:
@@ -354,6 +367,10 @@ Created By Kevin @CodeInstitute
 https://github.com/jonathanw82/flask-mongo-logins
 
 Thumbs Up and Down, Created with close guidence of Xavia and Kevin @CodeInstitute.
+
+Session cookie infomation tutorial
+https://www.youtube.com/watch?v=8tL5P-RtAH0
+
 
 ##### Media:
 The Photos used in this site were obtained from
