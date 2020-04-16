@@ -124,6 +124,7 @@ These features may be included in future releases of this application.
 - [Help](https://i.imgur.com/H9QUmwu.png).
 - [login](https://i.imgur.com/2lFuaEw.png).
 
+
 #### Mobile & Tablet View:
 - [Mobile Login](https://i.imgur.com/CRCXJ7m.png).
 - [Mobile Help](https://i.imgur.com/hzh4Z1Q.png).
@@ -135,12 +136,15 @@ These features may be included in future releases of this application.
 - [Tablet Login](https://i.imgur.com/bDlffe9.png).
 
 
-
 ![Am I Responsive](static/images/multi_screen.jpg)
 
-
+## Screen Shots:
 #### Mobile & Tablet View:
-- [Mobile]().
+- [Desktop](https://i.imgur.com/cUgNWyf.jpg).
+- [Desktop](https://i.imgur.com/4skORkj.jpg).
+- [Desktop](https://i.imgur.com/zvLVQAT.jpg).
+- [Desktop](https://i.imgur.com/HVTbb7w.jpg)
+- [Mobile](https://i.imgur.com/lR4x7FG.jpg).
 - [Tablet]().
 
 
@@ -216,7 +220,7 @@ The user type is added automatically behind the scenes.
 
 
 ## Testing:
-**Test:** Age warning modal pops up, button under 18? redirects current brower tab to google, Enter site clears modal so user as access to login
+**Test:** Age warning modal pops up, button under 18? redirects current brower tab to google, Enter site clears modal so user as access to login.
 
 **Result:** No errors, works as intended.
 
