@@ -36,7 +36,9 @@ def check_logged_in(func):
 
 
 """ when the user clicks on register the fuction gives a form so the
-user can signup."""
+user can signup. When the user enters there new credentials the email and user
+name get put into the database, before the password is entered the pasword is
+encrypted using passlib"""
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "GET":
@@ -110,7 +112,9 @@ def logout():
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# finds the can ratings and populates them on page start
+""" finds the can ratings and populates them on page start """
+
+
 def calculate(can_id):
     findrating = mongo.db.ratings.find({'canId': str(can_id)})
     total = 0
@@ -120,18 +124,6 @@ def calculate(can_id):
         return 0
     else:
         return total
-
-
-def calculateTotal():
-    highestTotal = mongo.db.ratings.find()
-    print(highestTotal)
-    total = 0
-    for res in highestTotal:
-        total += res['rating']
-    if total == 0:
-        return 0
-    else:
-        return print(total)
 
 
 """ recieves the direction and can id from javascript, searches the database if
@@ -175,8 +167,11 @@ def home():
                            background='background_image_nonlogedin_land')
 
 
-""" if the user is an admin they can acess the admin page that gives a delete
-button"""
+""" if the user is an admin they can access the admin page that gives a delete
+button. the function then calls for cans and bottle collections and ratings
+via the can id converting them to a lists using a for loop to find the
+correct beer type for the can and push it into results to be displayed on the
+page """
 @app.route('/homeLoggedIn')
 @check_logged_in
 def homeLoggedIn():
@@ -223,7 +218,6 @@ def homeLoggedIn():
 
 
 @app.route('/can_info/<can_id>')
-@check_logged_in
 def can_info(can_id):
     results = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
     _beer_type = mongo.db.type.find_one({'_id': ObjectId(results
@@ -248,8 +242,22 @@ def about():
 
 @app.route('/topshelf')
 def topshelf():
+    top_results = []
+    highest = 0
+    all_cans = list(mongo.db.cansAndBottleInfo.find())
+    for i in all_cans:
+        score_result = calculate(i['_id'])
+        if score_result > highest:  # if the current score is greater than the previous highest score, we delete the previously saved higest scoring can(s) and add this new one
+            top_results.clear()
+            top_results.append(i)
+            highest = score_result
+
+        elif score_result == highest:
+            top_results.append(i)  # if the scores are equal, we add this can to the high scoring list too
+    
     return render_template('topshelf.html', title='Top Shelf',
-                           background='background_image_topshelf')
+                           background='background_image_topshelf',
+                           cans=top_results, canscore=highest)
 
 
 @app.route('/friends')
@@ -279,6 +287,12 @@ def add_beer():
         cans.insert_one(form)
         return redirect(url_for('homeLoggedIn'))
 
+
+"""Update take the user info and populates the form when the user edits a
+field and sends it back it updtaes all the fields. The vegan section needs
+some feedback so if the form is send back with the switch off it will get a
+bad key error, therfore has 'off' as the alternative.
+"""
 
 # UPDATE
 @app.route("/edit_beer/<can_id>", methods=['GET', 'POST'])

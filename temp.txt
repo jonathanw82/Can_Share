@@ -1,3 +1,18 @@
+ """   
+        score_result = calculate(['_id'])
+        if score_result > highest:  # if the current score is greater than the previous highest score, we delete the previously saved higest scoring can(s) and add this new one
+            top_results.clear()
+            top_results.append(all_cans[i])
+            highest = score_result
+
+        elif score_result == highest:
+            top_results.append(all_cans[i])  # if the scores are equal, we add this can to the high scoring list too
+            score_result = calculate(id)
+    """
+
+
+
+
 # , beer=beer_list    
 #_newbeeradd = mongo.db.cansAndBottleInfo.find()
 # beer_list = [beer for beer in _newbeeradd]
