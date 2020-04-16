@@ -25,6 +25,7 @@ body h1,h2,h3,h4,h5,h6{
     border-color: #D95436;
     background-color: #36454f;
 }
+
 .warning_modal_buttons{
    text-align: center;
 }
@@ -579,7 +580,7 @@ body h1,h2,h3,h4,h5,h6{
 @media only screen and (max-width: 1195px){
 
 .addbeerbutton{
-    width: 50%;  
+    width: 60%;  
 }
 }
 
@@ -609,6 +610,13 @@ body h1,h2,h3,h4,h5,h6{
 }
 }
 
+@media only screen and (max-width: 769px) {
+
+.loginbox{
+    width: 60%;
+}
+} 
+
 @media only screen and (max-width: 756px) { 
 
 .addbeerbutton{
@@ -620,11 +628,22 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 .loginbox{
-    width: 50%;
+    width: 80%;
 }
 
 .help-box{
     width: 80%;
+}
+}
+
+@media only screen and (max-width: 574px){
+
+.loginbox{
+    width: 85%;
+}
+
+.warning_modal_buttons{
+   margin-bottom: 10px;
 }
 }
 
@@ -647,8 +666,7 @@ body h1,h2,h3,h4,h5,h6{
 }
 
 .loginbox{
-    width: 90
-    %;
+    width: 90%;
 }
 
 .welcome-maessage{
@@ -664,7 +682,7 @@ body h1,h2,h3,h4,h5,h6{
 }
 }
 
-@media only screen and (max-width: 320px){
+@media only screen and (max-width: 325px){
 
 .addbeerPageTitle{
     font-size: 1.7rem;

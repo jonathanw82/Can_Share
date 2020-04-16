@@ -43,6 +43,9 @@ def register():
         password = request.form['password']
         user_type = 'user'
 
+"""
+If a user has not already signed up there credentials will be added to the database.
+"""
         if existing_user is None:
             _hash = pbkdf2_sha256.hash(password)
             mongo.db.users.insert_one({

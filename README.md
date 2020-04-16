@@ -337,6 +337,7 @@ All Log in Functionality
 Created By Kevin @CodeInstitute
 https://github.com/jonathanw82/flask-mongo-logins
 
+Thumbs Up and Down, Created with close guidence of Xavia and Kevin @CodeInstitute.
 
 ##### Media:
 The Photos used in this site were obtained from
