@@ -17,8 +17,7 @@ app = Flask(__name__)
 """
 app.config["MONGO_DBNAME"] = 'CanShare'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-app.secret_key = "B,t=u0W};gBf{DnBClV8/BwiW[1k~7EEzoiv(1Ng'*1k!^R,4sd\
-                 |4-[:8:_t4c8"
+app.secret_key = os.getenv("SECRET_KEY")
 mongo = PyMongo(app)
 
 
