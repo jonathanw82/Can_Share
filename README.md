@@ -13,7 +13,7 @@ quality beer in a shoddy can or a shoddy beer in a quality can then after trying
 
 The site is directed at Beer lovers and hobbyists rather than businesses.
 
-#### Temparary logins for evaluation
+#### Temporary logins for evaluation
 * Admin = Username: admin, Email: admin@test.com, Passw: admin
 Deletion of beers is only possible through Admin.
 * User = Username: user, Email: user@test.com, Passw: user
@@ -107,7 +107,9 @@ Links to producers of great craft beer.
 ### Nice to have: 
 These features may be included in future releases of this application.
 * A dashboard for admin to create and edit new collections for database manipulation. 
+* Admin able to add other users as admin.
 * A search feature to users can select what type of beers they see.
+* A chat forum so user can discuss their beers online. 
 
 
 ### Technology’s used will include:
@@ -145,7 +147,8 @@ These features may be included in future releases of this application.
 - [Desktop](https://i.imgur.com/zvLVQAT.jpg).
 - [Desktop](https://i.imgur.com/HVTbb7w.jpg)
 - [Mobile](https://i.imgur.com/lR4x7FG.jpg).
-- [Tablet]().
+- [Tablet](https://i.imgur.com/gzAaR95.jpg).
+- [Tablet](https://i.imgur.com/O0gizPP.jpg).
 
 
 #### Database MongoDB Atlas:
@@ -165,7 +168,7 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 | :------------ | :------- | :----------------------------------------- |
 | \_id          | ObjectId | ID is auto-created by MongoDB              |
 | name          | String   | Name of beer                               |
-| brand         | String   | brand of beer                              |
+| brand         | String   | Brand of beer                              |
 | beer_type     | ObjectId | Id of beer Type                            |
 | abv           | String   | Alchohol by volume number                  |
 | vegan         | Boolean  | Is beer vegan                              |
@@ -174,7 +177,8 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 | average_price | String   | Types of hops                              |
 | where_bought  | String   | Where the product is sold                  |
 | image_url     | String   | link to image                              |
-| review        | String   | info about the beer                        |
+| review        | String   | Info about the beer                        |
+| creator       | String   | Email of the user who added it             | 
 
 I chose the fields above for simplicity so it was not difficult to fill out the form to add a beer all
 fields are required except thing the user may not know, such as hops_type, malts  and whether the drink is vegan.
@@ -257,8 +261,8 @@ Eventually I intend to use backend data validation and possibly have posts be ch
 
 **Result:** No errors, works as intended.
 
-**Test:** Add beer button takes user to add beer form, all fields, dropdowns and checkboxes that are required give feedback and links to help page open in separate browser windows.
- All buttons add adds the can to database and redirects to beer cellar, cancel takes user back to beer cellar
+**Test:** Add beer button takes user to add beer form, all fields, dropdowns and checkboxes that are required give feedback if incorrectly filled out, text areas are limited to 300 characters and links to help page open in separate browser windows.
+ All buttons add adds the can to database and redirects to beer cellar, cancel takes user back to beer cellar.
 
 **Result:** If the user addes a bad image url an alterantive image is selected using onerror="this.onerror=null;this.src='/static/images/noimage.jpg this works but generates a 404 error in the console, im future releases 
 of Can Share I will consider having a way the user can upload images to avoid this problem other than that this page works as intended.
@@ -272,11 +276,11 @@ of Can Share I will consider having a way the user can upload images to avoid th
 
 **Result:** No errors, works as intended.
 
-**Test:** If when added the product is vegan if checked the vegan icon is green ontop of image on card, if unchecked it has a cross in the middle.
+**Test:** If when added the product is vegan if checked the vegan icon is green ontop of image on card, if unchecked it has a cross in the middle of the vegan icon.
 
 **Result:** No errors, works as intended.
 
-**Test:** Links on navigation bar, can share top left onclick takes user to the beer cellar page, from all pages.
+**Test:** Links on navigation bar, Can Share top left onclick takes user to the beer cellar page, from all pages or if not logged in back to the login box.
 
 **Result:** No errors, works as intended.
 
@@ -327,8 +331,6 @@ Tested on four Browsers
 * Opera
 * Firefox
 
-### Limitations & on going fixes:
-*
 
 
 ### Deployment:
