@@ -7,7 +7,7 @@
 Click on image for live version or [View in GitHub Pages](https://github.com/jonathanw82/Can_Share)
 </div>
 
-Can share was spurned out of a love for beer with good friends, where once a month we would meet up at our local brewery, bring a can each of whatever style of beer, 
+Can share was spawned out of a love for beer with good friends, where once a month we would meet up at our local brewery, bring a can each of whatever style of beer, 
 all have a sample each and give our opinions on taste, smell, mouth feel/ body, colour, can or bottle design and how the can/bottle feels in the touch. Is it a 
 quality beer in a shoddy can or a shoddy beer in a quality can then after trying a few we do an overall rating of the beer we have sampled.
 
@@ -39,17 +39,17 @@ Deletion of beers is only possible through Admin.
 * Other websites are too cluttered and hard to navigate.
 * The user is able to create a login.
 * The user can create, update, delete and edit their own cans or bottles.
-* The user can rate other can that they may have had in the past.
-* Other websites fail to have infomation of places to purchase the product.
+* The user can rate other cans that they may have had in the past.
+* Other websites fail to have information of places to purchase the product.
 
 
 #### This website is:
 * Uncluttered and has an intuitive process to add edit and view beers.
-* Providing clear artwork and and details of each can.
+* Providing clear artwork and details of each can.
 
 
 ## Features:
-* All pages have a navigation bar across the top with with links to home, help, about, and friends login, however if you are loggedin the login turns to logout and topshelf is accessible.
+* All pages have a navigation bar across the top with links to home, help, about, and friends login, however if you are logged in the login turns to logout and topshelf is accessible.
 * The landing page has a call to action button to add a beer, Create.
 * The beer cellar displays the content of the database, Read.
 * The display cards have an edit button to edit the contents, Update
@@ -57,33 +57,33 @@ Deletion of beers is only possible through Admin.
  
 
 #### Home
-The landing page fist has a warning box popup with 2 call to action buttons one 
+The landing page first has a warning box popup with 2 call to action buttons one 
 will clear the message the other will redirect you back to google. After popup close, navigation across the top,
-in the middel of the screen is a welcome message and canshare logo and a login box, the login box also has a link to the signup page and a call to action login button. If the sign up 
+in the middle of the screen is a welcome message and canshare logo and a login box, the login box also has a link to the signup page and a call to action login button. If the sign up 
 button is pressed, you are greeted with the sign up page all features are the same as landing page though the signup form center screen has 3 inputs username, email, password and 2 call to action
 buttons sign up and back both takes you to the loginpage, after signing up you will be redirected to the login page, once logged in you are met with the the main beer cellar dashboard.
 
 
 #### Beer Cellar
-The beer cellar has navigation across the top, logo centertop call to action button for adding you own beers and cards with pre added cans each card has image top vegan or not 
-vegan image overlay on top of card, beer name, brand beer type and abv, on the lower section there is 2 call to action buttons info and edit each take you to respective places, 
-two thumbs up and down allow the user to rate there beers as they go.
+The beer cellar has navigation across the top, logo centertop call to action button for adding you own beers and cards with pre added cans each card has image at top, vegan or not 
+vegan image overlay on top of card, beer name, brand beer type and abv, on the lower section there is 2 call to action buttons info and edit, each take you to respective places, 
+two thumbs up and down allow the user to rate their beers as they go.
 The administator in the only person that can delete cards as a third button will appear with delete button if logged in Admin.
 
 
 #### Add Beer 
-Once the add you can button is pressed you are taken to Brew your own page, navigation var across the top with a form center with inputs, beer name, brand hops variety, mals, where can i buy it image url input and a link to the help page that opens in a separate 
-browser tab and tell us about it text area, the form also contains 3 dropdown menus with types of beer, abv and average price also a switch style checkbox for whether or not its vegan with a link to the help age that opens in a sparete browser tab, followed by 2 call to 
-action buttons submit and cancel. On clicking add the can is added to the database and you are redircted to beer cellar, cancel will also redirect to beer cellar but without submitting the form.
+Once the add your can button is pressed you are taken to Brew your own page, navigation bar across the top with a form center with inputs, beer name, brand, hops variety, malts, where can i buy it, image url input and a link to the help page that opens in a separate 
+browser tab and tell us about it text area. The form also contains 3 dropdown menus with types of beer, abv and average price also a switch style checkbox for whether or not it's vegan with a link to the help page that opens in a separete browser tab, followed by 2 call to 
+action buttons - submit and cancel. On clicking add, the can is added to the database and you are redirected to beer cellar, cancel will also redirect to beer cellar but without submitting the form.
 
 
 #### Edit beer
-Edit beer is the same as the add beer page however the fields contain the previous selections for the orinially added items. Two call to action buttons done and cancel, done updates the databse and cancel redirects
+Edit beer is the same as the add beer page however the fields contain the previous selections for the originally added items. Two call to action buttons - done and cancel, done updates the database and cancel redirects
 you back to the beer cellar dashboard.
 
 
 #### Info 
-The info page contain the image of the product to the left and respective data about the particular product to the right a bit about the product below, with a call to action buton below that takes you back to the beer cellar.
+The info page contains the image of the product to the left and respective data about the particular product to the right a bit about the product below, with a call to action buton below which takes you back to the beer cellar.
 
 
 #### TopShelf
@@ -91,13 +91,13 @@ Navigation across the top, logo center top and the highest rated can card diapla
 
 
 #### Help
-Navigation across the top, heading middle top and infomation below about how to add a can, is my beer vegan, how to edit a can, how to add a link to images and urls for mobile and desktop.
-The page also has links to wikapedia on different types of beer. Followed by links to self help such as drink aware and alcoholics anonymous. 
-The help page is linked to, throughout the site, not just by the navigation bar but through small links next to things, the user may need guidance with.
+Navigation across the top, heading middle top and information below about how to add a can, is my beer vegan, how to edit a can, how to add a link to images and urls for mobile and desktop.
+The page also has links to wikipedia on different types of beer. Followed by links to self help such as drink aware and alcoholics anonymous. 
+The help page is linked to, throughout the site, not just by the navigation bar but through small links next to things the user may need guidance with.
 
 
 #### About
-A little of history of the can share and how it came about and why the website was created in the first place.
+A little of the history of the can share, how it came about and why the website was created in the first place.
 
 
 #### Friends
@@ -108,8 +108,8 @@ Links to producers of great craft beer.
 These features may be included in future releases of this application.
 * A dashboard for admin to create and edit new collections for database manipulation. 
 * Admin able to add other users as admin.
-* A search feature to users can select what type of beers they see.
-* A chat forum so user can discuss their beers online. 
+* A search feature so users can select what types of beer they see.
+* A chat forum so users can discuss their beers online. 
 
 
 ### Technology’s used will include:
@@ -171,7 +171,7 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 | brand         | String   | Brand of beer                              |
 | beer_type     | ObjectId | Id of beer Type                            |
 | abv           | String   | Alchohol by volume number                  |
-| vegan         | Boolean  | Is beer vegan                              |
+| vegan         | String   | Is beer vegan                              |
 | Hop_type      | String   | Types of hops                              |
 | malts         | String   | Types of Malts used                        |
 | average_price | String   | Types of hops                              |
@@ -180,8 +180,8 @@ The database has a four collections named 'cansAndBottleInfo', 'ratings', type, 
 | review        | String   | Info about the beer                        |
 | creator       | String   | Email of the user who added it             | 
 
-I chose the fields above for simplicity so it was not difficult to fill out the form to add a beer all
-fields are required except thing the user may not know, such as hops_type, malts  and whether the drink is vegan.
+I chose the fields above for simplicity so it was not difficult to fill out the form to add a beer. All
+fields are required except things the user may not know, such as hops_type, malts  and whether the drink is vegan.
 Most of the other fields are easily found on the product can or bottle.
 
 ## type
@@ -205,8 +205,8 @@ and all with that id will automatically be changed.
 | canId         | String   | Id of the can                              |
 | rating        | String   | Either 1 or zero                           |
 
-The userId is based on the session email, the canId the cansAndBottleInfo id and the rating keeping this separte from the 
-cansAndBottleInfo was my decision in case i felt the feature was not working it could easly be removed 
+The userId is based on the session email, the canId the cansAndBottleInfo id and the rating keeping this separate from the 
+cansAndBottleInfo was my decision in case I felt the feature was not working it could easly be removed 
 protecting the core cansAndBottleInfo collection.
 
 ## users
@@ -219,7 +219,7 @@ protecting the core cansAndBottleInfo collection.
 | password      | String   | Encrypted password of the user             |
 | type          | String   | Type of user (EG user or admin)            |
 
-I felt the login needed to be sa simple as possible hence keeping to only three bits of user data thay can add. 
+I felt the login needed to be aa simple as possible hence keeping to only three bits of user data thay can add. 
 The user type is added automatically behind the scenes.
 
 ## Defensive Design
@@ -227,7 +227,7 @@ The user type is added automatically behind the scenes.
 
 For this version of the application I have a restriction that only the person logged in as admin can delete posts, while users can add and edit any post.
 
-In future releases of the application I will put restriction so that the only user that can delete or edit a product is the user that created it, therefore stopping any malicious activity.
+In future releases of the application I will put in a restriction so that the only user that can delete or edit a product is the user that created it, therefore stopping any malicious activity.
 
 Currently the application only uses frontend data validation via the form field attributes (maximum of 300 characters in text areas, only accepting valid url, etc.).
 This will limit the amount of data a user can enter, but a user could enter offensive text.
@@ -245,7 +245,7 @@ Eventually I intend to use backend data validation and possibly have posts be ch
 
 **Result:** No errors, works as intended.
 
-**Test:** Signup error checking, if the user tryes to signup again with the same email a message will tell the user they are already signed up 
+**Test:** Signup error checking, if the user trys to signup again with the same email a message will tell the user they are already signed up 
 
 **Result:** No errors, works as intended.
 
@@ -277,7 +277,7 @@ of Can Share I will consider having a way the user can upload images to avoid th
 
 **Result:** No errors, works as intended.
 
-**Test:** If when added the product is vegan if checked the vegan icon is green ontop of image on card, if unchecked it has a cross in the middle of the vegan icon.
+**Test:** If adding a vegan product, if the user checks the vegan option on the check box, a green vegan icon will appear on the top of image on card, if unchecked, it has a cross in the middle of the vegan icon.
 
 **Result:** No errors, works as intended.
 
@@ -331,7 +331,7 @@ Tested on four Browsers
 * Chrome    Works as intended.  
 * Opera     Works as intended.
 * Firefox   The chosen font ubuntu tends to not render quite as clearly as other browers.
-* Edge    
+* Edge      Works as intended.
 
 
 
@@ -369,15 +369,15 @@ original master from the original repository.
 
 How to deploy from Heroku
 To deploy from Heroku, first sign up to do this go to https://www.heroku.com/
-And click the sign up button to right and fill out the form to create a new account and select Python as the development language. 
+And click the sign up button to the right and fill out the form to create a new account and select Python as the development language. 
 
-You will be sent a confirmation email once the link in the email has been clicked you will be prompted to input a password after the account is set up.
-Once all setup and logged in click on the create new app button, then give your project a name using hyphens instead of spaces the name has to be unique as Heroku has thousands of apps and they cannot have the same name, select your region and select create app.
+You will be sent a confirmation email, once the link in the email has been clicked you will be prompted to input a password after the account is set up.
+Once all setup and logged in, click on the create new app button, then give your project a name using hyphens instead of spaces. The name has to be unique as Heroku has thousands of apps and they cannot have the same name, select your region and select create app.
 You are then presented with a dashboard with listings of command lines for use in a bash command line.
 
 Form your workspace of choice open the command line and install Heroku depending on workspace pip3 install Heroku, once installed, type in Heroku login -I  then enter your email and password you set Heroku up with. It will then state you are logged in. At this point type in Heroku apps this will give you a list of the apps you created earlier. We will now need to push our files to Heroku to be deployed or our live version.
 To do this is in Heroku go to then click on the app you created earlier then select settings, under app information you will see Heroku git URL copy the url, in the bash command line in the work space of choice type (Heroku git:remote –a jonathanw82-canshare) at this point you need to push all your data up to Heroku to do this type (git add .) then (git commit –m “deploy to Heroku”) then (git push –u Heroku master ) this will take a few minutes to push all the data to Heroku
-We then need to setup a web process to do this at the command prompt type (heroku ps:scale web=1) after this our web process will be running we will now need to set up some config Vars in heroku, go back to heroku go to settings click reveal config vars, ther will be a few things to add here first setup IP so in the box that says Key type IP and in the value box type 0.0.0.0 click add then do the same but type PORT and set that to 5000 click add the last step is to add the data from env.py file so type MONGO_URI into the key box and in the value box paste the mongo_uri link.
+We then need to setup a web process to do this at the command prompt type (heroku ps:scale web=1) after this our web process will be running we will now need to set up some config Vars in heroku, go back to heroku go to settings click reveal config vars, there will be a few things to add here first setup IP so in the box that says Key type IP and in the value box type 0.0.0.0 click add then do the same but type PORT and set that to 5000 click add the last step is to add the data from env.py file so type MONGO_URI into the key box and in the value box paste the mongo_uri link.
 Then click more top right hand side of page and select restart all dynos the application will now be deployed.
 
 If a message pops up stating there may be some down time when until the restart has finished click OK.
