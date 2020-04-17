@@ -8,7 +8,7 @@ function updatemodal(name, _id) {
 function vote(direction, canId) {
     var xhttp = new XMLHttpRequest();// xhttp request url passing the direction and can_id to vote function in python 
     xhttp.onreadystatechange = function () {
-/* results python going to check if the user has already rated it and determin what action to take */
+// results python going to check if the user has already rated it and determin what action to take 
         if (this.readyState == 4 && this.status == 200) {
             results = JSON.parse(this.responseText);
             

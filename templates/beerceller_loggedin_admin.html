@@ -7,7 +7,7 @@
     </div>
 		<div class="col-sm-12 wellcomename">
 			<a class="btn btn-primary addbeerbutton" href="{{url_for ('add_beer')}}" role="button">
-				<div class="beer-cellar-button-text">Hello {{username}} User Type {{usertype}}</div>
+				<div class="beer-cellar-button-text">Hello {{username[0]|upper}}{{username[1:]}} User Type: {{usertype[0]|upper}}{{usertype[1:]}}</div>
 				<div>To Add Your Can Click Here!</div>
 			</a>
 		</div>
@@ -17,7 +17,6 @@
 		{% for cans in caninfo %}
 		<div class="col-lg-3  can-cards">
 			<div class="card">
-				<!-- Object wrappes the image to ensure thst if the image url fails an image in included-->
 				<a href="{{url_for ('can_info', can_id=cans._id)}}">
 					<img src="{{cans.image_url}}" class="card-img-top canimage" alt="can image" onerror="this.onerror=null;this.src='/static/images/noimage.jpg';"></a>
 					{% if cans.vegan == 'on'%}
@@ -26,8 +25,8 @@
 					<img class="vegan_icon" src="/static/images/veganno.png" alt="vegan image">
 			        {% endif %}
 					<div class="card-body card-details">
-						<div>{{cans.name}}</div>
-						<div>{{cans.brand}}</div>
+						<div>{{cans.name[0]|upper}}{{cans.name[1:]}}</div>
+						<div>{{cans.brand[0]|upper}}{{cans.brand[1:]}}</div>
 						<div>{{cans.beer_name}}</div>
 						<div>ABV: {{cans.abv}}</div>
 					</div>
@@ -84,7 +83,6 @@
 		{% endfor %}
 	</div>
 
-
 	<!-- Delete Modal -->
 	<div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="delete_modal"
 		aria-hidden="true">
@@ -110,4 +108,8 @@
 			</div>
 		</div>
 	</div>
-		{% endblock %}
+
+    <script src="static/js/index.js"></script> 
+
+	{% endblock %}
+       

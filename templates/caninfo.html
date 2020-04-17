@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
 <div class="container-fluid beer-info-box">
@@ -17,12 +18,12 @@
 				<img src="/static/images/noimage.jpg" class="canimage-info" alt="can image"></object>
 		</div>
 		<div class='col-lg-8'>
-			<h5>{{caninfo.name}}</h5>
-			<h6>{{caninfo.brand}}</h6>
+			<h5>{{caninfo.name[0]|upper}}{{caninfo.name[1:]}}</h5>
+			<h6>{{caninfo.brand[0]|upper}}{{caninfo.brand[1:]}}</h6>
 			<h6>{{beer_type.type}}</h6>
 			<h6>ABV: {{caninfo.abv}}</h6>
-			<h6>Type of hops: {{caninfo.hop_type}}</h6>
-			<h6>Type of Malts: {{caninfo.malts}}</h6>
+			<h6>Type of hops: {{caninfo.hop_type[0]|upper}}{{caninfo.hop_type[1:]}}</h6>
+			<h6>Type of Malts: {{caninfo.malts[0]|upper}}{{caninfo.malts[1:]}}</h6>
 			<h6>Average Price: {{caninfo.average_price}}</h6>
 			<h6>Where Can I Get It From? {{caninfo.where_bought}}</h6>
 		</div>

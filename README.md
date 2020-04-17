@@ -264,7 +264,8 @@ Eventually I intend to use backend data validation and possibly have posts be ch
 **Test:** Add beer button takes user to add beer form, all fields, dropdowns and checkboxes that are required give feedback if incorrectly filled out, text areas are limited to 300 characters and links to help page open in separate browser windows.
  All buttons add adds the can to database and redirects to beer cellar, cancel takes user back to beer cellar.
 
-**Result:** If the user addes a bad image url an alterantive image is selected using onerror="this.onerror=null;this.src='/static/images/noimage.jpg this works but generates a 404 error in the console, im future releases 
+**Result:** If the user adds a url to a massive image only the center of it will be visable, this was the only work round with out resizing the image as sometimes they will look squashed if constrained 
+also if user addes a bad image url an alterantive image is selected using onerror="this.onerror=null;this.src='/static/images/noimage.jpg this works but generates a 404 error in the console, im future releases 
 of Can Share I will consider having a way the user can upload images to avoid this problem other than that this page works as intended.
 
 **Test:** Edit beer button takes user to edit beer page all fields dropdowns and checkboxes are predefined as per previouse entrys, links to help page open in separate browser windows.
@@ -327,10 +328,10 @@ of Can Share I will consider having a way the user can upload images to avoid th
 
 ### Cross Browser Compatibility
 Tested on four Browsers
-* Chrome    Works as intended.
-* Edge      
-* Opera
-* Firefox
+* Chrome    Works as intended.  
+* Opera     Works as intended.
+* Firefox   The chosen font ubuntu tends to not render quite as clearly as other browers.
+* Edge    
 
 
 
