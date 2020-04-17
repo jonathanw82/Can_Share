@@ -4,7 +4,7 @@
  
 <div align="center">
     
-[View  in GitHub Pages](https://github.com/jonathanw82/Can_Share)
+Click on image for live version or [View in GitHub Pages](https://github.com/jonathanw82/Can_Share)
 </div>
 
 Can share was spurned out of a love for beer with good friends, where once a month we would meet up at our local brewery, bring a can each of whatever style of beer, 
