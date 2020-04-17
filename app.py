@@ -175,15 +175,14 @@ def home():
                            background='background_image_nonlogedin_land')
 
 
-
 @app.route('/homeLoggedIn')
 @check_logged_in
 def homeLoggedIn():
     """ if the user is an admin they can access the admin page that gives a delete
     button. the function then calls for cans and bottle collections and ratings
     via the can id converting them to a lists using a for loop to find the
-    correct beer type for the can and push it into results to be displayed on the
-    page """
+    correct beer type for the can and push it into results to be displayed on
+    the page """
     if session['usertype'] == 'admin':
         results = list(mongo.db.cansAndBottleInfo.find())
         ratings = list(mongo.db.ratings.find({'userId': session['email']}))
@@ -253,7 +252,6 @@ def about():
                            background='background_image_about')
 
 
-
 @app.route('/topshelf')
 @check_logged_in
 def topshelf():
@@ -290,6 +288,10 @@ def friends():
 @app.route("/add_beer", methods=["GET", "POST"])
 @check_logged_in
 def add_beer():
+    """ Returns the add beer page, on form submission it turns the form data into
+    a dict and also includes the session email and beer type then creates a new
+    document in mongo
+    """
     if request.method == 'GET':
         return render_template('addnewbeer.html',
                                typesofbeer=mongo.db.type.find(),
@@ -307,14 +309,15 @@ def add_beer():
         return redirect(url_for('homeLoggedIn'))
 
 
-"""Update take the user info and populates the form when the user edits a
-field and sends it back it updtaes all the fields. The vegan section needs
-some feedback so if the form is send back with the switch off it will get a
-bad key error, therfore has 'off' as the alternative."""
 # UPDATE
 @app.route("/edit_beer/<can_id>", methods=['GET', 'POST'])
 @check_logged_in
 def edit_beer(can_id):
+    """Update take the user info and populates the form when the user edits a
+    field and sends it back it updtaes all the fields. The vegan section needs
+    some feedback so if the form is send back with the switch off it will get a
+    bad key error, therfore has 'off' as the alternative.
+    """
     if request.method == 'GET':
         _the_can = mongo.db.cansAndBottleInfo.find_one({'_id':
                                                         ObjectId(can_id)})
@@ -347,6 +350,7 @@ def edit_beer(can_id):
 
 @app.route('/delete_can/<can_id>')
 def delete_can(can_id):
+    """ Removes the relavent data from mongo"""
     mongo.db.cansAndBottleInfo.remove({'_id': ObjectId(can_id)})
     return redirect(url_for('homeLoggedIn'))
 

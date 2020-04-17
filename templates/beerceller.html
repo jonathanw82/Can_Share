@@ -4,12 +4,9 @@
 	<div class="col-sm-12 herologo">
 		<img class="cellarlogo" src="/static/images/can-share.png" alt="can share image">
     </div>
-		<div class="col-sm-12 wellcomename">
-			<h3 class="welcome-maessage">Welcome to Can Share to get started please login!</h3>
-		</div>
 		<div class="col-sm-12 loginbox">
 			<form method="POST" action="{{url_for('login')}}">
-				<h3>LogIn:</h3>
+            <h3 class="welcome-message">Welcome to Can Share to get started please login!</h3>
 				<div>
 					<label>Email</label><br>
 					<input type="email" name="email" required>

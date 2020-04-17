@@ -16,6 +16,7 @@ The site is directed at Beer lovers and hobbyists rather than businesses.
 #### Temporary logins for evaluation
 * Admin = Username: admin, Email: admin@test.com, Passw: admin
 Deletion of beers is only possible through Admin.
+* User = Username: user, Email: user@test.com, Passw: user
 
 #### The users goals of this website are:
 * Rate beers and create, update, and delete beers.
@@ -300,10 +301,11 @@ of Can Share I will consider having a way the user can upload images to avoid th
 **Result:** No errors, works as intended.
 
 
-### Validation and pep8
+### Validation Using Jigsaw, Validator, Jshint and pep8
 | Page                      | Result   | Any Errors                                     |
 | :------------             | :------- | :--------------------------------------------- |
-| CSS                       | Pass     |  No Errors                                     |
+| app.py                    | Pass     |  No Errors                                     |
+| style.css                 | Pass     |  No Errors                                     |
 | beerceller                | Pass     |  No Errors                                     |
 | beercellar_loggedin_admin | Pass     |  Duplicate erros on the thumbs up down id      |
 | beercellar_loggedin       | Pass     |  Duplicate erros on the thumbs up down id      |
