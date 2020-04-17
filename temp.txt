@@ -1,8 +1,56 @@
+ 				<div id="{{cans._id}}" class="ratings-thumbs-box">
+							{% if cans.rating == 1 %}
+							<div class="row">
+								<div id="{{cans._id}}" class="col thumbup">
+									<i id="{{cans._id}}up" class="fas fa-thumbs-up TU" onclick="vote('up', this)"></i>
+                                
+								<div id="{{cans._id}}score" class="col ratings-cards ratings-number">{{cans.average}}</div>
+
+									<i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+                                </div>    
+							</div>
+							{% elif cans.rating == 0 %}
+							<div class="row">
+								<div id="{{cans._id}}" class="col thumbup">
+									<i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+								</div>
+								<div id="{{cans._id}}score" class="col ">
+									<div class="ratings-cards ratings-number">{{cans.average}}</div>
+								</div>
+								<div id="{{cans._id}}" class="col thumbsdown">
+									<i id="{{cans._id}}down" class="fas fa-thumbs-down TD" onclick="vote('down', this)"></i>
+								</div>
+							</div>
+							{% else %}
+							<div class="row">
+								<div id="{{cans._id}}" class="col thumbup">
+									<i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+								</div>
+								<div id="{{cans._id}}score" class="col">
+									<div class="ratings-cards ratings-number">{{cans.average}}</div>
+								</div>
+								<div id="{{cans._id}}" class="col thumbsdown">
+									<i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+								</div>
+							</div>
+							{% endif %}
+						</div>
+					</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	{% endblock %}
+ 
+ 
+ 
  """
-app.secret_key = "B,t=u0W};gBf{DnBClV8/BwiW[1k~7EEzoiv(1Ng'*1k!^R,4sd\
+app.secret_key = "B,t=u0W};gBf{DnBClV8/BwiW[1k~7EEzoiv(1Ng'*1k!^R,4sd
                  |4-[:8:_t4c8"
                  """
- 
+ B,t=u0W};gBf{DnBClV8/BwiW[1k~7EEzoiv(1Ng'*1k!^R,4sd|4-[:8:_t4c8"
+
  app.secret_key = os.getenv("SECRET_KEY")
  
  

@@ -12,9 +12,8 @@ if path.exists("env.py"):
 
 app = Flask(__name__)
 
-""" app.config instucts the app on where to find the Database
-    and what its called.
-"""
+# app.config instucts the app on where to find the Database
+# and what its called.
 app.config["MONGO_DBNAME"] = 'CanShare'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 app.secret_key = os.getenv("SECRET_KEY")
@@ -34,12 +33,13 @@ def check_logged_in(func):
     return wrapped_function
 
 
-""" when the user clicks on register the fuction gives a form so the
-user can signup. When the user enters there new credentials the email and user
-name get put into the database, before the password is entered the pasword is
-encrypted using passlib"""
 @app.route('/register', methods=["GET", "POST"])
 def register():
+    """when the user clicks on register the fuction gives a form so
+    the user can signup. When the user enters there new credentials the email
+    and user name get put into the database, before the password is entered
+    the pasword is encrypted using passlib
+    """
     if request.method == "GET":
         return render_template('register.html',
                                background='background_image_nonlogedin_land',
@@ -63,11 +63,12 @@ def register():
             return redirect(url_for('loginalready'))
 
 
-""" This function directs the usert to a log in box interigates the
-database and and sees if a user is registered and if the password
-and email are correct if not a warning message is displayed. """
 @app.route('/login', methods=["GET", "POST"])
 def login():
+    """ This function directs the usert to a log in box interigates the
+    database and and sees if a user is registered and if the password
+    and email are correct if not a warning message is displayed.
+    """
     if request.method == "GET":
         return render_template('beerceller.html',
                                background='background_image_nonlogedin_land')
@@ -90,17 +91,17 @@ def login():
             return redirect(url_for('loginerror'))
 
 
-# Tells the user if there credentials are wrong.
 @app.route('/loginerror')
 def loginerror():
+    """ Tells the user if there credentials are wrong."""
     return render_template('loginerror.html',
                            background='background_image_nonlogedin_land',
                            title='Login Error')
 
 
-# Tells the user if they are already signed up.
 @app.route('/loginalready')
 def loginalready():
+    """ Tells the user if they are already signed up."""
     return render_template('loginalready.html',
                            background='background_image_nonlogedin_land',
                            title='Already Signedup')
@@ -109,6 +110,7 @@ def loginalready():
 @app.route('/logout')
 @check_logged_in
 def logout():
+    """ Logs the current user out of the session """
     session.pop('logged-in', None)
     session.pop('email', None)
     session.pop('usertype', None)
@@ -117,10 +119,9 @@ def logout():
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page Routes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-""" finds the can ratings and populates them on page start """
-
 
 def calculate(can_id):
+    """ finds the can ratings and populates them on page start """
     findrating = mongo.db.ratings.find({'canId': str(can_id)})
     total = 0
     for res in findrating:
@@ -131,13 +132,14 @@ def calculate(can_id):
         return total
 
 
-""" recieves the direction and can id from javascript, searches the database if
-the user has voted before, by using the session email and seeing if the userId
-matches the session email, if the user has voted before and tries to vote say
-Up again there vote is removed, they can then click up again if they wish or
-vote down."""
 @app.route('/vote/<direction>/<element>', methods=['GET'])
 def vote(direction, element):
+    """ recieves the direction and can id from javascript, searches the database
+    if the user has voted before, by using the session email and seeing if
+    the userId matches the session email, if the user has voted before and
+    tries to vote say Up again there vote is removed, they can then click up
+    again if they wish or vote down.
+    """
     rating = 1 if direction == 'up' else 0
     results = mongo.db.ratings.find_one({'canId': element,
                                          'userId': session['email']})
@@ -167,19 +169,21 @@ def vote(direction, element):
 @app.route('/')
 @app.route('/home')
 def home():
+    """ returns the login page """
     return render_template("beerceller.html",
                            title='Can share',
                            background='background_image_nonlogedin_land')
 
 
-""" if the user is an admin they can access the admin page that gives a delete
-button. the function then calls for cans and bottle collections and ratings
-via the can id converting them to a lists using a for loop to find the
-correct beer type for the can and push it into results to be displayed on the
-page """
+
 @app.route('/homeLoggedIn')
 @check_logged_in
 def homeLoggedIn():
+    """ if the user is an admin they can access the admin page that gives a delete
+    button. the function then calls for cans and bottle collections and ratings
+    via the can id converting them to a lists using a for loop to find the
+    correct beer type for the can and push it into results to be displayed on the
+    page """
     if session['usertype'] == 'admin':
         results = list(mongo.db.cansAndBottleInfo.find())
         ratings = list(mongo.db.ratings.find({'userId': session['email']}))
@@ -225,6 +229,7 @@ def homeLoggedIn():
 @app.route('/can_info/<can_id>')
 @check_logged_in
 def can_info(can_id):
+    """ returns can info page """
     results = mongo.db.cansAndBottleInfo.find_one({'_id': ObjectId(can_id)})
     _beer_type = mongo.db.type.find_one({'_id': ObjectId(results
                                                          ['beer_type'])})
@@ -236,22 +241,26 @@ def can_info(can_id):
 
 @app.route('/help')
 def help():
+    """ Returns help page """
     return render_template('help.html', title='Help',
                            background='background_image_help')
 
 
 @app.route('/about')
 def about():
+    """ Returns help page """
     return render_template('about.html', title='About',
                            background='background_image_about')
 
 
-""" if the current score is greater than the previous highest score, we delete
-the previously saved higest scoring cans and add the new one, if the
-scores are equal we add that can to the high scoring list aswell"""
+
 @app.route('/topshelf')
 @check_logged_in
 def topshelf():
+    """ if the current score is greater than the previous highest score, we delete
+    the previously saved higest scoring cans and add the new one, if the
+    scores are equal we add that can to the high scoring list aswell.
+    """
     top_results = []
     highest = 0
     all_cans = list(mongo.db.cansAndBottleInfo.find())
@@ -272,6 +281,7 @@ def topshelf():
 
 @app.route('/friends')
 def friends():
+    """ Returns friends page """
     return render_template('friends.html', title='Friends',
                            background='background_image_friends')
 

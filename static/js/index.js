@@ -5,16 +5,15 @@ function updatemodal(name, _id) {
     document.getElementById('warning-a').href = '/delete_can/' + _id;
 }
 
-function vote(direction, element) {
-    
+function vote(direction, canId) {
     var xhttp = new XMLHttpRequest();// xhttp request url passing the direction and can_id to vote function in python 
     xhttp.onreadystatechange = function () {
 /* results python going to check if the user has already rated it and determin what action to take */
         if (this.readyState == 4 && this.status == 200) {
             results = JSON.parse(this.responseText);
             
-            var up = element.parentElement.id + 'up';
-            var down = element.parentElement.id + 'down';
+            var up = canId + 'up';
+            var down = canId + 'down';
 
             if (results.direction == 'up') {
                 document.getElementById(up).className = ('fas fa-thumbs-up TU'); // fill in up and not fillin down
@@ -28,10 +27,10 @@ function vote(direction, element) {
                 document.getElementById(up).className = ('far fa-thumbs-up TU');  // dont fill in either
                 document.getElementById(down).className = ('far fa-thumbs-down TD');  
             }
-            document.getElementById(element.parentElement.id + 'score').innerHTML= results.score; // updates the score in the html
+            document.getElementById(canId + 'score').innerHTML= results.score; // updates the score in the html
         }
     };
-    xhttp.open("GET", '/vote/' + direction + '/' + element.parentElement.id, true);
+    xhttp.open("GET", '/vote/' + direction + '/' + canId, true);
     xhttp.send();
 
 }

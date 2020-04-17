@@ -16,7 +16,6 @@ The site is directed at Beer lovers and hobbyists rather than businesses.
 #### Temporary logins for evaluation
 * Admin = Username: admin, Email: admin@test.com, Passw: admin
 Deletion of beers is only possible through Admin.
-* User = Username: user, Email: user@test.com, Passw: user
 
 #### The users goals of this website are:
 * Rate beers and create, update, and delete beers.
@@ -119,7 +118,7 @@ These features may be included in future releases of this application.
 
 ## WireFrame Mockups:
 #### Desktop View:
-- [Home](https://i.imgur.com/WtK7ubc.png)).
+- [Home](https://i.imgur.com/WtK7ubc.png).
 - [Create a can](https://i.imgur.com/CYKJ2YR.png).
 - [Friends](https://i.imgur.com/kkkYqu0.png).
 - [TopShelf](https://i.imgur.com/FI2yR3g.png).
@@ -304,10 +303,10 @@ of Can Share I will consider having a way the user can upload images to avoid th
 ### Validation and pep8
 | Page                      | Result   | Any Errors                                     |
 | :------------             | :------- | :--------------------------------------------- |
-| CSS                       | Pass     | No Errors                                      |
-| beerceller                | Pass     | No Errors                                      |
-| beercellar_loggedin_admin | Fail     |     duplicate erros                            |
-| beercellar_loggedin       | Fail       |                                        |
+| CSS                       | Pass     |  No Errors                                     |
+| beerceller                | Pass     |  No Errors                                     |
+| beercellar_loggedin_admin | Pass     |  Duplicate erros on the thumbs up down id      |
+| beercellar_loggedin       | Pass     |  Duplicate erros on the thumbs up down id      |
 | base                      | Pass     |  No Errors                                     |
 | caninfo                   | Pass     |  No Errors                                     |
 | addnewbeer                | Pass     |  One Error for label did not have maching id   |

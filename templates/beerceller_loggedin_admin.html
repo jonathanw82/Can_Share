@@ -42,36 +42,38 @@
 						        <div id="{{cans._id}}" class="admin-thumb-box">
 							{% if cans.rating == 1 %}
 							<div class="row">
-								<div id="{{cans._id}}" class="col thumbup">
-									<i id="{{cans._id}}up" class="fas fa-thumbs-up TU" onclick="vote('up', this)"></i>
+								<div class="col thumbup">
+									<i id="{{cans._id}}up" class="fas fa-thumbs-up TU" onclick="vote('up','{{cans._id}}')"></i>
 								</div>
-								<div id="{{cans._id}}score" class="col ratings-cards ratings-number">{{cans.average}}</div>
-								<div id="{{cans._id}}" class="col thumbsdown">
-									<i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+                                <div class="col">
+								    <div id="{{cans._id}}score" class="ratings-cards ratings-number">{{cans.average}}</div>
+                                </div> 
+                                <div class="col thumbsdown">   
+									<i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down','{{cans._id}}')"></i>
 								</div>
 							</div>
 							{% elif cans.rating == 0 %}
 							<div class="row">
-								<div id="{{cans._id}}" class="col thumbup">
-									<i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+								<div class="col thumbup">
+									<i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up','{{cans._id}}')"></i>
 								</div>
-								<div class="col ">
-									<div id="{{cans._id}}score" class="ratings-cards ratings-number">{{cans.average}}</div>
-								</div>
-								<div id="{{cans._id}}" class="col thumbsdown">
-									<i id="{{cans._id}}down" class="fas fa-thumbs-down TD" onclick="vote('down', this)"></i>
+                                <div class="col">
+								    <div id="{{cans._id}}score" class="ratings-cards ratings-number">{{cans.average}}</div>
+                                </div> 
+                                <div class="col thumbsdown">   
+									<i id="{{cans._id}}down" class="fas fa-thumbs-down TD" onclick="vote('down','{{cans._id}}')"></i>
 								</div>
 							</div>
 							{% else %}
 							<div class="row">
-								<div id="{{cans._id}}" class="col thumbup">
-									<i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up', this)"></i>
+								<div class="col thumbup">
+									<i id="{{cans._id}}up" class="far fa-thumbs-up TU" onclick="vote('up','{{cans._id}}')"></i>
 								</div>
-								<div class="col">
-									<div id="{{cans._id}}score" class="ratings-cards ratings-number">{{cans.average}}</div>
-								</div>
-								<div id="{{cans._id}}" class="col thumbsdown">
-									<i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down', this)"></i>
+                                <div class="col">
+								    <div id="{{cans._id}}score" class="ratings-cards ratings-number">{{cans.average}}</div>
+                                </div> 
+                                <div class="col thumbsdown">   
+									<i id="{{cans._id}}down" class="far fa-thumbs-down TD" onclick="vote('down','{{cans._id}}')"></i>
 								</div>
 							</div>
 							{% endif %}
@@ -107,4 +109,5 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		{% endblock %}
