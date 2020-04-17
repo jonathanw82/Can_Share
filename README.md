@@ -218,6 +218,19 @@ protecting the core cansAndBottleInfo collection.
 I felt the login needed to be sa simple as possible hence keeping to only three bits of user data thay can add. 
 The user type is added automatically behind the scenes.
 
+## Defensive Design
+ A main concern I had during development, was that any user could delete a can added by another user or spam the database.
+
+For this version of the application I have a restriction that only the person logged in as admin can delete posts, while users can add and edit any post.
+
+In future releases of the application I will put restriction so that the only user that can delete or edit a product is the user that created it, therefore stopping any malicious activity.
+
+Currently the application only uses frontend data validation via the form field attributes (maximum of 300 characters in text areas, only accepting valid url, etc.).
+This will limit the amount of data a user can enter, but a user could enter offensive text.
+
+Eventually I intend to use backend data validation and possibly have posts be checked by an administrator before being added to the database. 
+
+
 
 ## Testing:
 **Test:** Age warning modal pops up, button under 18? redirects current brower tab to google, Enter site clears modal so user as access to login.
