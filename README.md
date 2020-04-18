@@ -267,10 +267,10 @@ Eventually I intend to use backend data validation and possibly have posts be ch
 
 **Result:** If the user adds a url to a massive image only the center of it will be visable, this was the only work round with out resizing the image as sometimes they will look squashed if constrained 
 also if user addes a bad image url an alterantive image is selected using onerror="this.onerror=null;this.src='/static/images/noimage.jpg this works but generates a 404 error in the console, in future releases 
-of Can Share I will consider having a way the user can upload images to avoid this problem other than that this page works as intended.
+of Can Share I will consider having a way the user can upload images to avoid this problem, other than that this page works as intended.
 
 **Test:** Edit beer button takes user to edit beer page all fields dropdowns and checkboxes are predefined as per previouse entrys, links to help page open in separate browser windows.
- All button,s done updates the can data to database and redirects to beer cellar, cancel takes user back to beer cellar.
+ All buttons, done, updates the can data to database and redirects to beer cellar, cancel, takes user back to beer cellar.
 
 **Result:** No errors, works as intended.
 
@@ -302,6 +302,10 @@ of Can Share I will consider having a way the user can upload images to avoid th
 
 **Result:** No errors, works as intended.
 
+**Test:** Full resposiveness testing for each page has been tested with Chrome development tools, a Samsung Tablet and Samsung phone.
+
+**Result:** No errors, a couple of teaks were needed to box and font sizes that is now corrected and Works as intended.
+
 
 ### Validation Using Jigsaw, Validator, Jshint and pep8
 | Page                      | Result   | Any Errors                                     |
@@ -329,7 +333,7 @@ of Can Share I will consider having a way the user can upload images to avoid th
 
 ### Cross Browser Compatibility
 Tested on four Browsers
-* Chrome    Works as intended.  
+* Chrome    Works as intended.
 * Opera     Works as intended.
 * Firefox   The chosen font ubuntu tends to not render quite as clearly as other browers.
 * Edge      Works as intended.
@@ -344,12 +348,12 @@ Then clone this project from GitHub:
 
 Follow this link to the Project's GitHub repository https://github.com/jonathanw82/Can_Share
 Under the repository name, click "Clone or download".
-In the Clone with HTTPs section, copy the clone URL for the repository.
+Select clone with HTTPs, copy the clone URL for the repository.
 
-In your local IDE open Git Bash.
+In your local IDE open Git Bash Terminal.
 Change the current working directory to the location where you want the cloned directory to be made.
 Type git clone, and then paste the URL you copied earlier.
-git clone "https://github.com/USERNAME/REPOSITORY"
+(git clone "https://github.com/USERNAME/REPOSITORY")
 Press Enter. Your local clone will be created.
 
 Further reading and troubleshooting on cloning a repository from GitHub [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
@@ -376,28 +380,28 @@ Heroku has thousands of apps and they cannot have the same name, select your reg
 
 You will then be presented with a dashboard with listings of command lines for use in a bash command line.
 
-Form your workspace of choice open the command line and install Heroku depending on workspace, type (pip3 install heroku) once installed, type (heroku login -I)
+From your workspace of choice open the command line and install Heroku depending on workspace, type (pip3 install heroku) once installed, type (heroku login -I)
 then enter your email and password you set Heroku up with. It will then state you are logged in. 
 
 We will now need to push our files to Heroku to be deployed or our live version.
 
-To do this is in Heroku go to the app you created earlier then select deploy, under app information you will see Heroku git URL copy the url, in the bash 
+To do this in Heroku go to the app you created earlier then select deploy, under app information you will see Heroku git URL copy the url, in the bash 
 command line in the work space of choice type (heroku git:remote –a <app_name>) at this point you need to push all your data up to Heroku.
 
-To do this from you git bash command line type (git add .) then (git commit –m “deploy to heroku”) then (git push –u heroku master ) this will take a few minutes to push all the data to 
+To do this from your git bash command line type (git add .) then (git commit –m “deploy to heroku”) then (git push –u heroku master ) this will take a few minutes to push all the data to 
 Heroku. 
 
 We then need to setup a web process to do this at the command prompt type (heroku ps:scale web=1) after this our web process will be running we will now need to set up some 
 config Vars in heroku.
 
 Go back to heroku go to settings click reveal config vars, there will be a few things to add here, first setup IP so in the box that says Key type (IP) and in 
-the value box type (0.0.0.0) click add then do the same but type (PORT) and set that to (5000) click add. You will also need to add (MONGO_URI) and the (SECRET_KEY) for this infomation contact You site developer.
+the value box type (0.0.0.0) click add then do the same but type (PORT) and set that to (5000) click add. You will also need to add (MONGO_URI) and the (SECRET_KEY) for this information contact You site developer.
 
 Once all the steps have been taken, click more top right hand side of page and select restart all dynos the application will now be deployed.
 
-If a message pops up stating there may be some down time when until the restart has finished click OK.
+If a message pops up stating there may be some down time until the restart has finished click OK.
 
-Under the settings tab in Heroku scroll down to domains and your link will be displayed there it can be used to access the liver version of the application.
+Under the settings tab in Heroku, scroll down to domains and your link will be displayed there. It can be used to access the live version of the application.
 
 Deployment: The site will be deployed by 
 https://www.heroku.com/
@@ -441,10 +445,6 @@ https://unsplash.com/photos/08tX2fsuSLg
 Warning sign
 http://clipart-library.com/clipart/zcX5k7Lni.htm
 
-
-Parts of the Deployment Section Written by myself and,  
-AJGreaves
-https://ajgreaves.github.io/portrait-artist/
 
 Ratings font
 Segment7 Cedric Knight 
