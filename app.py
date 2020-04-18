@@ -104,7 +104,7 @@ def loginalready():
     """ Tells the user if they are already signed up."""
     return render_template('loginalready.html',
                            background='background_image_nonlogedin_land',
-                           title='Already Signedup')
+                           title='Already Signed up')
 
 
 @app.route('/logout')
