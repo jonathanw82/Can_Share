@@ -13,12 +13,6 @@ quality beer in a shoddy can or a shoddy beer in a quality can then after trying
 
 The site is directed at Beer lovers and hobbyists rather than businesses.
 
-#### Temporary logins for evaluation
-* Admin = Username: admin, Email: admin@test.com, Passw: admin
-
-Deletion of beers is only possible through Admin.
-* User = Username: user, Email: user@test.com, Passw: user
-
 #### The users goals of this website are:
 * Rate beers and create, update, and delete beers.
 * Clearly displaying Can logo art and credentials.
