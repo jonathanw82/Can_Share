@@ -245,19 +245,19 @@ Eventually I intend to use backend data validation and possibly have posts be ch
 
 **Result:** No errors, works as intended.
 
-**Test:** Signup error checking, if the user trys to signup again with the same email a message will tell the user they are already signed up 
+**Test:** Signup error checking, if the user trys to signup again with the same email a message will tell the user they are already signed up. 
 
 **Result:** No errors, works as intended.
 
-**Test:** Password error checking, if user puts incorrect email or password a message lets them know
+**Test:** Password error checking, if user puts incorrect email or password a message lets them know.
 
 **Result:** No errors, works as intended.
 
-**Test:** login as administator gives the user the delete buttons on beer cards
+**Test:** login as administator gives the user the delete buttons on beer cards.
 
 **Result:** No errors, works as intended.
 
-**Test:** login as a standard user
+**Test:** login as a standard user.
 
 **Result:** No errors, works as intended.
 
@@ -265,11 +265,11 @@ Eventually I intend to use backend data validation and possibly have posts be ch
  All buttons add adds the can to database and redirects to beer cellar, cancel takes user back to beer cellar.
 
 **Result:** If the user adds a url to a massive image only the center of it will be visable, this was the only work round with out resizing the image as sometimes they will look squashed if constrained 
-also if user addes a bad image url an alterantive image is selected using onerror="this.onerror=null;this.src='/static/images/noimage.jpg this works but generates a 404 error in the console, im future releases 
+also if user addes a bad image url an alterantive image is selected using onerror="this.onerror=null;this.src='/static/images/noimage.jpg this works but generates a 404 error in the console, in future releases 
 of Can Share I will consider having a way the user can upload images to avoid this problem other than that this page works as intended.
 
 **Test:** Edit beer button takes user to edit beer page all fields dropdowns and checkboxes are predefined as per previouse entrys, links to help page open in separate browser windows.
- All buttons done updates the can data to database and redirects to beer cellar, cancel takes user back to beer cellar.
+ All button,s done updates the can data to database and redirects to beer cellar, cancel takes user back to beer cellar.
 
 **Result:** No errors, works as intended.
 
@@ -336,10 +336,10 @@ Tested on four Browsers
 
 
 ### Deployment:
-To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
+To deploy this page to Heroku from its GitHub repository, the following steps were taken:
 
 Log into GitHub.
-From the list of repositories on the screen, select mtfavoritetune.
+From the list of repositories on the screen, select Can_.
 From the menu items near the top of the page, select Settings.
 Scroll down to the GitHub Pages section.
 Under Source click the drop-down menu labelled None and select Master Branch
@@ -434,3 +434,4 @@ Ratings font
 Segment7 Cedric Knight 
 https://fontlibrary.org/en/font/segment7
 
+[Back to top](#The-users-goals-of-this-website-are)
