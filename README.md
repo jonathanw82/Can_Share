@@ -1,10 +1,11 @@
+##### .
 <h1 align="center">
    <a href="https://jonathanw82-canshare.herokuapp.com/" target="_blank"><img src="static/images/repoimage.jpg" alt="logo image"/></a>
  </h1>
  
 <div align="center">
     
-Click on image for live version or [View in GitHub Pages](https://github.com/jonathanw82/Can_Share)
+### Click on image for live version or [View in GitHub Pages](https://github.com/jonathanw82/Can_Share)
 </div>
 
 Can share was spawned out of a love for beer with good friends, where once a month we would meet up at our local brewery, bring a can each of whatever style of beer, 
@@ -434,4 +435,4 @@ Ratings font
 Segment7 Cedric Knight 
 https://fontlibrary.org/en/font/segment7
 
-[Back to top](#The-users-goals-of-this-website-are)
+[Back to top](#.)
