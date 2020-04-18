@@ -1,11 +1,10 @@
-##### .
 <h1 align="center">
    <a href="https://jonathanw82-canshare.herokuapp.com/" target="_blank"><img src="static/images/repoimage.jpg" alt="logo image"/></a>
  </h1>
  
 <div align="center">
     
-### Click on image for live version or [View in GitHub Pages](https://github.com/jonathanw82/Can_Share)
+#### Click on image for live version or [View in GitHub Pages](https://github.com/jonathanw82/Can_Share)
 </div>
 
 Can share was spawned out of a love for beer with good friends, where once a month we would meet up at our local brewery, bring a can each of whatever style of beer, 
@@ -16,6 +15,7 @@ The site is directed at Beer lovers and hobbyists rather than businesses.
 
 #### Temporary logins for evaluation
 * Admin = Username: admin, Email: admin@test.com, Passw: admin
+
 Deletion of beers is only possible through Admin.
 * User = Username: user, Email: user@test.com, Passw: user
 
@@ -337,51 +337,66 @@ Tested on four Browsers
 
 
 ### Deployment:
-To deploy this page to Heroku from its GitHub repository, the following steps were taken:
+##### To deploy this page to Heroku from its GitHub repository:
 
 Log into GitHub.
-From the list of repositories on the screen, select Can_.
-From the menu items near the top of the page, select Settings.
-Scroll down to the GitHub Pages section.
-Under Source click the drop-down menu labelled None and select Master Branch
-On selecting Master Branch the page is automatically refreshed, the website is now deployed.
-Scroll back down to the GitHub Pages section to retrieve the link to the deployed website.
+Then clone this project from GitHub:
 
-How to run this project locally
-to clone this project from GitHub:
-
-Follow this link to the Project GitHub repository.
+Follow this link to the Project's GitHub repository https://github.com/jonathanw82/Can_Share
 Under the repository name, click "Clone or download".
 In the Clone with HTTPs section, copy the clone URL for the repository.
+
 In your local IDE open Git Bash.
 Change the current working directory to the location where you want the cloned directory to be made.
-Type git clone, and then paste the URL you copied in Step 3.
+Type git clone, and then paste the URL you copied earlier.
 git clone "https://github.com/USERNAME/REPOSITORY"
 Press Enter. Your local clone will be created.
-Further reading and troubleshooting on cloning a repository from GitHub here.
 
-Forking the repository.
+Further reading and troubleshooting on cloning a repository from GitHub [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
+##### Forking the repository.
 If you would like to take a copy of this repository in its current state, this can be done by forking.
-From the list of repositories on the screen, select mtfavoritetune.
+
+Follow this link to the Project's GitHub repository https://github.com/jonathanw82/Can_Share
+
 From the menu items near the top of the page, select Fork.
-On doing so the repository will added to your own gitHub account. From there you can follow the deployment 
-details as stated above. You will also be able to make any changes you require that will not affect the 
+On doing so the repository will be added to your own gitHub account. From there you can follow the deployment 
+details as stated below. You will also be able to make any changes you require that will not affect the 
 original master from the original repository.
 
-How to deploy from Heroku
+
+##### How to deploy from Heroku
 To deploy from Heroku, first sign up to do this go to https://www.heroku.com/
-And click the sign up button to the right and fill out the form to create a new account and select Python as the development language. 
+and click the sign up button on right hand side and fill out the form to create a new account,then select Python as the development language. 
 
-You will be sent a confirmation email, once the link in the email has been clicked you will be prompted to input a password after the account is set up.
-Once all setup and logged in, click on the create new app button, then give your project a name using hyphens instead of spaces. The name has to be unique as Heroku has thousands of apps and they cannot have the same name, select your region and select create app.
-You are then presented with a dashboard with listings of command lines for use in a bash command line.
+At this point you will be sent a confirmation email, once the link in the email has been clicked you will be prompted to input a password and the account will be set up.
 
-Form your workspace of choice open the command line and install Heroku depending on workspace pip3 install Heroku, once installed, type in Heroku login -I  then enter your email and password you set Heroku up with. It will then state you are logged in. At this point type in Heroku apps this will give you a list of the apps you created earlier. We will now need to push our files to Heroku to be deployed or our live version.
-To do this is in Heroku go to then click on the app you created earlier then select settings, under app information you will see Heroku git URL copy the url, in the bash command line in the work space of choice type (Heroku git:remote –a jonathanw82-canshare) at this point you need to push all your data up to Heroku to do this type (git add .) then (git commit –m “deploy to Heroku”) then (git push –u Heroku master ) this will take a few minutes to push all the data to Heroku
-We then need to setup a web process to do this at the command prompt type (heroku ps:scale web=1) after this our web process will be running we will now need to set up some config Vars in heroku, go back to heroku go to settings click reveal config vars, there will be a few things to add here first setup IP so in the box that says Key type IP and in the value box type 0.0.0.0 click add then do the same but type PORT and set that to 5000 click add the last step is to add the data from env.py file so type MONGO_URI into the key box and in the value box paste the mongo_uri link.
-Then click more top right hand side of page and select restart all dynos the application will now be deployed.
+Once all setup and logged in, click on the create new app button, then give your project a name using hyphens instead of spaces. The name has to be unique as 
+Heroku has thousands of apps and they cannot have the same name, select your region and select create app.
+
+You will then be presented with a dashboard with listings of command lines for use in a bash command line.
+
+Form your workspace of choice open the command line and install Heroku depending on workspace, type (pip3 install heroku) once installed, type (heroku login -I)
+then enter your email and password you set Heroku up with. It will then state you are logged in. 
+
+We will now need to push our files to Heroku to be deployed or our live version.
+
+To do this is in Heroku go to the app you created earlier then select deploy, under app information you will see Heroku git URL copy the url, in the bash 
+command line in the work space of choice type (heroku git:remote –a <app_name>) at this point you need to push all your data up to Heroku.
+
+To do this from you git bash command line type (git add .) then (git commit –m “deploy to heroku”) then (git push –u heroku master ) this will take a few minutes to push all the data to 
+Heroku. 
+
+We then need to setup a web process to do this at the command prompt type (heroku ps:scale web=1) after this our web process will be running we will now need to set up some 
+config Vars in heroku.
+
+Go back to heroku go to settings click reveal config vars, there will be a few things to add here, first setup IP so in the box that says Key type (IP) and in 
+the value box type (0.0.0.0) click add then do the same but type (PORT) and set that to (5000) click add. You will also need to add (MONGO_URI) and the (SECRET_KEY) for this infomation contact You site developer.
+
+Once all the steps have been taken, click more top right hand side of page and select restart all dynos the application will now be deployed.
 
 If a message pops up stating there may be some down time when until the restart has finished click OK.
+
 Under the settings tab in Heroku scroll down to domains and your link will be displayed there it can be used to access the liver version of the application.
 
 Deployment: The site will be deployed by 
@@ -435,4 +450,3 @@ Ratings font
 Segment7 Cedric Knight 
 https://fontlibrary.org/en/font/segment7
 
-[Back to top](#.)
